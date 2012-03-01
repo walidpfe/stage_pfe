@@ -1,0 +1,314 @@
+
+          <div id="screen_body">
+
+            <!-- page header -->
+            <div id="page_header_wrapper">
+              
+              <div id="page_header">
+
+                <div class="page_header">
+
+    <h1 id="parties_header">
+      <span class="title">Toutes les entreprises</span>
+     
+    </h1>
+  </div>
+</div>
+
+              </div>
+            </div>
+            <!--// page header -->
+
+            <!-- page contents -->
+            <div id="page_contents_wrapper" class="clearfix">
+
+              <!-- main column -->
+              <div id="page_main_column" class="column">
+                <div class="liner">
+                  
+
+
+
+
+
+
+
+
+<div id="completed_operations">
+  <div behavior="content" class="content"></div>
+</div>
+
+<div id="parties">
+  <div id="browser"
+  class=" "
+  data-href="/parties"
+  data-cookie-name="party_filters">
+
+
+
+
+  <div class="content" behavior="content">
+    
+
+
+  <div data-page-offset="0"
+    data-page-size="50"
+    data-is-last-page="true"
+    data-query="kind=parties&amp;n=0">
+  </div>
+
+
+
+  <div behavior="party_selection_container" class="party_selection">
+
+
+  <div behavior="party_selection_activities" class="party_selection_activities">
+  <form action="https://esi1.highrisehq.com/subject_operations" behavior="activity_to_create_add_tags_operation" class="create_add_tags_operation" data-container-class-name="adding_tags" method="post" onsubmit="$(this).fire('form:submit'); return false" style="display:none;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="GNzW3wUCL2JsszwUeRScSr1HJh6Euf46PGjZBnchebs=" /></div>
+  <input type="hidden" name="dom_id" behavior="dom_id_input" />
+  <input type="hidden" name="type" value="add_tags" />
+  <input type="hidden" name="filters" behavior="filter_query" />
+  <div behavior="party_id_input_container" style="display:none"></div>
+  <table class="layout">
+    <tr>
+      <td class="input">
+        <input behavior="tag_name_input" class="tag_name_input" id="add_tags_op_tag_name_input" name="operation[name]" type="text" />
+        <div class="auto_complete" id="add_tags_op_tag_name_input_matches"></div><script type="text/javascript">
+//<![CDATA[
+async("var add_tags_op_tag_name_input_auto_completer = new Ajax.Autocompleter('add_tags_op_tag_name_input', 'add_tags_op_tag_name_input_matches', '/tags/search', { paramName: 'term', updateElement: function(e) { $('add_tags_op_tag_name_input').value = (e.textContent || e.innerText || ''); $('add_tags_op_tag_name_input').focus(); } })")
+//]]>
+</script>
+      </td>
+      <td class="actions">
+        <input behavior="commit_button" class="commit_button" data-disabled-text="Tagging contacts…" name="commit" type="submit" value="Tag these contacts" />
+        <span class="alt">
+          or <a behavior="stop_activity" class="link_to stop">Cancel</a>
+        </span>
+      </td>
+    </tr>
+  </table>
+  <div behavior="operation_placeholder"></div>
+  <div class="network_indicator"></div>
+</form>
+
+  <form action="https://esi1.highrisehq.com/subject_operations" behavior="activity_to_create_change_visibility_operation" class="create_change_visibility_operation" data-container-class-name="changing_visibility" method="post" onsubmit="$(this).fire('form:submit'); return false" style="display:none;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="GNzW3wUCL2JsszwUeRScSr1HJh6Euf46PGjZBnchebs=" /></div>
+  <input type="hidden" name="dom_id" behavior="dom_id_input" />
+  <input type="hidden" name="type" value="change_visibility" />
+  <input type="hidden" name="filters" behavior="filter_query" />
+  <div behavior="party_id_input_container" style="display:none"></div>
+  <h1>Who can see these contacts?</h1>
+  
+    
+
+  
+  <div class="footer">
+    <div class="footer_border"></div>
+    <div behavior="operation_placeholder" class="operation_placeholder"></div>
+    <div behavior="creation_controls" class="actions">
+      <input behavior="commit_button" class="commit_button" data-disabled-text="Changing permissions…" name="commit" type="submit" value="Change permissions" />
+      <span class="alt">
+        or <a behavior="stop_activity" class="link_to stop">Cancel</a>
+      </span>
+    </div>
+  </div>
+  <div class="network_indicator"></div>
+</form>
+
+  <form action="https://esi1.highrisehq.com/subject_operations" behavior="activity_to_create_destroy_operation" class="create_destroy_operation" data-container-class-name="deleting" method="post" onsubmit="$(this).fire('form:submit'); return false" style="display:none;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="GNzW3wUCL2JsszwUeRScSr1HJh6Euf46PGjZBnchebs=" /></div>
+  <input type="hidden" name="dom_id" behavior="dom_id_input" />
+  <input type="hidden" name="type" value="destroy" />
+  <input type="hidden" name="filters" behavior="filter_query" />
+  <div behavior="party_id_input_container" style="display:none"></div>
+  
+
+
+
+
+  <div class="network_indicator"></div>
+</form>
+
+  <div class="top_border"></div>
+</div>
+
+</div>
+
+  <div class="parties">
+    <table class="index">
+      {% for company in companies %}
+<tr id="{{company.companyname}}">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="105922777" /></label>
+    </td>
+    <td class="avatar">
+      <a href="/parties/105922777-entreprise-02" class="image"><span class="sprite avatar blank_avatar company " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_30ac99f/images/highrise_sprites.png) no-repeat -0px -0px; width: 55px; padding-top: 55px; " title="entreprise 02" id="">entreprise 02</span></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="company_105922777">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105922777-entreprise-02" class="to_person">
+             {{company.companyname}} 
+            </a>
+          </h3>
+
+          <h6>
+            
+
+            
+              {{company.companywilaya}}<a class="link_to email grey" href="mailto:email1@em.com?bcc=dropbox@93734853.esi1.highrisehq.com">{{company.companymail}}</a>{{company.companytel}}
+            
+
+            
+          </h6>
+          <p class="tags"></p>
+        </div>
+      </div>
+    </td>
+  
+
+  
+</tr>
+{% endfor %}
+
+<tr id="row_company_105200466">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="105200466" /></label>
+    </td>
+    <td class="avatar">
+      <a href="/parties/105200466-rework" class="image"><img alt="Rework" class="avatar" height="55" src="https://asset0.37img.com/highrise/161735b033bb1626a322c430325509841cb58b713338ac83b3dd6039213ffd9101fa405c1b90c78c176a70b8240b39ab9344f4679b63b34318372eca012da5a8cee56356af6724fcc75844544465539d/avatar.gif?r=3" title="Rework" width="55" /></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="company_105200466">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105200466-rework" class="to_person">
+              Rework 
+            </a>
+          </h3>
+
+          <h6>
+            
+
+            
+              <a class="link_to email grey" href="mailto:meabiou@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">meabiou@gmail.com</a>
+            
+
+            
+              021900281
+            
+          </h6>
+          <p class="tags"></p>
+        </div>
+      </div>
+    </td>
+  
+
+  
+</tr>
+<tr id="row_company_105893284">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="105893284" /></label>
+    </td>
+    <td class="avatar">
+      <a href="/parties/105893284-sogeti" class="image"><span class="sprite avatar blank_avatar company " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_30ac99f/images/highrise_sprites.png) no-repeat -0px -0px; width: 55px; padding-top: 55px; " title="Sogeti" id="">Sogeti</span></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="company_105893284">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105893284-sogeti" class="to_person">
+              Sogeti 
+            </a>
+          </h3>
+
+          <h6>
+            
+
+            
+              <a class="link_to email grey" href="mailto:info@sogeti.com?bcc=dropbox@93734853.esi1.highrisehq.com">info@sogeti.com</a>
+            
+
+            
+          </h6>
+          <p class="tags"></p>
+        </div>
+      </div>
+    </td>
+  
+
+  
+</tr>
+
+      
+    </table>
+  </div>
+
+
+  </div>
+
+  <div class="pager" behavior="pager" style="display:none;">
+  <span>
+    <a href="#" class="disabled" rel="first">First</a>
+    <a href="?n=0" rel="prev" style="display:none;">&larr; Previous</a>
+  </span>
+
+  <span class="current">Page 1</span>
+
+  <span>
+    <a href="?n=50" rel="next" style="display:none;">Next &rarr;</a>
+    <a href="#" class="disabled" rel="last">Last</a>
+  </span>
+</div>
+<div style="clear:left;"></div>
+
+</div>
+
+</div>
+
+
+
+                </div>
+              </div>
+              <!--// main column -->
+
+              <!-- page sidebar -->
+              <div id="page_sidebar" class="Right column">
+                <div class="liner">
+                  
+  <div class="sidebox_wrapper">
+    <div class="liner">
+
+      
+
+      
+        <div class="sidebox closedbox">
+          
+            <h5>Easy in easy out</h5>
+            <a href="/contact_imports/new" behavior="return_to" id="import_contacts_link">Import</a>
+            or
+            <a href="/contact_exports/new" behavior="return_to">Export</a> your contacts.
+          
+        </div>
+      
+
+      
+        <div behavior="tag_picker" class="sidebox closedbox">
+          <h5>Browse by tag</h5>
+          <dl class="tags_list"><dt>D</dt><dd><span><a href="/tags/1963205-developer" behavior="tag_picker" class="tag">developer</a></span></dd><dt>M</dt><dd><span><a href="/tags/1963206-manager" behavior="tag_picker" class="tag">manager</a></span></dd></dl>
+        </div>
+      
+    </div>
+  </div>
+
+
+                </div>
+              </div>
+              <!--// page sidebar -->
+              
+            </div>
+            <!--// page contents -->
+            
+          </div>
+     

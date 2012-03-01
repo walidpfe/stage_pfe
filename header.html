@@ -1,0 +1,199 @@
+﻿  
+
+
+  <div id="quick_show_window" style="display: none">
+    <div class="quick_show_window_position">
+      <div class="quick_show_window_wrapper">
+        <div class="quick_show_window_content">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="task_flash" style="display: none">
+    <div class="inner_task_flash">
+    </div>
+  </div>
+
+  <noscript>
+  <div class="javascript_disabled_notification">
+    <div class="inner">
+      <h1>You need to change a setting in your web browser</h1>
+      <p>Highrise requires a browser feature called <strong>JavaScript</strong>. All modern browsers support JavaScript. You probably just need to change a setting in order to turn it on.</p>
+
+      <p>Please see: <a href="http://www.google.com/support/bin/answer.py?answer=23852">How to enable JavaScript in your browser</a>.</p>
+
+      <p>If you use ad-blocking software, it may require you to allow JavaScript from highrisehq.com.</p>
+
+      <p>Once you've enabled JavaScript you can <a href="">try loading this page again</a>.</p>
+
+      <p>Thank you.</p>
+    </div>
+  </div>
+</noscript>
+
+
+	<div id="app_header">
+	<div class="background"></div>
+	<div class="boundary">
+		
+		  <div id="upgrade_bar">
+		    <a href="/account" behavior="return_to">Upgrade your free account</a>
+		    to manage additional contacts, upload files, invite more users, and get more out of Highrise.
+		  </div>
+		
+
+		<div id="inner_header_wrapper">
+			<a href="/" id="app_logo"><img alt="Logo-topleft" src="https://d1a993iq9azmzq.cloudfront.net/rev_30ac99f/images/logo-topleft.png" style="padding-top: 8px;" /></a>
+
+			<table id="page_actions">
+				<tr>
+					<td class="tiny">
+						<div class="menu_container">
+							
+								<span class="action"><a href="/newcompany" behavior="return_to"><span>Ajouter une entreprise</span></a></span>
+	            	
+						</div>
+					</td>
+					<td class="tiny">
+						<div class="menu_container">
+							<span class="action"><a href="#" behavior="new_task_button" class="menu_target"><span>New Task</span></a></span>
+							<div id="balloon_new_task" class="balloon left menu_content task_form_balloon">
+  <!-- balloon pointer -->
+  <div class="balloon_pointer">
+    <div class="balloon_arrow menu_target"></div>
+    <div class="balloon_arrow_border"></div>
+  </div>
+  
+  <!-- balloon content -->
+  <div class="balloon_wrapper">
+    
+    
+
+    <div class="balloon_content">
+      
+<div class="new_task">
+  <form action="/tasks" class="new_task" id="form_task" method="post" onsubmit="$(this).addClassName('busy'); new Ajax.Request('/tasks', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="GNzW3wUCL2JsszwUeRScSr1HJh6Euf46PGjZBnchebs=" /></div>
+    
+    
+
+    <div id="form_body_task" class="task_form">
+
+  <input id="from" name="from" type="hidden" value="parties" />
+
+  <div class="new_task">
+    <h3>Add a new task</h3>
+  
+    <p class="task_body">
+      <input class="autofocus" id="body_task" name="task[body]" size="30" type="text" />
+    </p>
+
+    <div id="controls_task" class="controls">
+      <h5>When's it due?</h5>
+      <p>
+        <select name="task[frame]" onchange="Tasks.changeFrame(this)"><option params="{&quot;task[due_at][am_pm]&quot;:&quot;pm&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-20&quot;,&quot;task[due_at][minute]&quot;:&quot;15&quot;,&quot;task[due_at][hour]&quot;:&quot;1&quot;}" selected="selected" value="today">Today</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="tomorrow">Tomorrow</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="this_week">This week</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="next_week">Next week</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="later">Later</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="specific">Specific date/time&hellip;</option></select>
+        <span class="link_to_set_day_and_time">or <a href="#" onclick="Tasks.changeFrame($(this).up(0).previous('select'), 'specific'); return false;">Set date/time</a></span>
+      </p>
+
+      <div class="set_day_and_time">
+        <div class="inner">
+          <input id="calendar_task" name="task[due_at][date]" type="hidden" value="2012-02-20" /><script type="text/javascript">
+//<![CDATA[
+async("new CalendarDateSelect(\"calendar_task\", {\"id\":\"calendar_task\"});")
+//]]>
+</script>
+          <div class="set_task_time">
+            at <select id="task_due_at_hour" name="task[due_at][hour]"><option value="1" selected="selected">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option></select>:<select id="task_due_at_minute" name="task[due_at][minute]"><option value="00">00</option>
+<option value="15" selected="selected">15</option>
+<option value="30">30</option>
+<option value="45">45</option></select><select id="task_due_at_am_pm" name="task[due_at][am_pm]"><option value="am">am</option>
+<option value="pm" selected="selected">pm</option></select>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <h5>Choose a category</h5>
+      <p>
+        <select id="category_task" name="task[category_id]" onchange="Tasks.changeCategory(this)"><option value="" selected="selected">None</option>
+<option value="3495600">Call</option>
+<option value="3495601">Demo</option>
+<option value="3495602">Email</option>
+<option value="3495603">Fax</option>
+<option value="3495604">Follow-up</option>
+<option value="3495605">Lunch</option>
+<option value="3495606">Meeting</option>
+<option value="3495607">Ship</option>
+<option value="3495608">Thank-you</option>
+<option value="new">New category...</option></select>
+        <a href="/task_categories" behavior="return_to" class="edit_categories">Edit categories</a>
+      </p>
+    
+      <p>
+        <input name="task[public]" type="hidden" value="0" /><input class="checkbox" id="public_checkbox_task" name="task[public]" type="checkbox" value="1" /> 
+        <label for="public_checkbox_task">Let everyone see this task</label>
+      </p>
+    
+    </div>
+  </div>
+</div>
+
+
+    <div class="submit">
+      <p>
+        <input name="commit" type="submit" value="Add this task" />
+        <span>or</span>
+        <a href="#" class="menu_target admin">Cancel</a>
+      </p>
+    </div>
+  </form>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+						</div>
+					</td>
+					<td class="long">
+	          <div id="search_wrapper">
+	            <div class="quick_find">
+	              <div class="field" style="position:relative;">
+	                <input type="text" id="sidebar_live_search" name="term"
+	                  class="live_search autofocus overlayable"
+	                  title="Jump to a contact, case, deal, or tag..."
+	                  source="/subjects/search.json"
+	                  autocomplete="off" autocorrect="off" autocapitalize="off"
+	                  data-focus-priority="0" />
+	              </div>
+	            </div>
+	          </div>
+					</td>
+				</tr>
+			</table>
+
+			<div id="global_links_container">
+			  
+			   
+			  
+			<a href="#">{{user.nickname}}</a>
+			 <a href="{{ url }}">{{ url_linktext }}</a>
+			 
+			  <a href="http://help.37signals.com/highrise/?e=dGVkai5tZWFiaW91QGdtYWlsLmNvbQ%3D%3D&amp;u=aHR0cHM6Ly9lc2kxLmhpZ2hyaXNlaHEuY29tL3BhcnRpZXM%3D&amp;n=dGVkamVkZGluZQ%3D%3D&amp;f=dGVkaiBtZWFiaW91" class="help" target="_blank">Help</a>
+			</div>
+		</div>
+	</div>
+</div>

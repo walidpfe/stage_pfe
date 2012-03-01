@@ -1,0 +1,1450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Highrise: Rework</title>
+  <meta name='current-user' content= 674863 />
+
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
+
+  <script type="text/javascript">
+//<![CDATA[
+function async(f) { async.f.push(f) }; async.f = []
+//]]>
+</script>
+  <script type="text/javascript">
+//<![CDATA[
+var RAILS_ENV = "production"
+//]]>
+</script>
+
+  <link href="https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/stylesheets/cache/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/stylesheets/print/application.css" media="print" rel="stylesheet" type="text/css" />
+  <!--[if IE]><link href="https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/stylesheets/ie/base.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+  <link href="https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/stylesheets/colors/blue.css" media="screen" rel="stylesheet" title="Theme" type="text/css" />
+
+  <noscript><style type="text/css">#app_header, div.wrapper { display: none }</style></noscript>
+
+  <link href="https://esi1.highrisehq.com/companies/105200466-rework.atom" rel="alternate" title="ATOM" type="application/atom+xml" />
+</head>
+
+<body class="clearfix company party subject aggregate party webkit  windows"  onloadnot="setupZoom()">
+  
+
+  
+
+
+  <div id="quick_show_window" style="display: none">
+    <div class="quick_show_window_position">
+      <div class="quick_show_window_wrapper">
+        <div class="quick_show_window_content">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="task_flash" style="display: none">
+    <div class="inner_task_flash">
+    </div>
+  </div>
+
+  <noscript>
+  <div class="javascript_disabled_notification">
+    <div class="inner">
+      <h1>You need to change a setting in your web browser</h1>
+      <p>Highrise requires a browser feature called <strong>JavaScript</strong>. All modern browsers support JavaScript. You probably just need to change a setting in order to turn it on.</p>
+
+      <p>Please see: <a href="http://www.google.com/support/bin/answer.py?answer=23852">How to enable JavaScript in your browser</a>.</p>
+
+      <p>If you use ad-blocking software, it may require you to allow JavaScript from highrisehq.com.</p>
+
+      <p>Once you've enabled JavaScript you can <a href="">try loading this page again</a>.</p>
+
+      <p>Thank you.</p>
+    </div>
+  </div>
+</noscript>
+
+
+	<div id="app_header">
+	<div class="background"></div>
+	<div class="boundary">
+		
+		  <div id="upgrade_bar">
+		    <a href="/account" behavior="return_to">Upgrade your free account</a>
+		    to manage additional contacts, upload files, invite more users, and get more out of Highrise.
+		  </div>
+		
+
+		<div id="inner_header_wrapper">
+			<a href="/" id="app_logo"><img alt="Logo-topleft" src="https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/logo-topleft.png" style="padding-top: 8px;" /></a>
+
+			<table id="page_actions">
+				<tr>
+					<td class="tiny">
+						<div class="menu_container">
+							
+								<span class="action"><a href="/people/new" behavior="return_to"><span>Add Contact</span></a></span>
+	            	
+						</div>
+					</td>
+					<td class="tiny">
+						<div class="menu_container">
+							<span class="action"><a href="#" behavior="new_task_button" class="menu_target"><span>New Task</span></a></span>
+							<div id="balloon_new_task" class="balloon left menu_content task_form_balloon">
+  <!-- balloon pointer -->
+  <div class="balloon_pointer">
+    <div class="balloon_arrow menu_target"></div>
+    <div class="balloon_arrow_border"></div>
+  </div>
+  
+  <!-- balloon content -->
+  <div class="balloon_wrapper">
+    
+    
+
+    <div class="balloon_content">
+      
+<div class="new_task">
+  <form action="/tasks" class="new_task" id="form_task" method="post" onsubmit="$(this).addClassName('busy'); new Ajax.Request('/tasks', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=" /></div>
+    
+    
+
+    <div id="form_body_task" class="task_form">
+
+  <input id="subject_id" name="subject_id" type="hidden" value="105200466" />
+<input id="subject_type" name="subject_type" type="hidden" value="Party" />
+<input id="from" name="from" type="hidden" value="companies" />
+
+  <div class="new_task">
+    <h3>Add a new task about Rework</h3>
+  
+    <p class="task_body">
+      <input class="autofocus" id="body_task" name="task[body]" size="30" type="text" />
+    </p>
+
+    <div id="controls_task" class="controls">
+      <h5>When's it due?</h5>
+      <p>
+        <select name="task[frame]" onchange="Tasks.changeFrame(this)"><option params="{&quot;task[due_at][am_pm]&quot;:&quot;pm&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-27&quot;,&quot;task[due_at][minute]&quot;:&quot;45&quot;,&quot;task[due_at][hour]&quot;:&quot;4&quot;}" selected="selected" value="today">Today</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="tomorrow">Tomorrow</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="this_week">This week</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="next_week">Next week</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="later">Later</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="specific">Specific date/time&hellip;</option></select>
+        <span class="link_to_set_day_and_time">or <a href="#" onclick="Tasks.changeFrame($(this).up(0).previous('select'), 'specific'); return false;">Set date/time</a></span>
+      </p>
+
+      <div class="set_day_and_time">
+        <div class="inner">
+          <input id="calendar_task" name="task[due_at][date]" type="hidden" value="2012-02-27" /><script type="text/javascript">
+//<![CDATA[
+async("new CalendarDateSelect(\"calendar_task\", {\"id\":\"calendar_task\"});")
+//]]>
+</script>
+          <div class="set_task_time">
+            at <select id="task_due_at_hour" name="task[due_at][hour]"><option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4" selected="selected">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option></select>:<select id="task_due_at_minute" name="task[due_at][minute]"><option value="00">00</option>
+<option value="15">15</option>
+<option value="30">30</option>
+<option value="45" selected="selected">45</option></select><select id="task_due_at_am_pm" name="task[due_at][am_pm]"><option value="am">am</option>
+<option value="pm" selected="selected">pm</option></select>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <h5>Choose a category</h5>
+      <p>
+        <select id="category_task" name="task[category_id]" onchange="Tasks.changeCategory(this)"><option value="" selected="selected">None</option>
+<option value="3495600">Call</option>
+<option value="3495601">Demo</option>
+<option value="3495602">Email</option>
+<option value="3495603">Fax</option>
+<option value="3495604">Follow-up</option>
+<option value="3495605">Lunch</option>
+<option value="3495606">Meeting</option>
+<option value="3495607">Ship</option>
+<option value="3495608">Thank-you</option>
+<option value="new">New category...</option></select>
+        <a href="/task_categories" behavior="return_to" class="edit_categories">Edit categories</a>
+      </p>
+    
+      <p>
+        <input name="task[public]" type="hidden" value="0" /><input class="checkbox" id="public_checkbox_task" name="task[public]" type="checkbox" value="1" /> 
+        <label for="public_checkbox_task">Let everyone see this task</label>
+      </p>
+    
+    </div>
+  </div>
+</div>
+
+
+    <div class="submit">
+      <p>
+        <input name="commit" type="submit" value="Add this task" />
+        <span>or</span>
+        <a href="#" class="menu_target admin">Cancel</a>
+      </p>
+    </div>
+  </form>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+						</div>
+					</td>
+					<td class="long">
+	          <div id="search_wrapper">
+	            <div class="quick_find">
+	              <div class="field" style="position:relative;">
+	                <input type="text" id="sidebar_live_search" name="term"
+	                  class="live_search autofocus overlayable"
+	                  title="Jump to a contact, case, deal, or tag..."
+	                  source="/subjects/search.json"
+	                  autocomplete="off" autocorrect="off" autocapitalize="off"
+	                  data-focus-priority="0" />
+	              </div>
+	            </div>
+	          </div>
+					</td>
+				</tr>
+			</table>
+
+			<div id="global_links_container">
+			  
+			    <div class="menu_container">
+			      <a href="#" class="name menu_target">
+			        Account &amp; settings
+			        <span>▼</span>
+			      </a>
+			      <div id="balloon_global_links" class="balloon center menu_content ">
+  <!-- balloon pointer -->
+  <div class="balloon_pointer">
+    <div class="balloon_arrow menu_target"></div>
+    <div class="balloon_arrow_border"></div>
+  </div>
+  
+  <!-- balloon content -->
+  <div class="balloon_wrapper">
+    
+    
+
+    <div class="balloon_content">
+      <ul class="global_links">
+  <li><a href="/users/674863/edit" behavior="return_to" class="">My info</a></li>
+  
+    
+      <li><a href="/users" class="">Users</a></li>
+      <li><a href="/groups" class="">Groups</a></li>
+    
+    <li><a href="/custom_fields" class="">Custom Fields</a></li>
+    <li><a href="/account/settings" behavior="return_to" class="">Logo and color</a></li>
+    
+      <li><a href="/account" behavior="return_to" class="">Account, upgrades, billing</a></li>
+    
+  
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+			    </div>
+			  
+
+			  <a href="/session" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs='); f.appendChild(s);f.submit();return false;">Sign out</a>
+			  <a href="http://help.37signals.com/highrise/?e=dGVkai5tZWFiaW91QGdtYWlsLmNvbQ%3D%3D&amp;u=aHR0cHM6Ly9lc2kxLmhpZ2hyaXNlaHEuY29tL2NvbXBhbmllcy8xMDUyMDA0NjYtcmV3b3Jr&amp;n=dGVkamVkZGluZQ%3D%3D&amp;f=dGVkaiBtZWFiaW91" class="help" target="_blank">Help</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+  <div id="wrapper">
+    <div id="inner_wrapper">
+      <div id="main_body" class="column">
+        
+        
+        
+        <div id="blank_slate" class="clearfix">
+          
+        </div>
+
+        
+          <div behavior="switchable_container" id="page" style="display:none">
+  
+
+  <div id="screen_body">
+    <div class="two_column_page_layout clearfix">
+  		<div class="primary">
+        <div class="content">
+  		    
+
+
+
+
+
+
+<div class="party_header">
+  <table cellspacing="0">
+    <tr>
+      <td>
+        <img alt="Rework" class="avatar" height="55" src="https://asset0.37img.com/highrise/161735b033bb1626a322c430325509841cb58b713338ac83b3dd6039213ffd9101fa405c1b90c78c176a70b8240b39ab9344f4679b63b34318372eca012da5a8cee56356af6724fcc75844544465539d/avatar.gif?r=3" title="Rework" width="55" />
+      </td>
+      <td>
+        <h1 class="name"> {{company.companyname}}</h1>
+        <div class="tags">
+  <div class="list" id="show_tags">
+  
+
+  
+    <span class="edit"><a href="#" id="edit_tags_link" onclick="$$('#show_tags', '#subject_info').invoke('hide'); $$('#edit_tags').invoke('show'); $('new_tag_name').focus();; return false;">Add tags</a></span>
+  
+</div>
+
+  <div class="edit" id="edit_tags" style="display: none;">
+    <div id="deletable_tags" class="list empty">
+  
+</div>
+
+
+    <form action="/parties/105200466-rework/tags" method="post" onsubmit="return Tags.add(this)"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=" /></div>
+    <span class="header">Add tags one at a time:</span>
+      <input id="new_tag_name" name="name" type="text" />
+      <div class="auto_complete" id="new_tag_name_matches"></div><script type="text/javascript">
+//<![CDATA[
+async("var new_tag_name_auto_completer = new Ajax.Autocompleter('new_tag_name', 'new_tag_name_matches', '/tags/search', { paramName: 'term', updateElement: function(e) { $('new_tag_name').value = (e.textContent || e.innerText || ''); $('new_tag_name').focus(); } })")
+//]]>
+</script>
+
+      <p class="submit">
+        <input name="commit" type="submit" value="Add this tag" xdisable_with="Adding this tag&hellip;" />
+        <span>or</span> <a class="admin" href="#" onclick="$$('#show_tags', '#subject_info').invoke('show'); $$('#edit_tags').invoke('hide');; return false;">Close</a>
+      </p>
+    </form>
+  </div>
+</div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+
+<div behavior="switchable_controls" class="display switches">
+  <a behavior="switch_to" data-display="notes_and_emails" href="#notes_and_emails">Notes & Emails</a>
+  
+    <a behavior="switch_to" data-display="people" href="#people">2 People</a>
+    <a behavior="switch_to" data-display="deals" href="#deals">Deals</a>
+    
+  
+</div>
+
+<div behavior="switchable_displays" class="switchable displays">
+  <div behavior="notes_and_emails_display" class="notes_and_emails" style="display:none">
+    <div id="new_note_container">
+  <div class="header">
+    <h1>Add a note about this company</h1>
+    
+  </div>  
+  <div id="new_note_form" class="body">
+    <form action="/notes" class="new_note" enctype="multipart/form-data" id="new_note" method="post" onsubmit="return Notes.submit(this)"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=" /></div>
+      <input id="note_subject_id" name="note[subject_id]" type="hidden" value="105200466" />
+      <input id="note_subject_type" name="note[subject_type]" type="hidden" value="Party" />
+      <div class="note_body">
+        <textarea class="autofocus" cols="40" data-behavior="autosave" data-focus-priority="1" id="note_body" name="note[body]" onbeforepaste="Notes.adjustTextarea(this, 60, 300)" oninput="Notes.adjustTextarea(this, 60, 300)" onkeypress="Notes.adjustTextarea(this, 60, 300)" rows="16" style="height:60px"></textarea>
+      </div>
+      <div class="basics" id="new_note_form_basics">
+        <div class="submit">
+          &nbsp;<input name="commit" type="submit" value="Add this note" />
+        </div>
+        <div class="toggle">
+          <a href="#" onclick="$('new_note_form_basics').addClassName('busy'); new Ajax.Request('/companies/105200466-rework/new_note_extras', {asynchronous:true, evalScripts:true, method:'get', parameters:'authenticity_token=' + encodeURIComponent('F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=')}); return false;">Show options</a>
+          (attach files, cases, deals)
+        </div>
+      </div>
+      <div class="extras" id="new_note_form_extras" style="display:none"></div>
+    </form>
+  </div>
+</div>
+
+<div id="stream">
+	
+
+
+
+  <div id="recordings_toggles">
+    <form action="/recordings/set_view_style" method="post" style="display: inline"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=" /></div><input id="return_url" name="return_url" type="hidden" value="/companies/105200466-rework" /><input id="scope" name="scope" type="hidden" value="subjects" /><select id="view" name="view" onchange="this.up().submit()"><option value="expanded">Excerpt view</option>
+<option value="list">List view</option></select></form>
+
+    <div class="links">
+      
+        <a href="/companies/105200466-rework/subscription" class="link_to digest" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs='); f.appendChild(s);f.submit();return false;">Subscribe to daily digest emails</a>
+      
+      <a href="https://esi1.highrisehq.com/companies/105200466-rework.atom" class="link_to feed">RSS Feed</a>
+    </div>
+  </div>
+
+
+
+  <div id="recordings" class="recordings aggregated_recordings">
+    
+  <script type="text/javascript">
+//<![CDATA[
+async("Deal.populate({})")
+//]]>
+</script>
+<div id="note_91063860" class="recording note hover_container written_recording">
+  
+    <div class="hover_target">
+      <div class="nubbin">
+  <div class="nubbin_content">
+    <ul>
+      
+        <li><a class="image" href="#" onclick="if (confirm('Are you sure you want to delete this note?')) { $('note_91063860').addClassName('busy'); new Ajax.Request('/notes/91063860?from=companies&amp;subject_id=105200466-rework&amp;subject_type=Company', {asynchronous:true, evalScripts:true, method:'delete', parameters:'authenticity_token=' + encodeURIComponent('F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=')}); }; return false;"><span class="sprite " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -111px -180px; width: 10px; padding-top: 11px; " title="Delete" id="">Delete</span></a></li>
+      
+
+      
+        <li><a class="edit_link admin" href="#" onclick="$('note_91063860').addClassName('busy'); new Ajax.Request('/notes/91063860/edit?from=companies&amp;subject_id=105200466-rework&amp;subject_type=Company', {asynchronous:true, evalScripts:true, method:'get', parameters:'authenticity_token=' + encodeURIComponent('F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=')}); return false;"><span>Edit</span></a></li>
+      
+    </ul>
+  </div>
+</div>
+
+      
+      <div class="type">
+        
+          <a href="/notes/91063860">Note</a>
+        
+      </div>
+      
+      
+        <div class="avatar"><a href="/companies/105200466-rework" class="avatar"><img alt="Rework" class="avatar" height="55" src="https://asset0.37img.com/highrise/161735b033bb1626a322c430325509841cb58b713338ac83b3dd6039213ffd9101fa405c1b90c78c176a70b8240b39ab9344f4679b63b34318372eca012da5a8cee56356af6724fcc75844544465539d/avatar.gif?r=3" title="Rework" width="55" /></a></div>
+      
+
+      <div class="recording_content">
+        
+          
+
+<div class="header">
+  
+    <span class="action_links">
+      <span class="permalink">| 
+        <a href="/notes/91063860">Go to note</a>
+      </span>
+
+      
+        <div class="file_recording_container">
+  <div class="file_recording menu_container" id="file_under_note_91063860">
+    <div class="menu_target">
+      <a href="#" class="open_button" onclick="return false">File this</a>
+    </div>
+    <div class="menu_content">
+      <form action="/notes/91063860" class="edit_note" id="edit_note_91063860" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=" /></div>
+        <input id="from" name="from" type="hidden" value="companies" /><input id="subject_type" name="subject_type" type="hidden" value="Company" /><input id="subject_id" name="subject_id" type="hidden" value="105200466" />
+        <input class="collection_type" id="note_collection_type" name="note[collection_type]" type="hidden" />
+        <input class="collection_id" id="note_collection_id" name="note[collection_id]" type="hidden" />
+
+        
+
+  <h2>Attach this note to a case</h2>
+  <p>
+  <span class="sprite " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -0px -181px; width: 26px; padding-top: 23px; " title="Case" id="">Case</span>
+  <select id="kasesselect_to_attach_note_91063860" class="kases" onchange="if ($(this).fire('collection:change').stopped) return false;">
+    <option value="">No case</option>
+    
+      <option value="new_kase">Create a new case&hellip;</option>
+    
+    <option value="632654">prospection stage d'été</option>
+  </select>
+</p>
+
+<script type="text/javascript">
+//<![CDATA[
+async("Collections.observeSelect(\"kasesselect_to_attach_note_91063860\", {\"subject_id\":105200466,\"subject_type\":\"Company\",\"recording_id\":91063860,\"collection\":\"kases\"});")
+//]]>
+</script>
+
+  
+
+
+      </form>
+      <div class="close">
+        <a href="#" class="close_button menu_target" onclick="return false">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+async("SelectFiling.observeSelection('file_under_note_91063860');")
+//]]>
+</script>
+
+      
+    </span>
+  
+
+  <ul>
+    
+    
+    <li class="date">
+      Monday, February 20
+    </li>
+
+    <li class="kind_and_author">
+      <span class="kind_of_recording">
+        Note
+      </span>
+
+      by tedj m.
+
+      
+
+      
+    </li>
+
+    
+  </ul>
+</div>
+
+
+<div class="body">
+  <p>had l'entreprise khchina bzef</p>
+
+  
+
+
+
+
+
+<ul class="attachments">
+  
+</ul>
+
+
+</div>
+
+
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  
+<div id="note_90279185" class="recording note hover_container written_recording">
+  
+    <div class="hover_target">
+      <div class="nubbin">
+  <div class="nubbin_content">
+    <ul>
+      
+        <li><a class="image" href="#" onclick="if (confirm('Are you sure you want to delete this note?')) { $('note_90279185').addClassName('busy'); new Ajax.Request('/notes/90279185?from=companies&amp;subject_id=105200466-rework&amp;subject_type=Company', {asynchronous:true, evalScripts:true, method:'delete', parameters:'authenticity_token=' + encodeURIComponent('F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=')}); }; return false;"><span class="sprite " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -111px -180px; width: 10px; padding-top: 11px; " title="Delete" id="">Delete</span></a></li>
+      
+
+      
+        <li><a class="edit_link admin" href="#" onclick="$('note_90279185').addClassName('busy'); new Ajax.Request('/notes/90279185/edit?from=companies&amp;subject_id=105200466-rework&amp;subject_type=Company', {asynchronous:true, evalScripts:true, method:'get', parameters:'authenticity_token=' + encodeURIComponent('F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=')}); return false;"><span>Edit</span></a></li>
+      
+    </ul>
+  </div>
+</div>
+
+      
+      <div class="type">
+        
+          <a href="/notes/90279185">Note</a>
+        
+      </div>
+      
+      
+        <div class="avatar"><a href="/companies/105200466-rework" class="avatar"><img alt="Rework" class="avatar" height="55" src="https://asset0.37img.com/highrise/161735b033bb1626a322c430325509841cb58b713338ac83b3dd6039213ffd9101fa405c1b90c78c176a70b8240b39ab9344f4679b63b34318372eca012da5a8cee56356af6724fcc75844544465539d/avatar.gif?r=3" title="Rework" width="55" /></a></div>
+      
+
+      <div class="recording_content">
+        
+          
+
+<div class="header">
+  
+    <span class="action_links">
+      <span class="permalink">| 
+        <a href="/notes/90279185">Go to note</a>
+      </span>
+
+      
+        <div class="file_recording_container">
+  <div class="file_recording menu_container" id="file_under_note_90279185">
+    <div class="menu_target">
+      <a href="#" class="open_button" onclick="return false">File this</a>
+    </div>
+    <div class="menu_content">
+      <form action="/notes/90279185" class="edit_note" id="edit_note_90279185" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=" /></div>
+        <input id="from" name="from" type="hidden" value="companies" /><input id="subject_type" name="subject_type" type="hidden" value="Company" /><input id="subject_id" name="subject_id" type="hidden" value="105200466" />
+        <input class="collection_type" id="note_collection_type" name="note[collection_type]" type="hidden" />
+        <input class="collection_id" id="note_collection_id" name="note[collection_id]" type="hidden" />
+
+        
+
+  <h2>Attach this note to a case</h2>
+  <p>
+  <span class="sprite " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -0px -181px; width: 26px; padding-top: 23px; " title="Case" id="">Case</span>
+  <select id="kasesselect_to_attach_note_90279185" class="kases" onchange="if ($(this).fire('collection:change').stopped) return false;">
+    <option value="">No case</option>
+    
+      <option value="new_kase">Create a new case&hellip;</option>
+    
+    <option value="632654">prospection stage d'été</option>
+  </select>
+</p>
+
+<script type="text/javascript">
+//<![CDATA[
+async("Collections.observeSelect(\"kasesselect_to_attach_note_90279185\", {\"subject_id\":105200466,\"subject_type\":\"Company\",\"recording_id\":90279185,\"collection\":\"kases\"});")
+//]]>
+</script>
+
+  
+
+
+      </form>
+      <div class="close">
+        <a href="#" class="close_button menu_target" onclick="return false">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+async("SelectFiling.observeSelection('file_under_note_90279185');")
+//]]>
+</script>
+
+      
+    </span>
+  
+
+  <ul>
+    
+    
+    <li class="date">
+      Tuesday, February 14
+    </li>
+
+    <li class="kind_and_author">
+      <span class="kind_of_recording">
+        Note
+      </span>
+
+      by tedj m.
+
+      
+
+      
+    </li>
+
+    
+  </ul>
+</div>
+
+
+<div class="body">
+  <p>This the best company in the world</p>
+
+  
+
+
+
+
+
+<ul class="attachments">
+  
+</ul>
+
+
+</div>
+
+
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+  </div>
+  <script type="text/javascript">
+//<![CDATA[
+async("new MenuObserver('recordings')")
+//]]>
+</script>
+
+	
+</div>
+
+
+  </div>
+  
+    <div behavior="people_display" class="people" style="display:none">
+      
+  <div class="controls menu_container" id="company_people_controls">
+    
+      <span class="button"><a href="/companies/105200466-rework/people/new" behavior="return_to"><span>Add a person to this company</span></a></span>
+    
+  </div>
+  <div class="parties">
+    <table class="index">
+      
+        <tr id="row_person_105200465">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="105200465" /></label>
+    </td>
+    <td class="avatar">
+      <a href="/parties/105200465-mohamed-walid-lahmer" class="image"><span class="sprite avatar blank_avatar person " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -112px -0px; width: 55px; padding-top: 55px; " title="Mohamed Walid Lahmer" id="">Mohamed Walid Lahmer</span></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="person_105200465">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105200465-mohamed-walid-lahmer" class="to_person">
+              Mohamed Walid Lahmer 
+            </a>
+          </h3>
+
+          <h6>
+            
+              <div class="title_and_company">
+                <a href="/parties?title=Mangager" class="grey">Mangager</a>
+                at
+                <a href="/companies/105200466-rework" class="grey">Rework</a>
+              </div>
+            
+
+            
+              <a class="link_to email grey" href="mailto:walid.pfe@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">walid.pfe@gmail.com</a>
+            
+
+            
+              0553058977
+            
+          </h6>
+          <p class="tags"><a href="/tags/1963205-developer" behavior="tag_picker" class="tag grey tag-1963205">developer</a> <a href="/tags/1963206-manager" behavior="tag_picker" class="tag grey tag-1963206">manager</a></p>
+        </div>
+      </div>
+    </td>
+  
+
+  
+</tr>
+
+      
+        <tr id="row_person_105202092">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="105202092" /></label>
+    </td>
+    <td class="avatar">
+      <a href="/parties/105202092-tedj-meabiou" class="image"><img alt="Tedj MEABIOU" class="avatar" height="55" src="https://asset0.37img.com/highrise/5f294b061196a30a4f57dbb30882607e4a3badd4891c02acc1dc96b8e8d13f037ffe00df48c65a4a786e4127f61716d01c9346dde190f4e5cf975b9a4e7d1d46d1ae971fb031c0dd8f501c15765a9ecb/avatar.gif?r=3" title="Tedj MEABIOU" width="55" /></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="person_105202092">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105202092-tedj-meabiou" class="to_person">
+              Tedj MEABIOU 
+            </a>
+          </h3>
+
+          <h6>
+            
+              <div class="title_and_company">
+                
+                
+                <a href="/companies/105200466-rework" class="grey">Rework</a>
+              </div>
+            
+
+            
+              <a class="link_to email grey" href="mailto:tedj.meabiou@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">tedj.meabiou@gmail.com</a>
+            
+
+            
+              0779936260
+            
+          </h6>
+          <p class="tags"><a href="/tags/1963206-manager" behavior="tag_picker" class="tag grey tag-1963206">manager</a></p>
+        </div>
+      </div>
+    </td>
+  
+
+  
+</tr>
+
+      
+    </table>
+  </div>
+  <div class="afterword">
+    <a href="/companies/105200466/people.vcf" class="link_to vcard">Download a vCard with everyone in this company</a>
+  </div>
+
+    </div>
+    <div behavior="deals_display" class="deals" style="display:none">
+      
+  <div class="blank_slate_layout_container">
+    <div class="blank_slate_layout">
+  <div class="graphic" style="background-image:url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/blankslate_icon_deals.png);"></div>
+  <div class="content">
+    <h1>Track your proposals and bids.</h1>
+    <p>
+      Always know which proposals are pending, won, or lost. 
+      Add notes, attach proposals and contracts, and keep a log of any changes to the bid along the way. 
+      Know how much you've made from each customer.
+    </p>
+    <div class="menu_container controls" id="deals_blank_slate_controls">
+      
+        
+          
+            
+              <span class="button"><a href="/companies/105200466-rework/deals/new" behavior="return_to"><span>Add your first deal with this company</span></a></span>
+              <br />
+            
+          
+        
+      
+    </div>
+    <script type="text/javascript">
+//<![CDATA[
+async("new MenuObserver('deals_blank_slate_controls')")
+//]]>
+</script>
+  </div>
+</div>
+  </div>
+
+
+    </div>
+    
+  
+</div>
+
+
+
+
+  		  </div>
+  		</div>
+  		<div class="sidebar">
+  		  <div class="content">
+  		    
+  
+  <div class="sidebar_controls">
+    <div class="edit"><a href="/editcompany?id={{company.key.id}}">Edit this company</a></div>
+  </div>
+
+
+<div class="tasks section " id="sidebar_tasks_section">
+  
+    <div class="header">
+      <h1>Tasks</h1>
+      
+        <div class="add_task control menu_container">
+          <a class="link_to add_task menu_target">Add a task</a>
+          <div id="balloon_new_task_in_sidebar" class="balloon left menu_content balloon_new_task">
+  <!-- balloon pointer -->
+  <div class="balloon_pointer">
+    <div class="balloon_arrow menu_target"></div>
+    <div class="balloon_arrow_border"></div>
+  </div>
+  
+  <!-- balloon content -->
+  <div class="balloon_wrapper">
+    
+    
+
+    <div class="balloon_content">
+      
+<div class="new_task">
+  <form action="/tasks" class="new_task" id="sidebar_header_form_task" method="post" onsubmit="$(this).addClassName('busy'); new Ajax.Request('/tasks', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=" /></div>
+    
+    <input id="parent" name="parent" type="hidden" value="sidebar_header" />
+
+    <div id="sidebar_header_form_body_task" class="task_form">
+
+  <input id="subject_id" name="subject_id" type="hidden" value="105200466" />
+<input id="subject_type" name="subject_type" type="hidden" value="Party" />
+<input id="from" name="from" type="hidden" value="companies" />
+
+  <div class="new_task">
+    <h3>Add a new task about Rework</h3>
+  
+    <p class="task_body">
+      <input class="autofocus" id="sidebar_header_body_task" name="task[body]" size="30" type="text" />
+    </p>
+
+    <div id="sidebar_header_controls_task" class="controls">
+      <h5>When's it due?</h5>
+      <p>
+        <select name="task[frame]" onchange="Tasks.changeFrame(this)"><option params="{&quot;task[due_at][am_pm]&quot;:&quot;pm&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-27&quot;,&quot;task[due_at][minute]&quot;:&quot;45&quot;,&quot;task[due_at][hour]&quot;:&quot;4&quot;}" selected="selected" value="today">Today</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="tomorrow">Tomorrow</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="this_week">This week</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="next_week">Next week</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="later">Later</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="specific">Specific date/time&hellip;</option></select>
+        <span class="link_to_set_day_and_time">or <a href="#" onclick="Tasks.changeFrame($(this).up(0).previous('select'), 'specific'); return false;">Set date/time</a></span>
+      </p>
+
+      <div class="set_day_and_time">
+        <div class="inner">
+          <input id="sidebar_header_calendar_task" name="task[due_at][date]" type="hidden" value="2012-02-27" /><script type="text/javascript">
+//<![CDATA[
+async("new CalendarDateSelect(\"sidebar_header_calendar_task\", {\"id\":\"sidebar_header_calendar_task\"});")
+//]]>
+</script>
+          <div class="set_task_time">
+            at <select id="task_due_at_hour" name="task[due_at][hour]"><option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4" selected="selected">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option></select>:<select id="task_due_at_minute" name="task[due_at][minute]"><option value="00">00</option>
+<option value="15">15</option>
+<option value="30">30</option>
+<option value="45" selected="selected">45</option></select><select id="task_due_at_am_pm" name="task[due_at][am_pm]"><option value="am">am</option>
+<option value="pm" selected="selected">pm</option></select>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <h5>Choose a category</h5>
+      <p>
+        <select id="sidebar_header_category_task" name="task[category_id]" onchange="Tasks.changeCategory(this)"><option value="" selected="selected">None</option>
+<option value="3495600">Call</option>
+<option value="3495601">Demo</option>
+<option value="3495602">Email</option>
+<option value="3495603">Fax</option>
+<option value="3495604">Follow-up</option>
+<option value="3495605">Lunch</option>
+<option value="3495606">Meeting</option>
+<option value="3495607">Ship</option>
+<option value="3495608">Thank-you</option>
+<option value="new">New category...</option></select>
+        <a href="/task_categories" behavior="return_to" class="edit_categories">Edit categories</a>
+      </p>
+    
+      <p>
+        <input name="task[public]" type="hidden" value="0" /><input class="checkbox" id="public_checkbox_task" name="task[public]" type="checkbox" value="1" /> 
+        <label for="public_checkbox_task">Let everyone see this task</label>
+      </p>
+    
+    </div>
+  </div>
+</div>
+
+
+    <div class="submit">
+      <p>
+        <input name="commit" type="submit" value="Add this task" />
+        <span>or</span>
+        <a href="#" class="menu_target admin">Cancel</a>
+      </p>
+    </div>
+  </form>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+        </div>
+      
+    </div>
+
+    
+      <div class="add_task invitation menu_container">
+        <a class="link_to add_task menu_target">Add a task</a> about this company
+        <div id="balloon_first_task_in_sidebar" class="balloon left menu_content balloon_first_task">
+  <!-- balloon pointer -->
+  <div class="balloon_pointer">
+    <div class="balloon_arrow menu_target"></div>
+    <div class="balloon_arrow_border"></div>
+  </div>
+  
+  <!-- balloon content -->
+  <div class="balloon_wrapper">
+    
+    
+
+    <div class="balloon_content">
+      
+<div class="new_task">
+  <form action="/tasks" class="new_task" id="sidebar_invitation_form_task" method="post" onsubmit="$(this).addClassName('busy'); new Ajax.Request('/tasks', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=" /></div>
+    
+    <input id="parent" name="parent" type="hidden" value="sidebar_invitation" />
+
+    <div id="sidebar_invitation_form_body_task" class="task_form">
+
+  <input id="subject_id" name="subject_id" type="hidden" value="105200466" />
+<input id="subject_type" name="subject_type" type="hidden" value="Party" />
+<input id="from" name="from" type="hidden" value="companies" />
+
+  <div class="new_task">
+    <h3>Add a new task about Rework</h3>
+  
+    <p class="task_body">
+      <input class="autofocus" id="sidebar_invitation_body_task" name="task[body]" size="30" type="text" />
+    </p>
+
+    <div id="sidebar_invitation_controls_task" class="controls">
+      <h5>When's it due?</h5>
+      <p>
+        <select name="task[frame]" onchange="Tasks.changeFrame(this)"><option params="{&quot;task[due_at][am_pm]&quot;:&quot;pm&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-27&quot;,&quot;task[due_at][minute]&quot;:&quot;45&quot;,&quot;task[due_at][hour]&quot;:&quot;4&quot;}" selected="selected" value="today">Today</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="tomorrow">Tomorrow</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="this_week">This week</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="next_week">Next week</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="later">Later</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-28&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="specific">Specific date/time&hellip;</option></select>
+        <span class="link_to_set_day_and_time">or <a href="#" onclick="Tasks.changeFrame($(this).up(0).previous('select'), 'specific'); return false;">Set date/time</a></span>
+      </p>
+
+      <div class="set_day_and_time">
+        <div class="inner">
+          <input id="sidebar_invitation_calendar_task" name="task[due_at][date]" type="hidden" value="2012-02-27" /><script type="text/javascript">
+//<![CDATA[
+async("new CalendarDateSelect(\"sidebar_invitation_calendar_task\", {\"id\":\"sidebar_invitation_calendar_task\"});")
+//]]>
+</script>
+          <div class="set_task_time">
+            at <select id="task_due_at_hour" name="task[due_at][hour]"><option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4" selected="selected">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option></select>:<select id="task_due_at_minute" name="task[due_at][minute]"><option value="00">00</option>
+<option value="15">15</option>
+<option value="30">30</option>
+<option value="45" selected="selected">45</option></select><select id="task_due_at_am_pm" name="task[due_at][am_pm]"><option value="am">am</option>
+<option value="pm" selected="selected">pm</option></select>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <h5>Choose a category</h5>
+      <p>
+        <select id="sidebar_invitation_category_task" name="task[category_id]" onchange="Tasks.changeCategory(this)"><option value="" selected="selected">None</option>
+<option value="3495600">Call</option>
+<option value="3495601">Demo</option>
+<option value="3495602">Email</option>
+<option value="3495603">Fax</option>
+<option value="3495604">Follow-up</option>
+<option value="3495605">Lunch</option>
+<option value="3495606">Meeting</option>
+<option value="3495607">Ship</option>
+<option value="3495608">Thank-you</option>
+<option value="new">New category...</option></select>
+        <a href="/task_categories" behavior="return_to" class="edit_categories">Edit categories</a>
+      </p>
+    
+      <p>
+        <input name="task[public]" type="hidden" value="0" /><input class="checkbox" id="public_checkbox_task" name="task[public]" type="checkbox" value="1" /> 
+        <label for="public_checkbox_task">Let everyone see this task</label>
+      </p>
+    
+    </div>
+  </div>
+</div>
+
+
+    <div class="submit">
+      <p>
+        <input name="commit" type="submit" value="Add this task" />
+        <span>or</span>
+        <a href="#" class="menu_target admin">Cancel</a>
+      </p>
+    </div>
+  </form>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+      </div>
+    
+
+    <div class="frames" id="task_frames"><div id="overdue_tasks_frame" class="frame overdue">
+  <h6 class="frame_title">
+    Overdue
+    
+  </h6>
+
+  <div class="untimed">
+    
+<div id="task_18546551" class="hover_container menu_container">
+  <div id="show_task_18546551" class="task show_task">
+    <div id="content_task_18546551">
+      <div class="nubbin hover_target">
+        <div class="nubbin_content">
+          <ul>
+            <li><a class="image" href="#" onclick="if (confirm('Are you sure you want to delete this task?')) { $('task_18546551').addClassName('busy'); new Ajax.Request('/tasks/18546551', {asynchronous:true, evalScripts:true, method:'delete', parameters:'authenticity_token=' + encodeURIComponent('F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=')}); }; return false;"><span class="sprite " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -111px -180px; width: 10px; padding-top: 11px; " title="Delete" id="">Delete</span></a></li>
+            <li><a class="edit_link admin menu_target" href="#" onclick="$('task_18546551').addClassName('busy'); new Ajax.Request('/tasks/18546551/edit?from=companies&amp;subject_id=105200466&amp;subject_type=Party', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=')}); return false;"><span>Change</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="checkbox hover_target">
+        <input id="task_done" name="task[done]" onclick="$(this).disable();$('content_task_18546551').addClassName('busy'); new Ajax.Request('/tasks/18546551/complete', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=')})" type="checkbox" value="1" />
+      </div>
+      <div class="body">
+        <span class="hover_target">
+          
+
+to prospect this company
+<span class="attached_to">      (<span>Re:</span>
+        <a href="/notes/90279185">Note</a>)
+</span>
+        </span>
+      </div>
+      <div id="balloon_container_task_18546551" class="reset-on-dismissal" style="display:none"><div class="menu_content"></div></div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+
+  <div class="timed">
+    
+  </div>
+</div>
+<div id="today_tasks_frame" class="frame today empty">
+  <h6 class="frame_title">
+    Today
+    
+  </h6>
+
+  <div class="untimed">
+    
+  </div>
+
+  <div class="timed">
+    
+  </div>
+</div>
+<div id="tomorrow_tasks_frame" class="frame tomorrow empty">
+  <h6 class="frame_title">
+    Tomorrow
+    
+  </h6>
+
+  <div class="untimed">
+    
+  </div>
+
+  <div class="timed">
+    
+  </div>
+</div>
+<div id="this_week_tasks_frame" class="frame this_week empty">
+  <h6 class="frame_title">
+    This week
+    
+  </h6>
+
+  <div class="untimed">
+    
+  </div>
+
+  <div class="timed">
+    
+  </div>
+</div>
+<div id="next_week_tasks_frame" class="frame next_week empty">
+  <h6 class="frame_title">
+    Next week
+    
+  </h6>
+
+  <div class="untimed">
+    
+  </div>
+
+  <div class="timed">
+    
+  </div>
+</div>
+<div id="later_tasks_frame" class="frame later empty">
+  <h6 class="frame_title">
+    Later
+    
+  </h6>
+
+  <div class="untimed">
+    
+  </div>
+
+  <div class="timed">
+    
+  </div>
+</div>
+</div>
+
+    <script type="text/javascript">
+//<![CDATA[
+async("new MenuObserver('sidebar_tasks_section')")
+//]]>
+</script>
+  
+</div>
+
+
+  <div class="personal_info section">
+    <div class="header">
+      <h1>Company Info</h1>
+      <div class="control">
+        <a class="link_to zoom" href="#" id="zoom_link" onclick="; return false;">Zoom</a>
+        <a href="/companies/105200466-rework.vcf" class="link_to vcard">vCard</a>
+      </div>
+    </div>
+
+
+    
+      
+  <div class="email_address data_group">
+    
+      <div class="value">
+        <a href="mailto:meabiou@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">{{company.companymail}}</a>
+        <span class="location label">Work</span>
+      </div>
+    
+  </div>
+
+
+
+  
+    <div class="phone_number data_group">
+      
+        <div class="value">
+          {{company.companytel}}
+          <span class="location label">Work</span>
+        </div>
+      
+    </div>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+      
+        <div class="data_group">
+          <div class="label">Background</div>
+          <div class="value">
+            <p>{{company.companydescription}}</p>
+          </div>
+        </div>
+      
+      
+
+      
+
+    
+  </div>
+
+  
+
+
+
+  		  </div>
+  		</div>
+    </div>
+  </div>
+</div>
+
+        
+        
+        
+        <div style="margin-top: 30px"> </div>        
+      </div>
+
+      <div id="global_sidebar" class="column">
+        <div class="liner">
+          <div id="global_nav">
+  <ul>
+    
+      <li class="welcome"><a href="/welcome" class="">Welcome</a></li>
+    
+
+    <li class="dashboard"><a href="/" class="">Latest activity</a></li>
+    <li class="parties"><a href="/parties" class="">Contacts <span class='stat'>~2 people</span></a></li>
+    <li class="tasks"><a href="/tasks" class="">Tasks <span class='stat'>1 overdue</span></a></li>
+    <li class="kases"><a href="/kases" class="">Cases <span class='stat'>1 open</span></a></li>
+    <li class="deals"><a href="/deals" class="">Deals <span class='stat'>none pending</span></a></li>
+    <li class="search"><a href="/recordings/search" class="">Search notes</a></li>
+  </ul>
+</div>
+          
+          <div id="recent_items">
+  
+    <hr />
+  
+    <h4>Recently viewed</h4>
+    <div class="recent_items">
+      
+        <a href="/companies/105922777-entreprise-02" class="recent_item ">
+          <span class="sprite avatar blank_avatar company " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -0px -148px; width: 32px; padding-top: 32px; " title="entreprise 02" id="">entreprise 02</span>
+          <span class="recent_name">entreprise 02</span>
+          <span class="recent_desc"></span>
+        </a>
+      
+        <a href="/companies/105893284-sogeti" class="recent_item ">
+          <span class="sprite avatar blank_avatar company " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -0px -148px; width: 32px; padding-top: 32px; " title="Sogeti" id="">Sogeti</span>
+          <span class="recent_name">Sogeti</span>
+          <span class="recent_desc"></span>
+        </a>
+      
+        <a href="/tags/1963206-manager" class="recent_item ">
+          <span class="sprite avatar blank_avatar tag " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -168px -148px; width: 32px; padding-top: 32px; " title="manager" id="">manager</span>
+          <span class="recent_name">manager</span>
+          <span class="recent_desc"></span>
+        </a>
+      
+        <a href="/tags/1963205-developer" class="recent_item ">
+          <span class="sprite avatar blank_avatar tag " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -168px -148px; width: 32px; padding-top: 32px; " title="developer" id="">developer</span>
+          <span class="recent_name">developer</span>
+          <span class="recent_desc"></span>
+        </a>
+      
+        <a href="/people/105202092-tedj-meabiou" class="recent_item ">
+          <img alt="Tedj MEABIOU" class="avatar" height="32" src="https://asset0.37img.com/highrise/5f294b061196a30a4f57dbb30882607e4a3badd4891c02acc1dc96b8e8d13f037ffe00df48c65a4a786e4127f61716d01c9346dde190f4e5cf975b9a4e7d1d46d1ae971fb031c0dd8f501c15765a9ecb/avatar.gif?r=3" title="Tedj MEABIOU" width="32" />
+          <span class="recent_name">Tedj MEABIOU</span>
+          <span class="recent_desc">Rework</span>
+        </a>
+      
+        <a href="/kases/632654-prospection-stage-d-ete" class="recent_item ">
+          <span class="sprite avatar blank_avatar kase " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -56px -148px; width: 32px; padding-top: 32px; " title="prospection stage d'été" id="">prospection stage d'été</span>
+          <span class="recent_name">prospection stage d'été</span>
+          <span class="recent_desc"></span>
+        </a>
+      
+        <a href="/companies/105200466-rework" class="recent_item selected">
+          <img alt="Rework" class="avatar" height="32" src="https://asset0.37img.com/highrise/161735b033bb1626a322c430325509841cb58b713338ac83b3dd6039213ffd9101fa405c1b90c78c176a70b8240b39ab9344f4679b63b34318372eca012da5a8cee56356af6724fcc75844544465539d/avatar.gif?r=3" title="Rework" width="32" />
+          <span class="recent_name">Rework</span>
+          <span class="recent_desc"></span>
+        </a>
+      
+        <a href="/people/105200465-mohamed-walid-lahmer" class="recent_item ">
+          <span class="sprite avatar blank_avatar person " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -112px -148px; width: 32px; padding-top: 32px; " title="Mohamed Walid Lahmer" id="">Mohamed Walid Lahmer</span>
+          <span class="recent_name">Mohamed Walid Lahmer</span>
+          <span class="recent_desc">Rework</span>
+        </a>
+      
+    </div>
+  
+</div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr style="display: none;" />
+
+	<div id="preloaded_images" style="position:absolute; height:0px; overflow:hidden;">
+		<img alt="Dots-white" src="https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/dots-white.gif" />
+		<img alt="Dots-black" src="https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/dots-black.gif" />
+	</div>
+  
+  
+
+  
+
+  <script src="https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/sprockets.js" type="text/javascript"></script>
+  
+      <div id="zoom_card" style="display: none">
+  <div id="zoom_box">
+    <div class="zoom_contact_details">
+      <div class="contact_header clearfix">
+        <img alt="Rework" class="avatar" height="55" src="https://asset0.37img.com/highrise/161735b033bb1626a322c430325509841cb58b713338ac83b3dd6039213ffd9101fa405c1b90c78c176a70b8240b39ab9344f4679b63b34318372eca012da5a8cee56356af6724fcc75844544465539d/avatar.gif?r=3" title="Rework" width="55" />
+        <div class="contact_header_details">
+          <h1>Rework</h1>
+          <h2></h2>
+        </div>
+      </div>
+
+      
+
+<div class="contact_methods">
+  
+    
+      <div class="contact_method first">
+        <a href="mailto:meabiou@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">{{company.companymail}}</a>
+        <span class="location">Work</span>
+      </div>
+    
+  
+
+  
+    
+      <div class="contact_method first">
+        021900281
+        <span class="location">Work</span>
+      </div>
+    
+  
+
+  
+
+  
+
+  
+</div>
+
+
+  
+
+
+    </div>
+  </div>
+  <a href="#" title="Close" id="zoom_close">
+    <img alt="close" src="https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/zoom/closebox.png" />
+  </a>
+</div>
+
+    
+  
+</body>
+</html>
