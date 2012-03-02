@@ -102,7 +102,7 @@ class Newcompany(webapp.RequestHandler):
             'url_linktext': url_linktext,
           }
 	              
-        self.response.out.write(template.render('addnewcompany.html', values))           
+        self.response.out.write(template.render('ajouteruneentreprise.html', values))           
 
 
 class Ficheentreprise(webapp.RequestHandler):
@@ -162,7 +162,6 @@ class Editentreprise(webapp.RequestHandler):
 
 
 #wsgiappp
-# This class deletes the selected Todo
 # Register the URL with the responsible classes
 application = webapp.WSGIApplication(
                                      [('/', MainPage),
