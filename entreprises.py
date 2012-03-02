@@ -161,7 +161,7 @@ class Editentreprise(webapp.RequestHandler):
         self.response.out.write(template.render('editcompany.html', values))
 
 
-
+#wsgiappp
 # This class deletes the selected Todo
 # Register the URL with the responsible classes
 application = webapp.WSGIApplication(
