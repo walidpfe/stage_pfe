@@ -1,5 +1,9 @@
 application: entreprises
+<<<<<<< HEAD
 version: 2
+=======
+version: 1
+>>>>>>> origin/master
 runtime: python
 api_version: 1
 

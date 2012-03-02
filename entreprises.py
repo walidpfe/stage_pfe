@@ -102,7 +102,7 @@ class Newcompany(webapp.RequestHandler):
             'url_linktext': url_linktext,
           }
 	              
-        self.response.out.write(template.render('ajouteruneentreprise.html', values))           
+        self.response.out.write(template.render('addnewcompany.html', values))           
 
 
 class Ficheentreprise(webapp.RequestHandler):
