@@ -1,0 +1,44 @@
+#app_header > .background {
+  background-color: #005782;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#1a719c), to(#005782));
+  background-image: -moz-linear-gradient(center top, #1a719c 0%, #005782 100% );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1a719c', endColorstr='#005782');
+}
+
+#page_nav a:link,
+#page_nav a:visited {
+  color: #9cf;
+}
+
+#Tabs a:link, #Tabs a:visited {
+  background-color: #939DAC;
+}
+
+#Tabs li.workspace a:link, #Tabs li.workspace a:visited {
+  background-color: #496889;
+}
+
+#Tabs a:hover,
+#Tabs li.workspace a:hover {
+  background-color: #010a4b;
+}
+
+#Tabs a.current:link, #Tabs a.current:visited,
+#Tabs li.workspace a.current:link, #Tabs li.workspace a.current:visited {
+  color: #e5e5e5;
+}
+
+#Tabs a:hover,
+#Tabs li.workspace a:hover {
+  color: #fff;
+  background-color: #010a4b;
+}
+
+#global_links {
+  color: #939DAC;
+}
+
+#global_links a:hover {
+  color: #fff;
+  background: #000;
+}

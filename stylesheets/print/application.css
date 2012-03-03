@@ -1,0 +1,594 @@
+/*-------------------------------------------------
+YOU CAN'T RUN BUT YOU CAN HIDE (and general)
+-------------------------------------------------*/
+
+body {
+  color: #000;
+  border-top: 5px solid #000;
+  padding-top: 20px;
+	font-family: "Courier New", courier, monospace;
+}
+
+a {
+	color: #000;
+}
+
+div#launchbar,
+#app_header,
+div#global_sidebar,
+div#Footer,
+span.action_links,
+div.nubbin,
+div#new_note_container,
+div.type,
+body.subject div#recordings div.avatar,
+table.subject_header td#subject_info,
+a.more,
+div.feed,
+p.pagination,
+div.sidebox a.edit,
+div.tags span.edit,
+span#set_recordings_view,
+div#recordings div.avatar a.avatar span,
+div#blank_slate,
+div.empty_slate,
+ul.menu_collection,
+div#task_frames h5,
+body.tasks div.sidebox_wrapper,
+body.kases div.sidebox_wrapper,
+body.deals div.sidebox_wrapper,
+div#task_frames div.empty,
+div#page_filter_options,
+body.kases div.kase a.image,
+div.edit_links,
+div#new_comment,
+body.recording div.sidebox,
+body.deal td.icon,
+div#page_header_wrapper div.private_flag,
+body.deals td.avatar,
+body.deals td.details span.category,
+td.default_avatar,
+div.new_task,
+div.balloon_wrapper,
+div.sidebox_wrapper div.dim,
+div.task_box_pending,
+div#ZoomSpin,
+div#ZoomBox,
+div#ZoomCapDiv,
+div#ShadowBox,
+div.sidebox span.edit,
+div.contact_method small,
+div.sidebox div.avatar_subject img,
+div.email_dropbox,
+div.task_recording,
+table.index td.checkbox,
+table.index td.avatar,
+body.parties #page_sidebar,
+body.parties div.pager,
+body.parties div.party_selection,
+body.parties div.page_header,
+body.party .sidebar .sidebar_controls,
+body.party .sidebar .header .control,
+body.party .sidebar .add_task.invitation,
+body.party .sidebar .tasks.section > .header,
+body.party .sidebar .skype.data_group,
+body.party .sidebar .address.data_group .map,
+body.party .sidebar .address.data_group .local_conditions,
+body.party .display.switches,
+#recordings_toggles,
+.invitation_to_edit,
+.who_can_see_this {
+  display:none;
+}
+
+span.sprite {display: none !important;}
+
+div.page_header {
+	margin-bottom: 30px;
+}
+
+h6 {
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+
+/*-------------------------------------------------
+HEADER
+-------------------------------------------------*/
+
+div#page_header_wrapper {
+	width: 70%;
+}
+
+table.subject_header h1, div#page_header h1 {
+	margin: 0 0 2px 0;
+	padding: 0;
+	font-size: 18pt;
+	font-family: helvetica, arial, sans-serif;
+}
+
+table.subject_header div.subject_details {
+	margin: 0;
+	padding: 0;
+	font-size: 12pt;
+	font-family: helvetica, arial, sans-serif;
+}
+
+table.subject_header div.subject_details a {
+	text-decoration: none;
+}
+
+table.subject_header div.subject_details div.tags {
+	font-size: 7pt;
+	font-family: helvetica, arial, sans-serif;
+}
+
+table.subject_header td.icon img {
+	margin-right: 10px;
+}
+
+/*-------------------------------------------------
+SIDEBAR
+-------------------------------------------------*/
+
+div.sidebox_wrapper {
+	padding: 0;
+	margin: 0;
+	font-size: 8pt;
+	position: absolute:
+	top: 0;
+	right: 0;
+	font-family: helvetica, arial, sans-serif;
+}
+
+div#page_sidebar {
+  position: absolute;
+  top: 45px;
+  left: 75%;
+  width: 25%;
+}
+
+div.contact_methods a {
+  text-decoration: none;
+}
+
+div.sidebox {
+	margin-bottom: 20px;
+	line-height: 1.3em;
+}
+
+div.sidebox h5, div.sidebox h6 {
+	margin-bottom: 2px;
+	padding: 0;
+	font-weight: bold;
+	font-size: 7pt;
+	text-transform: none;
+}
+
+div.sidebox div.contact_method span {
+	font-size: 7pt;
+	color: #777;
+}
+
+div.sidebox p {
+	padding: 0;
+	margin: 0;
+}
+
+div.sidebox div.task {
+	margin-bottom: 5px;
+	line-height: 1.2em;
+}
+
+div.sidebox div.task span.category {
+	font-weight: bold;
+}
+
+body.case div.info a, body.deal div.info a {
+	text-decoration: none;
+}
+
+body.case div.info h1, body.deal div.info h1 {
+	font-size: 8pt;
+	margin: 0;
+	padding: 0;
+}
+
+body.case div.info h2, body.deal div.info h2 {
+	font-size: 7pt;
+	color: #777;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+
+body.case div.avatar_subject, body.deal div.avatar_subject {
+	margin-bottom: 10px;
+}
+
+#page_sidebar div.avatar_subject h1 {
+  font-size: 8pt;
+  margin: 0;
+}
+
+#page_sidebar div.avatar_subject h2 {
+  font-size: 7pt;
+  margin: 0 0 2px;
+  font-weight: normal;
+}
+
+#page_sidebar div.avatar_subject h1 a,
+#page_sidebar div.avatar_subject h2 a {
+  text-decoration: none;
+}
+
+/*-------------------------------------------------
+RECORDINGS
+-------------------------------------------------*/
+
+div#recordings div.avatar img {
+	float: left;
+	width: 32px;
+	height: 32px;
+}
+
+div.recording_content {
+	border-top: 1px dotted #ccc;
+	padding-top: 10px;
+	margin-bottom: 20px;
+}
+
+div.recording_content ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+div.recording_content div.header li {
+	font-size: 7pt;
+	font-weight: bold;
+}
+
+div.recording_content div.header li a {
+	text-decoration: none;
+}
+
+div.recording_content blockquote {
+	margin: 0;
+	padding: 0;
+	text-indent: none;
+}
+
+div.recording_content blockquote, div.body p, ul.attachments li, div.note_body p {
+	font-size: 9pt;
+}
+
+div#recordings ul.attachments li img {
+	width: 24px;
+	height: 24px;
+}
+
+body.overview div#recordings div.header, body.overview div#recordings div.body {
+	margin-left: 46px;
+}
+
+div#page_header p {
+	font-size: 8pt;
+	margin-top: -3px;
+}
+
+/*-------------------------------------------------
+TASKS
+-------------------------------------------------*/
+
+body.tasks div.body {
+	font-size: 9pt;
+	margin-bottom: 6px;
+}
+
+div#task_frames div.checkbox {
+	display: none;
+}
+
+body.tasks span.category {
+	font-weight: bold;
+}
+
+/*-------------------------------------------------
+DEALS
+-------------------------------------------------*/
+
+body.deals table {
+	margin-bottom: 20px;
+}
+
+body.deals table th h2 {
+	font-size: 8pt;
+	text-transform: uppercase;
+	border-bottom: 2px solid #000;
+	text-align: left;
+	margin: 10px 0 20px 0;
+	padding: 0;
+}
+
+body.deals table th h2 span {
+	font-weight: normal;
+	text-transform: none;
+}
+
+body.deals table h6 {
+	font-size: 8pt;
+	text-transform: none;
+	font-weight: normal;
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+
+body.deals table h6.price {
+	font-weight: bold;
+}
+
+body.deals td.details {
+	padding-left: 20px;
+}
+
+body.deals td.details h3 {
+	font-size: 11pt;
+	margin: 0 0 5px 0;
+	padding: 0;
+}
+
+body.deals td.details h3 a {
+	text-decoration: none;
+}
+
+body.deals td.details h3 span {
+	font-weight: normal;
+	font-size: 8pt;
+	color: #888;
+}
+
+body.deals tr.deal td {
+	padding-bottom: 10px;
+}
+
+body.deal div#page_header td.name p {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 14pt;
+}
+
+body.deal div.system_recording {
+	display: block;
+}
+
+/*-------------------------------------------------
+CASES
+-------------------------------------------------*/
+
+body.kases div.info h1 {
+	font-size: 12pt;
+	margin-bottom: 4px;
+	padding: 0;
+}
+
+body.kases div.info h2 {
+	font-size: 9pt;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+
+/*-------------------------------------------------
+SUBJECT
+-------------------------------------------------*/
+
+div#recordings {
+	float: left;
+	width: 70%;
+}
+
+/*-------------------------------------------------
+CONTACTS BROWSER
+-------------------------------------------------*/
+
+table.index td.party h3,
+table.index td.party h6 {
+  margin: 0;
+}
+
+table.index td.party h3 {
+  font-size: 14px;
+}
+
+table.index td.party h3 a,
+table.index td.party div.title_and_company a,
+table.index td.party p.tags a {
+  text-decoration: none;
+}
+
+table.index td.party h6 {
+  text-transform: none;
+  font-weight: normal;
+}
+
+table.index td.party p.tags a {
+  font-style: oblique;
+}
+
+table.index td.party p.tags {
+  font-size: 11px;
+  margin-top: 0.5em;
+}
+
+#browser .import_notification {
+  margin-bottom: 20px;
+}
+
+/*-------------------------------------------------
+SYSTEM RECORDINGS
+-------------------------------------------------*/
+
+div.system_recording {
+	font-size: 7pt;
+	padding: 3px 3px 2px 3px;
+	border: 1px solid #000;
+	margin: 15px 0;
+}
+
+div.system_recording div.icon {
+	font-weight: bold;
+	display: inline;
+	margin-right: 5px;
+	padding: 0;
+	margin: 0;
+}
+
+div.system_recording div.recording_content {
+	border: none;
+	display: inline;
+	padding: 0;
+	margin: 0;
+	line-height: 1em;
+}
+
+div.system_recording div.recording_content a {
+	text-decoration: none;
+}
+
+/*-------------------------------------------------
+TWO COLUMN PAGE LAYOUT FOR PARTY PAGES
+-------------------------------------------------*/
+
+.two_column_page_layout {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.two_column_page_layout .primary {
+  width: 70%;
+  display: block;
+}
+
+.two_column_page_layout .sidebar {
+  position: absolute;
+  display: block;
+  width: 25%;
+  right: 0;
+  top: 0pt;
+	font-family: helvetica, arial, sans-serif;
+	font-size: 8pt;
+}
+
+.two_column_page_layout .party_header table,
+.two_column_page_layout .party_header table tr,
+.two_column_page_layout .party_header table td,
+.two_column_page_layout .sidebar table,
+.two_column_page_layout .sidebar table tr,
+.two_column_page_layout .sidebar table td {
+  display: block;
+}
+
+.two_column_page_layout .party_header table td,
+.two_column_page_layout .sidebar table td {
+  padding: 0;
+  margin: 0;
+}
+
+.two_column_page_layout .party_header {
+  margin-bottom: 12pt;
+}
+
+.two_column_page_layout .party_header h1.name {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 18pt;
+	margin: 0;
+}
+
+.two_column_page_layout .party_header .title_and_company {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 12pt;
+  line-height: 12pt;
+}
+
+.two_column_page_layout .party_header .title_and_company a {
+  text-decoration: none;
+}
+
+.two_column_page_layout .party_header .tags {
+	font-family: helvetica, arial, sans-serif;
+  font-size: 8pt;
+  line-height: 12pt;
+}
+
+.two_column_page_layout .party_header a.tag {
+  text-decoration: none;
+  font-style: oblique;
+  margin: 0 3pt 0 0;
+}
+
+.two_column_page_layout div#recordings {
+	float: none;
+	width: 100%;
+}
+
+.two_column_page_layout .sidebar h1,
+.two_column_page_layout .sidebar h6 {
+  margin: 12px 0 0;
+	font-size: 8pt;
+	text-transform: none;
+	font-weight: bold;
+}
+
+.two_column_page_layout .sidebar a {
+  text-decoration: none;
+}
+
+.two_column_page_layout .sidebar p {
+  margin: 0;
+}
+
+.two_column_page_layout .data_group div.label,
+.two_column_page_layout .address.data_group table {
+  margin: 8pt 0 0;
+  color: #666;
+}
+
+.two_column_page_layout .data_group .location.label {
+  font-size: 6pt;
+  color: #666;
+}
+
+/*-------------------------------------------------
+LIST VIEW
+-------------------------------------------------*/
+
+table.list_view {
+  font-size: 9pt;
+}
+
+table.list_view td {
+  border-top: 1pt solid #666;
+  padding: 6pt 0;
+}
+
+table.list_view td.type {
+  display: none;
+}
+
+table.list_view td.date {
+  white-space: nowrap;
+  vertical-align: top;
+  text-align: right;
+  padding-left: 18pt;
+}
+
+table.list_view a {
+  text-decoration: none;
+}
+
+table.list_view span.by {
+  display: block;
+  margin-top: 3pt;
+}

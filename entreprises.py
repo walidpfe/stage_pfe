@@ -4,7 +4,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from google.appengine.api import mail
-from apptools import AppHandler
+
 
 # Todo defines the data model for the Todos
 
@@ -90,19 +90,20 @@ class Newcompany(webapp.RequestHandler):
         user = users.get_current_user()
         url = users.create_login_url(self.request.uri)
         url_linktext = 'Login'
+	title= 'Ajouter une entreprise'
                     
         if user:
             url = users.create_logout_url(self.request.uri)
             url_linktext = 'Logout'
         values = {
             
-	    
+	    'title': title,
             'user': user,
             'url': url,
             'url_linktext': url_linktext,
           }
 	              
-        self.response.out.write(template.render('ajouteruneentreprise.html', values))           
+        self.response.out.write(template.render('addnewcompany.html', values))           
 
 
 class Ficheentreprise(webapp.RequestHandler):

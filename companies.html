@@ -1,10 +1,45 @@
-{% extends "Entreprisespage.html" %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-{% block title %}Companies{% endblock %}
+<head>
+  <script>var NREUMQ=[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);(function(){var d=document;var e=d.createElement("script");e.type="text/javascript";e.async=true;e.src=(("http:"===d.location.protocol)?"http:":"https:")+"//d1ros97qkrwjf5.cloudfront.net/13/eum/rum.js";var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(e,s);})()</script>
 
-{% block content %}
-<div id="inner_wrapper">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title> {{title}}</title>
+  <meta name='current-user' content= 674863 />
+
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
+
+  <script type="text/javascript">
+//<![CDATA[
+function async(f) { async.f.push(f) }; async.f = []
+//]]>
+</script>
+  <script type="text/javascript">
+//<![CDATA[
+var RAILS_ENV = "production"
+//]]>
+</script>
+
+  <link href="/stylesheets/cache/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/print/application.css" media="print" rel="stylesheet" type="text/css" />
+  <!--[if IE]><link href="/stylesheets/ie/base.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+  <link href="/stylesheets/colors/blue.css" media="screen" rel="stylesheet" title="Theme" type="text/css" />
+
+  <noscript><style type="text/css">#app_header, div.wrapper { display: none }</style></noscript>
+
+  
+</head>  
+<body class="clearfix parties   webkit  windows"  onloadnot="setupZoom()">
+<!------------------------------------------------------------- Header de la page ------------------------------------------------------------->
+  {% include "AppNavigationHeader.html" %}
+<!--------------------------------------------------------------End Header -------------------------------------------------------------------->
+
+<!------------------------------------------------------------- Contenu de la page ------------------------------------------------------------>
+	
+	<div id="wrapper">
+    <div id="inner_wrapper">
       <div id="main_body" class="column">
         
         
@@ -169,7 +204,7 @@ async("var add_tags_op_tag_name_input_auto_completer = new Ajax.Autocompleter('a
 </div>
 
 </div>
-
+<!------------------------------------------------------------- Les entreprises ------------------------------------------------------------->
   <div class="parties">
     <table class="index">
       {% for company in companies %}
@@ -179,7 +214,7 @@ async("var add_tags_op_tag_name_input_auto_completer = new Ajax.Autocompleter('a
       <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="105922777" /></label>
     </td>
     <td class="avatar">
-      <a href="/parties/105922777-entreprise-02" class="image"><span class="sprite avatar blank_avatar company " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_30ac99f/images/highrise_sprites.png) no-repeat -0px -0px; width: 55px; padding-top: 55px; " title="entreprise 02" id="">entreprise 02</span></a>
+      <a href="/company?id={{company.key.id}}" class="image"><span class="sprite avatar blank_avatar company " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_30ac99f/images/highrise_sprites.png) no-repeat -0px -0px; width: 55px; padding-top: 55px; " title="entreprise 02" id="">entreprise 02</span></a>
     </td>
     <td class="party">
       <div class="avatar_subject" id="company_105922777">
@@ -208,7 +243,7 @@ async("var add_tags_op_tag_name_input_auto_completer = new Ajax.Autocompleter('a
   
 </tr>
 {% endfor %}
-
+<!-------------------------------------------------------------END Les entreprises ------------------------------------------------------------->
 <tr id="row_company_105200466">
   
     <td class="checkbox">
@@ -315,7 +350,7 @@ async("var add_tags_op_tag_name_input_auto_completer = new Ajax.Autocompleter('a
               <!-- page sidebar -->
               <div id="page_sidebar" class="Right column">
                 <div class="liner">
-                  
+<!------------------------------------------------------------------ Right SideBar ------------------------------------------------------------->               
   <div class="sidebox_wrapper">
     <div class="liner">
 
@@ -340,6 +375,9 @@ async("var add_tags_op_tag_name_input_auto_completer = new Ajax.Autocompleter('a
       
     </div>
   </div>
+  
+<!------------------------------------------------------------------End Right SideBar ------------------------------------------------------------->               
+
 
 
                 </div>
@@ -351,5 +389,25 @@ async("var add_tags_op_tag_name_input_auto_completer = new Ajax.Autocompleter('a
             
             </div>
 	<!--// page -->
-     <div style="margin-top: 30px"> </div>     
-{% endblock %}
+     <div style="margin-top: 30px"> </div> 
+      
+     </div>
+<!----------------------------------------------------------------------End Contenu -------------------------------------------------------------->	 
+	 
+<!----------------------------------------------------------------------SideBar------------------------------------------------------------------->	 
+ 
+	    			{% include "AppSidebar.html" %}
+    
+<!----------------------------------------------------------------------End SideBar -------------------------------------------------------------->
+
+   
+  
+
+  
+
+  <script src="/js/sprockets.js" type="text/javascript"></script>
+  
+  <script type="text/javascript" charset="utf-8">NREUMQ.push(["nrf2","beacon-1.newrelic.com","10f60f8605",1746,"IV1cEkFdWghSFxkHXA9CUwhaV0VLWQBB",0,74])</script>
+
+</body>
+</html>

@@ -1,16 +1,18 @@
 application: entreprises
-<<<<<<< HEAD
-version: 2
-=======
 version: 1
->>>>>>> origin/master
 runtime: python
 api_version: 1
 
 handlers:
-- url: /css
-  static_dir: css
+- url: /stylesheets
+  static_dir: stylesheets
+- url: /js
+  static_dir: js
 - url: /images
   static_dir: images
+- url: /template
+  static_dir: template
+- url: /views
+  static_dir: views
 - url: /.*
   script: entreprises.py

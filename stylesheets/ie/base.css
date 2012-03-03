@@ -1,0 +1,288 @@
+img { -ms-interpolation-mode:bicubic; }
+
+div#Tabs li.with_space {
+  margin-right: 8px;
+}
+
+#Tabs li.with_space a,
+#Tabs li.with_space a.current {
+  margin-right: 0;
+}
+
+#Tabs a:link.current,
+#Tabs a:visited.current,
+#Tabs li.workspace a:link.current,
+#Tabs li.workspace a:visited.current {
+  height: 24px;
+}
+
+div.nubbin li a.admin:hover {
+  color: red;
+  background: none;
+}
+
+div.frame div.busy div.nubbin li {
+  display: none;
+}
+
+div.hover_container div.nubbin {top: -2px;}
+  
+/* quick-show-shadow for IE7 */
+
+div#quick_show_window div.quick_show_window_position {
+  background: #000 url(/images/quick_show_shadow.png) no-repeat bottom right;
+  z-index: 1000;
+}
+
+*:first-child+html div#quick_show_window div.contact_method span {
+  margin-top: -1.1em;
+}
+
+/**:first-child+html div.live_search_result_list {
+  background: url(/images/quick_show_shadow.png) no-repeat bottom right;
+  padding: 0 6px 6px 0;
+}*/
+
+*:first-child+htmldiv.popup div.popup_frame {
+  background: url(/images/quick_show_shadow.png) no-repeat bottom right;
+  padding: 0 6px 7px 0;
+}
+
+form.edit_category input,
+form.edit_category span.submit {
+  vertical-align: middle;
+}
+
+div.page_header input {
+  margin-left: 24px;
+}
+
+body.edit_subject div.page_header input,
+div.page_header div#edit_tags input,
+input.live_search_field {
+  margin-left: 0 !important;
+}
+
+div.live_search_result_list div.content {
+  max-height: none;
+}
+
+div.button_to_add_new a {
+  display: block;
+}
+
+body.parties div#parties {
+  background: #fff;
+}
+
+/* Add task form */
+
+.Right div.new_task_wrapper {
+  height: 41px;
+}
+
+body.overview .Right div.new_task_wrapper {
+  height: 31px;
+}
+
+/* undo the above two styles for IE 7 */
+
+html > body .Right div.new_task_wrapper,
+html > body.overview .Right div.new_task_wrapper {
+  height: auto;
+}
+
+/* Input elements that are too wide */
+
+form.edit_category span.submit input {
+  width: 160px;
+  vertical-align: middle;
+}
+
+#global_links_container a.help {
+  padding: 2px 5px 2px 4px;
+}
+
+/* Elements needing layout */
+
+div#Tabs li,
+div.button_to_add_new a,
+div.button_to_add_new a img,
+div.recording div.nubbin a,
+div.frame div.hover_container,
+div.show_task,
+div.edit_task,
+div.new_task,
+div.new_task form,
+div.nubbin li a span,
+div.innercol,
+div.body,
+ul.attachments li a,
+body.groups div#screen_body,
+div.page_header,
+div.recording,
+body.deals div.module div.filtering,
+div#quick_show_window,
+div#quick_show_window div.quick_show_window_position,
+div#quick_show_window div.quick_show_window_wrapper,
+div#quick_show_window div.quick_show_window_content,
+body.edit_subject div.main_attributes div.addresses div.fields,
+body.new_person div.background,
+body.new_person div.background p {
+  zoom: 100%;
+}
+
+body.overview div.page_header span.other_indexes select {
+  vertical-align: middle;
+}
+
+/* Add/edit contacts */
+
+/* parties.css */
+body.edit_subject div.blank_slate,
+body.new_party table.contact_types div.blank_slate {
+  margin-top: 6px;
+}
+
+body.edit_subject div.main_attributes tr.company div.blank_slate {
+  margin-top: 3px;
+}
+
+.edit div.contact_forms span.overlay_wrapper label.overlabel {
+  top: 0;
+}
+
+.edit tr.person_name span.overlay_wrapper label.overlabel,
+.edit tr.subject_name span.overlay_wrapper label.overlabel {
+  top: 5px;
+}
+
+div.quick_find span.overlay_wrapper label.overlabel {
+  top: -14px;
+}
+
+body.new_party div.page_header input {
+  margin-left: 0;
+}
+
+div.parties div.add_tags div.bulk_tag_controls,
+div.parties div.change_permissions div.bulk_permission_controls {
+  z-index: 3;
+}
+
+/* subjects.css */
+body.new_party div.innercol table.contact_types td {  
+  padding-left: 20px;
+}
+
+body.edit_subject div.blank_slate,
+body.new_party table.contact_types div.blank_slate {
+  margin-bottom: 7px;
+}
+
+body.new_party table.contact_types div.blank_slate {
+  margin-top: 6px;
+}
+
+body.new_party div.page_header table.contact_types div.blank_slate {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+body.edit_subject div.main_attributes tr.company div.blank_slate {
+  margin-top: 3px;
+}
+
+body.edit_subject div.page_header div.blank_slate {
+  margin-top: 6px;  
+}
+
+/* categories.css */
+
+body.categories ul.categories li.category ul.controls li {
+  display: inline;
+}
+
+body.categories ul.categories li.category ul.controls li.delete {
+  padding-left: 5px;
+}
+
+body.categories ul.categories li.category form {
+  display: inline;
+}
+
+body.categories ul.categories li.category div.edit div.category_name {
+  margin-top: 3px;
+}
+
+body.categories ul.categories li.category span.submit input {
+  vertical-align: middle;
+  display: inline;
+}
+
+body.categories ul.categories li.category div.edit_swatch span.sprite {
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+body.categories ul.categories li.category div.edit_swatch {
+  position: static;
+}
+
+body.categories ul.categories li.category ul.picker {
+  padding-bottom: 20px !important;
+}
+
+/* recordings.css */
+
+div.recording div.header span.action_links {
+  white-space: nowrap;
+  width: 160px;
+}
+
+*:first-child+html body.subject div#recordings_toggles {
+  margin-right: 30px;
+}
+
+/* categories.css */
+body.categories ul.categories li.category div.edit div.edit_swatch {
+  margin-right: 5px;
+}
+
+body.categories ul.categories li.category div.edit {
+  padding-bottom: 5px;
+}
+
+/* fix page layout for IE7 */
+
+*:first-child+html div#global_sidebar {
+  right: 0;
+  position: static !important;
+}
+
+/* Balloons */
+
+div.balloon_pointer {
+  top: -21px;
+  z-index: 3003;
+}
+
+*:first-child+html #balloon_global_links {
+  right: auto !important;
+  margin: 0 !important;
+  left: -49px;
+  top: 42px;
+}
+
+/* Sentence-like filters */
+
+*:first-child+html #page_filter ul.menu_collection > li > a {
+  position: relative;
+}
+
+*:first-child+html #page_filter div.balloon_menu_center {
+  width: 0px;
+  margin: 0;
+  left: 50%;
+  position: relative;
+}

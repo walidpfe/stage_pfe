@@ -1,4 +1,39 @@
-﻿
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <script>var NREUMQ=[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);(function(){var d=document;var e=d.createElement("script");e.type="text/javascript";e.async=true;e.src="/js/rum.js";var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(e,s);})()</script>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>{{title}}</title>
+  <meta name='current-user' content= 674863 />
+
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
+
+  <script type="text/javascript">
+//<![CDATA[
+function async(f) { async.f.push(f) }; async.f = []
+//]]>
+</script>
+  <script type="text/javascript">
+//<![CDATA[
+var RAILS_ENV = "production"
+//]]>
+</script>
+
+  <link href="/stylesheets/cache/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/print/application.css" media="print" rel="stylesheet" type="text/css" />
+  <!--[if IE]><link href="/stylesheets/ie/base.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+  <link href="/stylesheets/colors/blue.css" media="screen" rel="stylesheet" title="Theme" type="text/css" />
+
+  <noscript><style type="text/css">#app_header, div.wrapper { display: none }</style></noscript>
+
+  
+</head>
+
+<body class="clearfix new_party new_company former_sheet narrow_page_with_sidebar_outside webkit  windows"  onloadnot="setupZoom()">
+  
 
 
   <div id="quick_show_window" style="display: none">
@@ -38,20 +73,19 @@
 	<div class="boundary">
 		
 		  <div id="upgrade_bar">
-		    <a href="/account" behavior="return_to">Upgrade your free account</a>
-		    to manage additional contacts, upload files, invite more users, and get more out of Highrise.
+		   
 		  </div>
 		
 
 		<div id="inner_header_wrapper">
-			<a href="/" id="app_logo"><img alt="Logo-topleft" src="https://d1a993iq9azmzq.cloudfront.net/rev_30ac99f/images/logo-topleft.png" style="padding-top: 8px;" /></a>
+			<a href="/" id="app_logo"><img alt="Logo-topleft" src="/images/esi.png" height="40" style="padding-top: 8px;" /></a>
 
 			<table id="page_actions">
 				<tr>
 					<td class="tiny">
 						<div class="menu_container">
 							
-								<span class="action"><a href="/people/new" behavior="return_to"><span>Add Contact</span></a></span>
+								<span class="action"><a href="/newcompany" behavior="return_to"><span>Ajouter une entreprise</span></a></span>
 	            	
 						</div>
 					</td>
@@ -73,13 +107,13 @@
     <div class="balloon_content">
       
 <div class="new_task">
-  <form action="/news" class="new_task" id="form_task" method="post" onsubmit="$(this).addClassName('busy'); new Ajax.Request('/tasks', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="GNzW3wUCL2JsszwUeRScSr1HJh6Euf46PGjZBnchebs=" /></div>
+  <form action="/tasks" class="new_task" id="form_task" method="post" onsubmit="$(this).addClassName('busy'); new Ajax.Request('/tasks', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="GNzW3wUCL2JsszwUeRScSr1HJh6Euf46PGjZBnchebs=" /></div>
     
     
 
     <div id="form_body_task" class="task_form">
 
-  <input id="from" name="from" type="hidden" value="companies" />
+  <input id="from" name="from" type="hidden" value="parties" />
 
   <div class="new_task">
     <h3>Add a new task</h3>
@@ -91,7 +125,7 @@
     <div id="controls_task" class="controls">
       <h5>When's it due?</h5>
       <p>
-        <select name="task[frame]" onchange="Tasks.changeFrame(this)"><option params="{&quot;task[due_at][am_pm]&quot;:&quot;pm&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-20&quot;,&quot;task[due_at][minute]&quot;:&quot;45&quot;,&quot;task[due_at][hour]&quot;:&quot;12&quot;}" selected="selected" value="today">Today</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="tomorrow">Tomorrow</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="this_week">This week</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="next_week">Next week</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="later">Later</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="specific">Specific date/time&hellip;</option></select>
+        <select name="task[frame]" onchange="Tasks.changeFrame(this)"><option params="{&quot;task[due_at][am_pm]&quot;:&quot;pm&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-20&quot;,&quot;task[due_at][minute]&quot;:&quot;15&quot;,&quot;task[due_at][hour]&quot;:&quot;1&quot;}" selected="selected" value="today">Today</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="tomorrow">Tomorrow</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="this_week">This week</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="next_week">Next week</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="later">Later</option><option params="{&quot;task[due_at][am_pm]&quot;:&quot;am&quot;,&quot;task[due_at][date]&quot;:&quot;2012-02-21&quot;,&quot;task[due_at][minute]&quot;:&quot;00&quot;,&quot;task[due_at][hour]&quot;:&quot;9&quot;}" value="specific">Specific date/time&hellip;</option></select>
         <span class="link_to_set_day_and_time">or <a href="#" onclick="Tasks.changeFrame($(this).up(0).previous('select'), 'specific'); return false;">Set date/time</a></span>
       </p>
 
@@ -103,7 +137,7 @@ async("new CalendarDateSelect(\"calendar_task\", {\"id\":\"calendar_task\"});")
 //]]>
 </script>
           <div class="set_task_time">
-            at <select id="task_due_at_hour" name="task[due_at][hour]"><option value="1">1</option>
+            at <select id="task_due_at_hour" name="task[due_at][hour]"><option value="1" selected="selected">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
 <option value="4">4</option>
@@ -114,10 +148,10 @@ async("new CalendarDateSelect(\"calendar_task\", {\"id\":\"calendar_task\"});")
 <option value="9">9</option>
 <option value="10">10</option>
 <option value="11">11</option>
-<option value="12" selected="selected">12</option></select>:<select id="task_due_at_minute" name="task[due_at][minute]"><option value="00">00</option>
-<option value="15">15</option>
+<option value="12">12</option></select>:<select id="task_due_at_minute" name="task[due_at][minute]"><option value="00">00</option>
+<option value="15" selected="selected">15</option>
 <option value="30">30</option>
-<option value="45" selected="selected">45</option></select><select id="task_due_at_am_pm" name="task[due_at][am_pm]"><option value="am">am</option>
+<option value="45">45</option></select><select id="task_due_at_am_pm" name="task[due_at][am_pm]"><option value="am">am</option>
 <option value="pm" selected="selected">pm</option></select>
           </div>
         </div>
@@ -187,52 +221,14 @@ async("new CalendarDateSelect(\"calendar_task\", {\"id\":\"calendar_task\"});")
 
 			<div id="global_links_container">
 			  
-			    <div class="menu_container">
-			      <a href="#" class="name menu_target">
-			        Account &amp; settings
-			        <span>▼</span>
-			      </a>
-			      <div id="balloon_global_links" class="balloon center menu_content ">
-  <!-- balloon pointer -->
-  <div class="balloon_pointer">
-    <div class="balloon_arrow menu_target"></div>
-    <div class="balloon_arrow_border"></div>
-  </div>
-  
-  <!-- balloon content -->
-  <div class="balloon_wrapper">
-    
-    
-
-    <div class="balloon_content">
-      <ul class="global_links">
-  <li><a href="/users/674863/edit" behavior="return_to" class="">My info</a></li>
-  
-    
-      <li><a href="/users" class="">Users</a></li>
-      <li><a href="/groups" class="">Groups</a></li>
-    
-    <li><a href="/custom_fields" class="">Custom Fields</a></li>
-    <li><a href="/account/settings" behavior="return_to" class="">Logo and color</a></li>
-    
-      <li><a href="/account" behavior="return_to" class="">Account, upgrades, billing</a></li>
-    
-  
-</ul>
-
-    </div>
-  </div>
-</div>
-
-
-			    </div>
+			   
 			  
-
-			 <a href="#">{{user.nickname}}</a>
-			 <a href="{{ url }}">{{ url_linktext }}</a>	
-			 <a href="http://help.37signals.com/highrise/?e=dGVkai5tZWFiaW91QGdtYWlsLmNvbQ%3D%3D&amp;u=aHR0cHM6Ly9lc2kxLmhpZ2hyaXNlaHEuY29tL2NvbXBhbmllcy9uZXc%3D&amp;n=dGVkamVkZGluZQ%3D%3D&amp;f=dGVkaiBtZWFiaW91" class="help" target="_blank">Help</a>
+			<a href="#">{{user.nickname}}</a>
+			 <a href="{{ url }}">{{ url_linktext }}</a>
+			 
+			  <a href="http://help.37signals.com/highrise/?e=dGVkai5tZWFiaW91QGdtYWlsLmNvbQ%3D%3D&amp;u=aHR0cHM6Ly9lc2kxLmhpZ2hyaXNlaHEuY29tL3BhcnRpZXM%3D&amp;n=dGVkamVkZGluZQ%3D%3D&amp;f=dGVkaiBtZWFiaW91" class="help" target="_blank">Help</a>
 			</div>
 		</div>
 	</div>
 </div>
-  
+
