@@ -5,20 +5,12 @@ from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from google.appengine.api import mail
 
+from bdd import CompanyModel
+
 
 # Todo defines the data model for the Todos
 
-class CompanyModel(db.Model):
-  companyaddedby  = db.UserProperty(required=True)
-  companyname     = db.StringProperty()
-  companytel     = db.StringProperty()
-  companymail     = db.StringProperty()
-  companywebsite     = db.StringProperty()
-  companyaddress     = db.StringProperty(multiline=True)
-  companywilaya     = db.StringProperty()
-  companydescription = db.StringProperty(multiline=True)
-  companydateadded= db.DateTimeProperty(auto_now_add=True)
-  
+ 
 # The main page where the user can login and logout
 # MainPage is a subclass of webapp.RequestHandler and overwrites the get method
 class MainPage(webapp.RequestHandler):
