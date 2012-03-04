@@ -5,6 +5,11 @@ from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from google.appengine.api import mail
 
+from new import New
+from updateentreprise import Updateentreprise
+from ficheentreprise import Ficheentreprise
+from editcompany import Editentreprise
+from newcompany import Newcompany
 from bdd import CompanyModel
 
 
@@ -40,118 +45,9 @@ class MainPage(webapp.RequestHandler):
 
 
 # This class creates a new Todo item
-class New(webapp.RequestHandler):
-    def post(self):
-        user = users.get_current_user()
-        if user:
-	    company  = CompanyModel(
-                companyaddedby  = users.get_current_user(),
-                companyname = self.request.get('companyname'),
-                companytel = self.request.get('companytel'),
-                companymail = self.request.get('companymail'),
-                companywebsite = self.request.get('companywebsite'),
-                companyaddress = self.request.get('companyaddress'),
-                companywilaya = self.request.get('companyawilaya'),
-                companydescription = self.request.get('companydescription'))
-            
-            company.put();
-            self.redirect('/')
-
-class Updateentreprise(webapp.RequestHandler):
-    def post(self):
-        user = users.get_current_user()
-        if user:
-          raw_id = self.request.get('id')
-          id = int(raw_id)
-          lentreprise = CompanyModel.get_by_id(id)
-          lentreprise.companyaddedby  = users.get_current_user()
-          lentreprise.companyname = self.request.get('companyname')
-          lentreprise.companytel = self.request.get('companytel')
-          lentreprise.companymail = self.request.get('companymail')
-          lentreprise.companywebsite = self.request.get('companywebsite')
-          lentreprise.companyaddress = self.request.get('companyaddress')
-          lentreprise.companywilaya = self.request.get('companyawilaya')
-          lentreprise.companydescription = self.request.get('companydescription')
-            
-          lentreprise.put();
-          self.redirect('/company?id='+raw_id)
-	    
-
-class Newcompany(webapp.RequestHandler):
-    def get(self):
-        user = users.get_current_user()
-        url = users.create_login_url(self.request.uri)
-        url_linktext = 'Login'
-	title= 'Ajouter une entreprise'
-                    
-        if user:
-            url = users.create_logout_url(self.request.uri)
-            url_linktext = 'Logout'
-        values = {
-            
-	    'title': title,
-            'user': user,
-            'url': url,
-            'url_linktext': url_linktext,
-          }
-	              
-        self.response.out.write(template.render('addnewcompany.html', values))           
 
 
-class Ficheentreprise(webapp.RequestHandler):
-    def get(self):
-        user = users.get_current_user()
-        url = users.create_login_url(self.request.uri)
-        url_linktext = 'Login'
-                    
-        if user:
-            url = users.create_logout_url(self.request.uri)
-            url_linktext = 'Logout'
-            raw_id = self.request.get('id')
-            id = int(raw_id)
-            lentreprise = CompanyModel.get_by_id(id)
-            
-        else:
-            self.redirect(users.create_login_url(self.request.uri))
 
-        
-        values = {
-            'company': lentreprise,
-        
-            'user': user,
-            'url': url,
-            'url_linktext': url_linktext,
-        }
-        self.response.out.write(template.render('fiche_entreprise.html', values))
-
-
-class Editentreprise(webapp.RequestHandler):
-    def get(self):
-        user = users.get_current_user()
-        url = users.create_login_url(self.request.uri)
-        url_linktext = 'Login'
-                    
-        if user:
-            url = users.create_logout_url(self.request.uri)
-            url_linktext = 'Logout'
-            raw_id = self.request.get('id')
-            ido = int(raw_id)
-            lentrepriseo = CompanyModel.get_by_id(ido)
-            
-        else:
-            self.redirect(users.create_login_url(self.request.uri))
-# GQL is similar to SQL
-      
-        
-        
-        values = {
-            'company': lentrepriseo,
-        
-            'user': user,
-            'url': url,
-            'url_linktext': url_linktext,
-        }
-        self.response.out.write(template.render('editcompany.html', values))
 
 
 #wsgiappp
