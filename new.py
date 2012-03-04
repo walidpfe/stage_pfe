@@ -3,7 +3,10 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
-from bdd import CompanyModel
+from company import CompanyModel
+from companyemails import CompanyEmailsModel
+
+
 
 class New(webapp.RequestHandler):
     def post(self):
@@ -18,6 +21,10 @@ class New(webapp.RequestHandler):
                 companyaddress = self.request.get('companyaddress'),
                 companywilaya = self.request.get('companyawilaya'),
                 companydescription = self.request.get('companydescription'))
-            
          company.put();
+         emails = self.request.get_all('companymail')
+         for email in emails:
+            CompanyEmailsModel(email = email , company = company).put()
+                 
+         
          self.redirect('/')

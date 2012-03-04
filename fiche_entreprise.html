@@ -999,11 +999,13 @@ async("new MenuObserver('sidebar_tasks_section')")
     
       
   <div class="email_address data_group">
-    
-      <div class="value">
-        <a href="mailto:meabiou@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">{{company.companymail}}</a>
+      {% for email in emails %}
+	  <div class="value">
+        <a href="mailto:meabiou@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">{{email.email}}</a>
         <span class="location label">Work</span>
       </div>
+	  {% endfor %}
+    
     
   </div>
 
