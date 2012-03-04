@@ -1,0 +1,192 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Highrise</title>
+  <meta name='current-user' content= 684380 />
+
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
+
+  <script type="text/javascript">
+//<![CDATA[
+function async(f) { async.f.push(f) }; async.f = []
+//]]>
+</script>
+  <script type="text/javascript">
+//<![CDATA[
+var RAILS_ENV = "production"
+//]]>
+</script>
+
+  <link href="https://d1a993iq9azmzq.cloudfront.net/rev_df13cd7/stylesheets/cache/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="https://d1a993iq9azmzq.cloudfront.net/rev_df13cd7/stylesheets/print/application.css" media="print" rel="stylesheet" type="text/css" />
+  <!--[if IE]><link href="https://d1a993iq9azmzq.cloudfront.net/rev_df13cd7/stylesheets/ie/base.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+  <link href="https://d1a993iq9azmzq.cloudfront.net/rev_df13cd7/stylesheets/colors/blue.css" media="screen" rel="stylesheet" title="Theme" type="text/css" />
+
+  <noscript><style type="text/css">#app_header, div.wrapper { display: none }</style></noscript>
+
+  
+</head>
+
+<body class="clearfix new_kase former_sheet narrow_page_with_sidebar_outside webkit  windows"  onloadnot="setupZoom()">
+  
+
+<!------------------------------------------------------------- Header de la page ------------------------------------------------------------->
+  {% include "AppNavigationHeader.html" %}
+<!--------------------------------------------------------------End Header -------------------------------------------------------------------->
+
+<!------------------------------------------------------------- Contenu de la page ------------------------------------------------------------>
+
+<div id="wrapper">
+    <div id="inner_wrapper">
+      <div id="main_body" class="column">
+        
+        
+        
+        <div id="blank_slate" class="clearfix">
+          
+        </div>
+
+        
+                <div id="screen_body">
+        <!-- page sidebar -->
+        <div id="page_sidebar">
+          <div class="liner">
+            
+  <div class="sidebox closedbox">
+    <h5><strong>What are cases?</strong></h5>
+    <p>Cases help you keep related notes, files, images, and people together on one screen. You can add notes directly on a case or attach a note you’ve entered on a person page to a case.</p>
+  </div>
+
+          </div>
+        </div>
+        <!--// page sidebar -->
+
+        <!-- page -->
+        <div id="page">
+
+            <!-- page header -->
+            <div id="page_header_wrapper">
+              
+              <div id="page_header">
+
+                <div class="page_header">
+  <h1>Add a new case</h1>
+</div>
+
+              </div>
+            </div>
+            <!--// page header -->
+
+            <!-- page contents -->
+            <div id="page_contents_wrapper" class="clearfix">
+
+              <!-- main column -->
+              <div id="page_main_column" class="column">
+                <div class="liner">
+                  
+
+
+
+
+<form action="/kases" class="new_kase" id="new_kase" method="post" onsubmit="return $(this).markAsBusyIf(Kases.validate())"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="Gv+9TgCX1Zs4SgYotkvekF7PDfSQ3a+P9K/zU16ImkQ=" /></div>
+
+
+  
+    <div class="permissions edit_section">
+      <h5>Quelle type de stage ?</h5>
+      <div class="form_section" id="new_kase_permissions">
+        <div behavior="select_permissions" class="select_permissions">
+  <div class="scope activated">
+    <label><input checked="checked" id="kase_visible_to_everyone" name="kase[visible_to]" type="radio" value="Everyone" /> Projet fin d’étude</label>
+  </div>
+
+  <div class="scope ">
+    <label><input id="kase_visible_to_owner" name="kase[visible_to]" type="radio" value="Owner" /> Stage d’été</label>
+  </div>
+
+  
+    <div class="scope ">
+      <label><input id="kase_visible_to_namedgroup" name="kase[visible_to]" type="radio" value="NamedGroup" /> Stage ouvrier </label>
+  
+    </div>
+  
+
+  
+   
+</div>
+
+      </div>
+    </div>
+<!-------------------------------------------------------------Email------------------------------------------------------------->
+  <h2>Email</h2>
+  <div class="contact_forms email_addresses" id="companymail"><div id="blank_slate_company_email_address" class='blank_slate'>Ajouter un Email</div><div class="contact_methods" style="display:none;">
+
+  <div id="email_address_x0ed65ee00053504f3546fb" class="contact_method new_contact_method">
+    <input class="autofocus" id="company_contact_data_email_addresses__address" name="companymail"  size="30" type="text" />
+    
+    <span class="addremove"><a href="#" class="remove">Remove</a></span>
+  </div>
+<div id="add_company_email_address" class="add_contact_method" style="display:none;">
+  <div class="add"><a href="#">Ajouter un autre</a></div>
+</div>
+</div></div><script type="text/javascript">
+//<![CDATA[
+async("new ContactInfo.ContactForm(\"companymail\", \"\\n\\n  \\u003Cdiv id=\\\"email_address_#{safe_id}\\\" class=\\\"contact_method new_contact_method\\\"\\u003E\\n    \\u003Cinput class=\\\"autofocus\\\" id=\\\"company_contact_data_email_addresses__address\\\" name=\\\"company[contact_data][email_addresses][][address]\\\" size=\\\"30\\\" type=\\\"text\\\"\\\u003E\\u003C/select\\u003E\\n    \\u003Cspan class=\\\"addremove\\\"\\u003E\\u003Ca href=\\\"#\\\" class=\\\"remove\\\"\\u003ERemove\\u003C/a\\u003E\\u003C/span\\u003E\\n  \\u003C/div\\u003E\\n\\n\")")
+//]]>
+</script>
+<!-------------------------------------------------------------End Email------------------------------------------------------------->
+
+
+  <p class="submit">
+    <input name="commit" type="submit" value="Add this case" /> <span>or</span>
+    <a href="https://esi1.highrisehq.com/kases" class="admin">Cancel</a>
+  </p>
+</form>
+
+
+
+                </div>
+              </div>
+              <!--// main column -->
+
+            </div>
+            <!--// page contents -->
+          
+        </div>
+        <!--// page -->
+      </div>
+
+
+
+        
+        
+        
+        <div style="margin-top: 30px"> </div>        
+      </div>
+      
+
+   <!----------------------------------------------------------------------End Contenu -------------------------------------------------------------->	 
+	 
+<!----------------------------------------------------------------------SideBar------------------------------------------------------------------->	 
+ 
+	    			{% include "AppSidebar.html" %}
+    
+<!----------------------------------------------------------------------End SideBar -------------------------------------------------------------->
+
+   
+  
+
+  
+
+  <script src="/js/sprockets.js" type="text/javascript"></script>
+  
+  <script type="text/javascript" charset="utf-8">NREUMQ.push(["nrf2","beacon-1.newrelic.com","10f60f8605",1746,"IV1cEkFdWghSFxkHXA9CUwhaV0VLWQBB",0,74])</script>
+
+</body>
+</html>

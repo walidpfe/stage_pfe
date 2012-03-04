@@ -5,6 +5,9 @@ from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from google.appengine.api import mail
 
+from espaceid import Espaceid
+from newespace import Espace
+from newespace import Newespace
 from new import New
 from updateentreprise import Updateentreprise
 from ficheentreprise import Ficheentreprise
@@ -58,7 +61,10 @@ application = webapp.WSGIApplication(
 				               ('/update', Updateentreprise),
                                          ('/company', Ficheentreprise),
                                            ('/editcompany', Editentreprise),
-                                      ('/newcompany', Newcompany)],
+                                      ('/newcompany', Newcompany),
+                                      ('/espace', Espaceid),
+                                      ('/kases', Espace),
+                                      ('/newespace', Newespace)],
                                      debug=True)
 
 # Register the wsgi application to run
