@@ -5,6 +5,7 @@ from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from google.appengine.api import mail
 
+from espaceid import Espaceid
 from newespace import Espace
 from newespace import Newespace
 from new import New
@@ -61,6 +62,7 @@ application = webapp.WSGIApplication(
                                          ('/company', Ficheentreprise),
                                            ('/editcompany', Editentreprise),
                                       ('/newcompany', Newcompany),
+                                      ('/espace', Espaceid),
                                       ('/kases', Espace),
                                       ('/newespace', Newespace)],
                                      debug=True)
