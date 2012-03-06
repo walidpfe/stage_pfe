@@ -3,8 +3,8 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
-from bdd import CompanyModel
-
+from modelespace import EspaceModel
+from modelespace import EspaceEmailsModel
 class Espace(webapp.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -15,9 +15,11 @@ class Espace(webapp.RequestHandler):
         if user:
             url = users.create_logout_url(self.request.uri)
             url_linktext = 'Logout'
+            monespace = EspaceModel.all().filter('creepar', user)
         values = {
             
         'title': title,
+            'monespace': monespace,
             'user': user,
             'url': url,
             'url_linktext': url_linktext,
@@ -25,7 +27,7 @@ class Espace(webapp.RequestHandler):
                   
         self.response.out.write(template.render('espacepros.html', values))           
 
-class Newespace(webapp.RequestHandler):
+class CreeEspace(webapp.RequestHandler):
     def get(self):
         user = users.get_current_user()
         url = users.create_login_url(self.request.uri)
@@ -44,3 +46,20 @@ class Newespace(webapp.RequestHandler):
           }
                   
         self.response.out.write(template.render('newespace.html', values))           
+
+class Newespace(webapp.RequestHandler):
+    def post(self):
+        user = users.get_current_user()
+        if user:
+         espace  = EspaceModel(
+                creepar  = users.get_current_user(),
+                typedestage = self.request.get('typestage'),
+                collaborateur = self.request.get('mailcollab'))
+         espace.put();
+         emails = self.request.get_all('mailcollab')
+         for email in emails:
+            EspaceEmailsModel(autrecollaborateur = email , espace = espace).put()
+                 
+         
+         self.redirect('/kases')
+        

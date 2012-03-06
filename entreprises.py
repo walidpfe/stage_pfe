@@ -8,6 +8,7 @@ from google.appengine.api import mail
 from espaceid import Espaceid
 from newespace import Espace
 from newespace import Newespace
+from newespace import CreeEspace
 from new import New
 from updateentreprise import Updateentreprise
 from ficheentreprise import Ficheentreprise
@@ -64,7 +65,8 @@ application = webapp.WSGIApplication(
                                       ('/newcompany', Newcompany),
                                       ('/espace', Espaceid),
                                       ('/kases', Espace),
-                                      ('/newespace', Newespace)],
+                                      ('/enrgespace', Newespace),
+                                      ('/newespace', CreeEspace)],
                                      debug=True)
 
 # Register the wsgi application to run

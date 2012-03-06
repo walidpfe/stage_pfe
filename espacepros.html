@@ -144,16 +144,22 @@ async("new MenuObserver('controls_for_kases_page')")
 <table class="index">
   
     <tr>
+  
   <td>
+  {% for espace in monespace %}	
+    
     <div class="avatar_subject kase clearfix" id="kase_632654">
       <a href="/kases/632654-prospection-stage-d-ete" class="image"><span class="sprite avatar blank_avatar kase " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_df13cd7/images/highrise_sprites.png) no-repeat -56px -0px; width: 55px; padding-top: 55px; " title="prospection stage d'été" id="">prospection stage d'été</span></a>
-
+  
       <div class="info">
-        <h1><a href="/kases/632654-prospection-stage-d-ete" class="to_person">prospection stage d'été</a>  </h1>
+        <h1><a href="/kases/632654-prospection-stage-d-ete" class="to_person">{{ espace.typedestage }}</a>  </h1>
         <h2>Updated on February 28, 2012</h2>
       </div>
+   
     </div>
+  {% endfor %} 
   </td>
+   
 </tr>
 
   
