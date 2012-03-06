@@ -15,10 +15,9 @@ class EspaceEmailsModel (db.Model):
 
 
   @classmethod
-  def getAll(self):
+  def getAllEmailsByEspaceID(self,id):
     return EspaceEmailsModel.all().filter('espace =',
-        self.getEspace())
-  
+        EspaceModel.get_by_id(id))
 
 
   @property

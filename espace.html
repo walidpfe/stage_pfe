@@ -79,10 +79,18 @@ var RAILS_ENV = "production"
                 <td class="name">
                   <h1>
                     
-                      prospection stage d'été
+                      {{ espace.typedestage }} crée par {{ espace.creepar }}
                     
                   </h1>
-                  
+                  <h2>
+                    
+                   {% for email in emails %}
+                   {{ email.autrecollaborateur }}
+    
+                   {% endfor %}
+    
+                    
+                  </h2> 
                     <div class="subject_details">
                       
                     </div>
