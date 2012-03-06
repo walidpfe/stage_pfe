@@ -889,12 +889,53 @@ async("new CalendarDateSelect(\"page_calendar_task\", {\"id\":\"page_calendar_ta
   <div id="show_contacts_in_collection">
     
       <h5>
-        Contacts
+        Membres:
         <span class="edit">
           <a href="#" onclick="Collections.manageContactsInCollection(); $('collection_parties_module').removeClassName('dim'); return false;">Add to this case</a>
         </span>
       </h5>
+	  <div class="avatar_subject clearfix" id="person_107992802">
+  <a href="/people/107992802-ghomari-reda" class="image"><span class="sprite avatar blank_avatar person " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7622079/images/highrise_sprites.png) no-repeat -112px -148px; width: 32px; padding-top: 32px; " title="Ghomari Réda" id=""> {{ espace.creepar }}</span></a>
+
+  <div class="info">
+ 
+    <h1 >
+      <a href="/people/107992802-ghomari-reda"  class="to_person">
+       {{ espace.creepar }}
+      </a>
+    </h1>
+
+    <h2>
+      
+      
+      
+    </h2>
+  </div>
+</div>
+	 
+	  {% for email in emails %}
+        
+    <div class="avatar_subject clearfix" id="person_107992802">
+  <a href="/people/107992802-ghomari-reda" class="image"><span class="sprite avatar blank_avatar person " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7622079/images/highrise_sprites.png) no-repeat -112px -148px; width: 32px; padding-top: 32px; " title="Ghomari Réda" id=""> {{ email.autrecollaborateur }}</span></a>
+
+  <div class="info">
     
+    <h1 >
+      <a href="/people/107992802-ghomari-reda"  class="to_person">
+         {{ email.autrecollaborateur }}
+      </a>
+    </h1>
+
+    <h2>
+      
+      
+      
+    </h2>
+  </div>
+</div>
+	 
+		        {% endfor %}
+      
   </div>
 
   <div id="manage_contacts_in_collection" style="display: none; ">
