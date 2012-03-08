@@ -1,0 +1,485 @@
+﻿
+
+  <div data-page-offset="0"
+    data-page-size="50"
+    data-is-last-page="true"
+    data-query="kind=parties&amp;n=0">
+  </div>
+
+
+
+  <div behavior="party_selection_container" class="party_selection">
+  <div behavior="party_selection_controls" class="party_selection_controls">
+  <div behavior="sleeve" class="sleeve">
+    <div behavior="content" class="content">
+      <div class="summaries">
+        <div behavior="selection_summary no_contacts" class="selection_summary no_contacts">
+          Select contacts to add tags, change who can see them, or delete.
+        </div>
+        <div behavior="selection_summary one_contact" class="selection_summary one_contact" style="display:none;">
+          <strong>1 contact is selected</strong>
+        </div>
+        <div behavior="selection_summary n_contacts" class="selection_summary n_contacts" style="display:none;">
+          <strong><span behavior="selection_size">0</span> contacts are selected</strong>
+        </div>
+        <div behavior="selection_summary page_of_contacts" class="selection_summary page_of_contacts" style="display:none;">
+          <strong>7 contacts  are selected</strong><br/>
+          
+        </div>
+        
+      </div>
+      <div class="invitations">
+        <a behavior="start_activity_to_create_add_tags_operation" class="link_to_start tagging">Ajouter à la sélection</a>
+      
+        <a behavior="start_activity_to_create_destroy_operation" class="link_to_start deletion">Supprimer de la sélection</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="selection_controls">
+    <a behavior="select_page" class="link_to_select page_of_contacts">Select all</a>
+    <a behavior="select_none" class="link_to_select no_contacts">Select none</a>
+  </div>
+</div>
+
+  <div behavior="party_selection_activities" class="party_selection_activities">
+  <form action="/addtoselection?id={{id}}" behavior="activity_to_create_add_tags_operation" class="create_add_tags_operation" data-container-class-name="adding_tags" method="post" onsubmit="$(this).fire('form:submit'); return false" style="display:none;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="4krhhLB2dFsqg8i1xirpo5wpTWRK+wDOhK6bQdpRKMc=" /></div>
+  <input type="hidden" name="dom_id" behavior="dom_id_input" />
+  <input type="hidden" name="type" value="add_tags" />
+  <input type="hidden" name="filters" behavior="filter_query" />
+  <div behavior="party_id_input_container" style="display:none"></div>
+  <table class="layout">
+    <tr>
+      <td class="input">
+        <input behavior="tag_name_input" class="tag_name_input" id="add_tags_op_tag_name_input" name="tags" type="text" />
+        <div class="auto_complete" id="add_tags_op_tag_name_input_matches"></div><script type="text/javascript">
+//<![CDATA[
+async("var add_tags_op_tag_name_input_auto_completer = new Ajax.Autocompleter('add_tags_op_tag_name_input', 'add_tags_op_tag_name_input_matches', '/tags/search', { paramName: 'term', updateElement: function(e) { $('add_tags_op_tag_name_input').value = (e.textContent || e.innerText || ''); $('add_tags_op_tag_name_input').focus(); } })")
+//]]>
+</script>
+      </td>
+      <td class="actions">
+        <input id="tagthesecontacts" behavior="commit_button" class="commit_button" data-disabled-text="Tagging contacts…" name="commit" type="submit" value="Tag these contacts" />
+        <span class="alt">
+          or <a behavior="stop_activity" class="link_to stop">Cancel</a>
+        </span>
+      </td>
+    </tr>
+  </table>
+  <div behavior="operation_placeholder"></div>
+  <div class="network_indicator"></div>
+</form>
+
+  <form action="https://esi1.highrisehq.com/subject_operations" behavior="activity_to_create_change_visibility_operation" class="create_change_visibility_operation" data-container-class-name="changing_visibility" method="post" onsubmit="$(this).fire('form:submit'); return false" style="display:none;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="4krhhLB2dFsqg8i1xirpo5wpTWRK+wDOhK6bQdpRKMc=" /></div>
+  <input type="hidden" name="dom_id" behavior="dom_id_input" />
+  <input type="hidden" name="type" value="change_visibility" />
+  <input type="hidden" name="filters" behavior="filter_query" />
+  <div behavior="party_id_input_container" style="display:none"></div>
+  <h1>Who can see these contacts?</h1>
+  
+    <div behavior="select_permissions" class="select_permissions">
+  <div class="scope activated">
+    <label><input checked="checked" id="operation_visible_to_everyone" name="operation[visible_to]" type="radio" value="Everyone" /> Everyone</label>
+  </div>
+
+  <div class="scope ">
+    <label><input id="operation_visible_to_owner" name="operation[visible_to]" type="radio" value="Owner" /> Just me</label>
+  </div>
+
+  
+    <div class="scope ">
+      <label><input id="operation_visible_to_namedgroup" name="operation[visible_to]" type="radio" value="NamedGroup" /> Me, plus this group&hellip;</label>
+      <div class="editor">
+        <select class="named_group" name="operation[group_id]">
+          <option style="font-style: italic" value="">Select a group&hellip;</option>
+          <option value="383469">prospection pfe</option>
+        </select>
+      </div>
+      <div class="named_groups_data" data="{&quot;383469&quot;:[684380]}"></div>
+    </div>
+  
+
+  
+    <div class="scope ">
+      <label><input id="operation_visible_to_adhocgroup" name="operation[visible_to]" type="radio" value="AdhocGroup" /> Me, plus these people&hellip;</label>
+
+      <div class="editor">
+        
+        <div class="adhoc_group_member template" style="display:none;">
+          <select name="operation[group_member_ids][]" disabled="disabled">
+            <option value="684380">Walid Lahmer</option>
+          </select>
+          <span class="sprite remove" style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7622079/images/highrise_sprites.png) no-repeat -189px -181px; width: 14px; padding-top: 14px; " title="" id=""></span>
+          <span class="sprite add" style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7622079/images/highrise_sprites.png) no-repeat -189px -197px; width: 14px; padding-top: 14px; " title="" id=""></span>
+        </div>
+
+        <div class="adhoc_group_members">
+          <input type="hidden" name="operation[group_member_ids][]" value="674863" />
+          
+        </div>
+
+        <select class="new_adhoc_group_member" style="">
+          <option style="font-style: italic" value="">Select somebody&hellip;</option>
+          <option value="684380">Walid Lahmer</option>
+        </select>
+      </div>
+    </div>
+  
+</div>
+
+  
+  <div class="footer">
+    <div class="footer_border"></div>
+    <div behavior="operation_placeholder" class="operation_placeholder"></div>
+    <div behavior="creation_controls" class="actions">
+      <input behavior="commit_button" class="commit_button" data-disabled-text="Changing permissions…" name="commit" type="submit" value="Change permissions" />
+      <span class="alt">
+        or <a behavior="stop_activity" class="link_to stop">Cancel</a>
+      </span>
+    </div>
+  </div>
+  <div class="network_indicator"></div>
+</form>
+
+  <form action="https://esi1.highrisehq.com/subject_operations" behavior="activity_to_create_destroy_operation" class="create_destroy_operation" data-container-class-name="deleting" method="post" onsubmit="$(this).fire('form:submit'); return false" style="display:none;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="4krhhLB2dFsqg8i1xirpo5wpTWRK+wDOhK6bQdpRKMc=" /></div>
+  <input type="hidden" name="dom_id" behavior="dom_id_input" />
+  <input type="hidden" name="type" value="destroy" />
+  <input type="hidden" name="filters" behavior="filter_query" />
+  <div behavior="party_id_input_container" style="display:none"></div>
+  
+  <div behavior="selection_context one_contact">
+    <div class="message">
+      <h1>Are you sure you want to delete this contact?</h1>
+      <p>
+        All the notes, emails, tasks and contact information associated with this contact will be permanently erased.
+        There is no undo.
+      </p>
+    </div>
+    <div class="footer">
+      <div class="footer_border"></div>
+      <div behavior="operation_placeholder" class="operation_placeholder"></div>
+      <div behavior="creation_controls" class="actions">
+        <input behavior="commit_button" class="commit_button" data-disabled-text="Deleting 1 contact…" name="commit" type="submit" value="I understand. Delete this contact" />
+        <span class="alt">
+          or <a behavior="stop_activity" class="link_to stop">Cancel</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div behavior="selection_context n_contacts page_of_contacts">
+    <div class="message">
+      <h1>Are you sure you want to delete these contacts?</h1>
+      <p>
+        All the notes, emails, tasks and contact information associated with these contacts will be permanently erased.
+        There is no undo.
+      </p>
+    </div>
+    <div class="footer">
+      <div class="footer_border"></div>
+      <div behavior="operation_placeholder" class="operation_placeholder"></div>
+      <div behavior="creation_controls" class="actions">
+        <input behavior="commit_button" class="commit_button" data-disabled-text="Deleting contacts…" name="commit" type="submit" value="I understand. Delete these contacts" />
+        <span class="alt">
+          or <a behavior="stop_activity" class="link_to stop">Cancel</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div behavior="selection_context contact_filter">
+    <div class="message">
+      <h1>Are you sure you want to delete all these contacts?</h1>
+      <p>
+        All the notes, emails, tasks and contact information associated with these contacts will be permanently erased.
+      </p>
+      <p>
+        <strong>7 contacts will be deleted.</strong>
+        There is no undo.
+      </p>
+    </div>
+    <div class="footer">
+      <div class="footer_border"></div>
+      <div behavior="operation_placeholder" class="operation_placeholder"></div>
+      <div behavior="creation_controls" class="actions">
+        <input behavior="commit_button" class="commit_button" data-disabled-text="Deleting contacts…" name="commit" type="submit" value="I understand. Delete these contacts" />
+        <span class="alt">
+          or <a behavior="stop_activity" class="link_to stop">Cancel</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="network_indicator"></div>
+</form>
+
+  <div class="top_border"></div>
+</div>
+
+</div>
+<button>Click me</button>
+  <div class="parties">
+    <table class="index">
+
+
+      {% for selection in selections %}
+<tr id="{{company.companyname}}">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="{{selection.company.key.id}}" /></label>
+    </td>
+    <td class="avatar">
+      <a href="/company?id={{selection.company.key.id}}" class="image"><span class="sprite avatar blank_avatar company " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_30ac99f/images/highrise_sprites.png) no-repeat -0px -0px; width: 55px; padding-top: 55px; " title="entreprise 02" id="">entreprise 02</span></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="company_105922777">
+        <div class="info">
+          <h3 >
+            <a href="/company?id={{selection.company.key.id}}" class="to_person">
+             {{selection.company.companyname}}
+            </a>
+          </h3>
+
+          <h6>
+            
+
+            
+              {{selection.companywilaya}}<a class="link_to email grey" href="mailto:email1@em.com?bcc=dropbox@93734853.esi1.highrisehq.com">{{selection.company.companymail}}</a>{{selection.company.companytel}}
+            
+
+            
+          </h6>
+		   
+          <p class="tags"><a href="/tags/1997495-fort" behavior="tag_picker" class="tag grey tag-1997495">Fort</a> {% for tag in selection.tags %} <a href="/tags/{{tag.key.id}}" behavior="tag_picker" class="tag grey tag-1997495">{{tag.name}}	</a>	  {% endfor %}</p>
+        </div>
+      </div>
+    </td>
+  
+
+  
+</tr>
+{% endfor %}
+<tr id="row_company_107701474">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="107701474" /></label>
+    </td>
+    <td class="avatar">
+      <a href="/parties/107701474-ibm-algerie" class="image"><span class="sprite avatar blank_avatar company " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7622079/images/highrise_sprites.png) no-repeat -0px -0px; width: 55px; padding-top: 55px; " title="IBM Algérie" id="">IBM Algérie</span></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="company_107701474">
+        <div class="info">
+          <h3 >
+            <a href="/parties/107701474-ibm-algerie" class="to_person">
+              IBM Algérie 
+            </a>
+          </h3>
+
+          <h6>
+            
+
+            
+              <a class="link_to email grey" href="mailto:ibm01@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">ibm01@gmail.com</a>
+            
+
+            
+          </h6>
+          <p class="tags"><a href="/tags/1997495-fort" behavior="tag_picker" class="tag grey tag-1997495">Fort</a></p>
+        </div>
+      </div>
+    </td>
+  
+
+  
+</tr>
+<tr id="row_person_105200465">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="105200465" /></label>
+    </td>
+    <td class="avatar">
+      <a href="/parties/105200465-mohamed-walid-lahmer" class="image"><span class="sprite avatar blank_avatar person " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7622079/images/highrise_sprites.png) no-repeat -112px -0px; width: 55px; padding-top: 55px; " title="Mohamed Walid Lahmer" id="">Mohamed Walid Lahmer</span></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="person_105200465">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105200465-mohamed-walid-lahmer" class="to_person">
+              Mohamed Walid Lahmer 
+            </a>
+          </h3>
+
+          <h6>
+            
+              <div class="title_and_company">
+                <a href="/parties?title=Mangager" class="grey">Mangager</a>
+                at
+                <a href="/companies/105200466-rework" class="grey">Rework</a>
+              </div>
+            
+
+            
+              <a class="link_to email grey" href="mailto:walid.pfe@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">walid.pfe@gmail.com</a>
+            
+
+            
+              0553058977
+            
+          </h6>
+          <p class="tags"><a href="/tags/1963205-developer" behavior="tag_picker" class="tag grey tag-1963205">developer</a> <a href="/tags/1963206-manager" behavior="tag_picker" class="tag grey tag-1963206">manager</a></p>
+        </div>
+      </div>
+    </td>
+  
+
+  
+</tr>
+<tr id="row_person_105202092">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="105202092" /></label>
+    </td>
+    <td class="avatar">
+      <a href="/parties/105202092-tedj-meabiou" class="image"><img alt="Tedj MEABIOU" class="avatar" height="55" src="https://asset0.37img.com/highrise/5f294b061196a30a4f57dbb30882607e4a3badd4891c02acc1dc96b8e8d13f037ffe00df48c65a4a786e4127f61716d01c9346dde190f4e5cf975b9a4e7d1d46d1ae971fb031c0dd8f501c15765a9ecb/avatar.gif?r=3" title="Tedj MEABIOU" width="55" /></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="person_105202092">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105202092-tedj-meabiou" class="to_person">
+              Tedj MEABIOU 
+            </a>
+          </h3>
+
+          <h6>
+            
+              <div class="title_and_company">
+                
+                
+                <a href="/companies/105200466-rework" class="grey">Rework</a>
+              </div>
+            
+
+            
+              <a class="link_to email grey" href="mailto:tedj.meabiou@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">tedj.meabiou@gmail.com</a>
+            
+
+            
+              0779936260
+            
+          </h6>
+          <p class="tags"><a href="/tags/1963206-manager" behavior="tag_picker" class="tag grey tag-1963206">manager</a></p>
+        </div>
+      </div>
+    </td>
+  
+
+  
+</tr>
+<tr id="row_person_107992802">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="107992802" /></label>
+    </td>
+    <td class="avatar">
+      <a href="/parties/107992802-ghomari-reda" class="image"><span class="sprite avatar blank_avatar person " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7622079/images/highrise_sprites.png) no-repeat -112px -0px; width: 55px; padding-top: 55px; " title="Ghomari Réda" id="">Ghomari Réda</span></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="person_107992802">
+        <div class="info">
+          <h3 >
+            <a href="/parties/107992802-ghomari-reda" class="to_person">
+              Ghomari Réda 
+            </a>
+          </h3>
+
+          <h6>
+            
+
+            
+
+            
+          </h6>
+          <p class="tags"></p>
+        </div>
+      </div>
+    </td>
+  
+
+  
+</tr>
+<tr id="row_company_105200466">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="105200466" /></label>
+    </td>
+    <td class="avatar">
+      <a href="/parties/105200466-rework" class="image"><img alt="Rework" class="avatar" height="55" src="https://asset0.37img.com/highrise/161735b033bb1626a322c430325509841cb58b713338ac83b3dd6039213ffd9101fa405c1b90c78c176a70b8240b39ab9344f4679b63b34318372eca012da5a8cee56356af6724fcc75844544465539d/avatar.gif?r=3" title="Rework" width="55" /></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="company_105200466">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105200466-rework" class="to_person">
+              Rework 
+            </a>
+          </h3>
+
+          <h6>
+            
+
+            
+              <a class="link_to email grey" href="mailto:meabiou@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">meabiou@gmail.com</a>
+            
+
+            
+              021900281
+            
+          </h6>
+          <p class="tags"><a href="/tags/1997495-fort" behavior="tag_picker" class="tag grey tag-1997495">Fort</a></p>
+        </div>
+      </div>
+    </td>
+  
+
+  
+</tr>
+<tr id="row_company_105893284">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="105893284" /></label>
+    </td>
+    <td class="avatar">
+      <a href="/parties/105893284-sogeti" class="image"><span class="sprite avatar blank_avatar company " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7622079/images/highrise_sprites.png) no-repeat -0px -0px; width: 55px; padding-top: 55px; " title="Sogeti" id="">Sogeti</span></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="company_105893284">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105893284-sogeti" class="to_person">
+              Sogeti 
+            </a>
+          </h3>
+
+          <h6>
+            
+
+            
+              <a class="link_to email grey" href="mailto:info@sogeti.com?bcc=dropbox@93734853.esi1.highrisehq.com">info@sogeti.com</a>
+            
+
+            
+          </h6>
+          <p class="tags"></p>
+        </div>
+      </div>
+    </td>
+  
+
+  
+</tr>
+
+      
+    </table>
+  </div>

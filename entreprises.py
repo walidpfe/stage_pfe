@@ -10,12 +10,14 @@ from newespace import Espace
 from newespace import Newespace
 from newespace import CreeEspace
 from new import New
+from addtoselection import Addtoselection
 from updateentreprise import Updateentreprise
 from ficheentreprise import Ficheentreprise
 from editcompany import Editentreprise
 from newcompany import Newcompany
 from bdd import CompanyModel
-
+from selection import Selection
+from loadselection import LoadSelection
 
 # Todo defines the data model for the Todos
 
@@ -64,7 +66,10 @@ application = webapp.WSGIApplication(
                                            ('/editcompany', Editentreprise),
                                       ('/newcompany', Newcompany),
                                       ('/espace', Espaceid),
+									   ('/selection', Selection),
+									   ('/addtoselection',Addtoselection),
                                       ('/kases', Espace),
+									  ('/loadselection',LoadSelection),
                                       ('/enrgespace', Newespace),
                                       ('/newespace', CreeEspace)],
                                      debug=True)
