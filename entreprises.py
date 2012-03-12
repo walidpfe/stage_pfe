@@ -5,6 +5,7 @@ from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from google.appengine.api import mail
 
+from espaceid import Addnote
 from espaceid import Espaceid
 from newespace import Espace
 from newespace import Newespace
@@ -106,6 +107,7 @@ application = webapp.WSGIApplication(
 									   ('/selection', Selection),
 									   ('/addtoselection',Addtoselection),
                                       ('/addtoallselections',Addtoallselections),
+                                      ('/notes',Addnote),
                                       ('/kases', Espace),
 									  ('/loadselection',LoadSelection),
 									  ('/error',ErrorPage),
