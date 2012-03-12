@@ -11,15 +11,21 @@ class Espace(webapp.RequestHandler):
         url = users.create_login_url(self.request.uri)
         url_linktext = 'Login'
         title= 'Ajouter une entreprise'
+        listedesespaces = EspaceEmailsModel.getMyEspaces()
+	mesespaces = list()
+	for espaceid in listedesespaces:
+		mesespaces.append(EspaceModel.get_by_id(espaceid))
                     
         if user:
             url = users.create_logout_url(self.request.uri)
             url_linktext = 'Logout'
             monespace = EspaceModel.all().filter('creepar', user)
+	    
+	    
         values = {
-            
-        'title': title,
-            'monespace': monespace,
+            'listdesespaces': listedesespaces,
+            'title': title,
+            'monespace': mesespaces,
             'user': user,
             'url': url,
             'url_linktext': url_linktext,
@@ -37,7 +43,11 @@ class CreeEspace(webapp.RequestHandler):
         if user:
             url = users.create_logout_url(self.request.uri)
             url_linktext = 'Logout'
+			
+			
+		
         values = {
+		
             
         'title': title,
             'user': user,

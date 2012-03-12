@@ -43,8 +43,9 @@
 </div>
 
   <div behavior="party_selection_activities" class="party_selection_activities">
-  <form action="/addtoselection?id={{id}}" behavior="activity_to_create_add_tags_operation" class="create_add_tags_operation" data-container-class-name="adding_tags" method="post" onsubmit="$(this).fire('form:submit'); return false" style="display:none;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="4krhhLB2dFsqg8i1xirpo5wpTWRK+wDOhK6bQdpRKMc=" /></div>
+  <form  id="addtoselection" action="/addtoselection?id={{id}}" behavior="activity_to_create_add_tags_operation" class="create_add_tags_operation" data-container-class-name="adding_tags" method="post" onsubmit="$(this).fire('form:submit'); return false" style="display:none;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="4krhhLB2dFsqg8i1xirpo5wpTWRK+wDOhK6bQdpRKMc=" /></div>
   <input type="hidden" name="dom_id" behavior="dom_id_input" />
+    <input type="hidden" id="selection_id"  value="{{id}}" />
   <input type="hidden" name="type" value="add_tags" />
   <input type="hidden" name="filters" behavior="filter_query" />
   <div behavior="party_id_input_container" style="display:none"></div>
@@ -217,7 +218,7 @@ async("var add_tags_op_tag_name_input_auto_completer = new Ajax.Autocompleter('a
 </div>
 
 </div>
-<button>Click me</button>
+
   <div class="parties">
     <table class="index">
 

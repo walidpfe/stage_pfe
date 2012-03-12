@@ -18,6 +18,19 @@ class SelectionModel(db.Model):
   selectedby     = db.UserProperty(required=True)
   dateselected   = db.DateTimeProperty(auto_now_add=True)
   
+  
+  @classmethod
+  def getAllTagsForCompanyInThisEspace(self,espaceid, companyid):
+    espace = EspaceModel.get_by_id(espaceid)
+    company = CompanyModel.get_by_id(companyid)
+    selectionsforcompany_query = SelectionModel.all().filter('espace = ',espace).filter('company = ',company)
+    selectionsforcompany = selectionsforcompany_query.fetch(1000)
+    tags = list()
+    for selection in selectionsforcompany:
+      tags.append(selection.tag)
+
+    return tags
+  
 
 
 

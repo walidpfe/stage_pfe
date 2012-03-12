@@ -595,6 +595,7 @@ async("new MenuObserver('people_blank_slate_controls')")
   <div behavior="party_selection_activities" class="party_selection_activities">
   <form id="addtoselection" action="/addtoselection?id={{id}}" behavior="activity_to_create_add_tags_operation" onsubmit="$(this).fire('form:submit'); return false" class="create_add_tags_operation" data-container-class-name="adding_tags" method="post" style="display:none;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="4krhhLB2dFsqg8i1xirpo5wpTWRK+wDOhK6bQdpRKMc=" /></div>
   <input type="hidden" name="dom_id" behavior="dom_id_input" />
+  <input type="hidden" id="selection_id"  value="{{id}}" />
   <input type="hidden" name="type" value="add_tags" />
   <input type="hidden" name="filters" behavior="filter_query" />
   <div behavior="party_id_input_container" style="display:none"></div>
@@ -1123,7 +1124,40 @@ async("var add_tags_op_tag_name_input_auto_completer = new Ajax.Autocompleter('a
    <script src="/js/sprockets.js" type="text/javascript"></script>
 
   
+ <script type="text/javascript">
+ Event.observe(window, 'load', init, false);
 
+function init() {
+  // Attach handler to form's submit event
+  Event.observe('addtoselection', 'submit', loadwithajax);
+ // alert('work ');
+}
+var count =0;
+function loadwithajax(e) {
+	count++;
+//	alert('work tagginggg'+count);
+	 Event.stop(e);
+	var selectionid =   $('selection_id').getAttribute('value');
+	var url =  '/loadselection?id=' + selectionid;
+	//alert(selectionid);
+	new Ajax.Request(url, {
+	  method: 'get',
+	  onSuccess: function(transport) {
+		var notice = $('idajax');
+		
+		  notice.update(transport.responseText);
+		   Event.observe('addtoselection', 'submit', loadwithajax);
+	
+		 
+	  
+	}
+ 
+ 
+ 
+});
+}
+
+ </script>
   
   <script type="text/javascript" charset="utf-8">NREUMQ.push(["nrf2","beacon-1.newrelic.com","10f60f8605",1746,"IV1cEkFdWghSFxkHXA9CUwhaV0VLWQBB",0,74])</script>
 
