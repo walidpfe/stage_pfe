@@ -6,10 +6,6 @@ from google.appengine.ext.webapp import template
 from google.appengine.api import mail
 
 
-
-
-
-
 class CompanyModel(db.Model):
      companyaddedby     = db.UserProperty(required=True)
      companyname        = db.StringProperty()
@@ -20,4 +16,40 @@ class CompanyModel(db.Model):
      companywilaya      = db.StringProperty()
      companydescription = db.StringProperty(multiline=True)
      companydateadded   = db.DateTimeProperty(auto_now_add=True)
+
+
+
+class CompanyEmailsModel(db.Model):
+  email    = db.StringProperty()  
+  company       = db.ReferenceProperty(CompanyModel,
+      collection_name = 'emails')
+  
+  @classmethod
+  def getAllEmailsByCompanyID(self,id):
+    return CompanyEmailsModel.all().filter('company =',
+        CompanyModel.get_by_id(id)).order(
+        'email').fetch(1000)
+
+  @property
+  def id_or_name(self):
+    return self.key().id_or_name()
+
+
+
+class CompanyAddressesesModel(db.Model):
+  companyaddress     = db.StringProperty(multiline=True)
+  companywilaya      = db.StringProperty()
+  company       = db.ReferenceProperty(CompanyModel,
+      collection_name = 'addresses')
+
+
+  @classmethod
+  def getAll(self):
+    return CompanyAddressesesModel.all().filter('company =',
+        self.getCompany()).order(
+        'companywilaya').fetch(1000)
+
+  @property
+  def id_or_name(self):
+    return self.key().id_or_name()
 

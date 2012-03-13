@@ -1,9 +1,6 @@
-
-
-
 from google.appengine.ext import db
 
-from bdd import CompanyModel
+from company import CompanyModel
 from modelespace import EspaceModel
 from tagmodel import TagModel
 

@@ -4,20 +4,20 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from google.appengine.api import mail
-
+from espaceid import Rechnote
 from espaceid import Addnote
 from espaceid import Espaceid
 from newespace import Espace
 from newespace import Newespace
 from newespace import CreeEspace
-from new import New
 from addtoselection import Addtoselection
-from  addtoallselections  import Addtoallselections
+from addtoselection  import Addtoallselections
 from updateentreprise import Updateentreprise
 from ficheentreprise import Ficheentreprise
 from editcompany import Editentreprise
+from newcompany import Enrgcompany
 from newcompany import Newcompany
-from bdd import CompanyModel
+from company import CompanyModel
 from selection import Selection
 from loadselection import LoadSelection
 from selectionmodel import SelectionModel
@@ -98,7 +98,7 @@ class ErrorPage(webapp.RequestHandler):
 # Register the URL with the responsible classes
 application = webapp.WSGIApplication(
                                      [('/', MainPage),
-                                      ('/new', New),
+                                      ('/new', Enrgcompany),
 				               ('/update', Updateentreprise),
                                          ('/company', Ficheentreprise),
                                            ('/editcompany', Editentreprise),
@@ -111,6 +111,7 @@ application = webapp.WSGIApplication(
                                       ('/kases', Espace),
 									  ('/loadselection',LoadSelection),
 									  ('/error',ErrorPage),
+                                      ('/Rechnote',Rechnote),
                                       ('/enrgespace', Newespace),
                                       ('/newespace', CreeEspace)],
                                      debug=True)

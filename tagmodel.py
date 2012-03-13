@@ -1,8 +1,4 @@
-
-
-
 from google.appengine.ext import db
-
 from modelespace import EspaceModel
 
 

@@ -4,7 +4,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from company import CompanyModel
-from companyemails import CompanyEmailsModel
+from company import CompanyEmailsModel
 from tagmodel import TagModel
 from modelespace import EspaceModel
 from selectionmodel import SelectionModel

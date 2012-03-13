@@ -1060,7 +1060,7 @@ async("new Form.Element.Observer('live_search_for_involvement', 1, function(elem
 
 function init() {
   // Attach handler to form's submit event
-  Event.observe('notes', 'submit', loadwithajax);
+  Event.observe('new_note', 'submit', loadwithajax);
  // alert('work ');
 }
 var count =0;
@@ -1068,16 +1068,16 @@ function loadwithajax(e) {
 	count++;
 //	alert('work tagginggg'+count);
 	 Event.stop(e);
-//	var selectionid =   $('selection_id').getAttribute('value');
-//	var url =  '/loadselection?id=' + selectionid;
+	var espaceid =   $('note_subject_id').getAttribute('value');
+	var url =  '/Rechnote?id='+espaceid;
 	//alert(selectionid);
 	new Ajax.Request(url, {
 	  method: 'get',
 	  onSuccess: function(transport) {
-		var notice = $('idajax');
+		var notice = $('page_main_column');
 		
 		  notice.update(transport.responseText);
-		   Event.observe('notes', 'submit', loadwithajax);
+		   Event.observe('new_note', 'submit', loadwithajax);
 	
 		 
 	  

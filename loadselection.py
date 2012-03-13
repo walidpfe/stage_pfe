@@ -3,7 +3,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
-from bdd import CompanyModel
+from company import CompanyModel
 from tagmodel import TagModel
 from selectionmodel import SelectionModel
 from modelespace import EspaceModel
