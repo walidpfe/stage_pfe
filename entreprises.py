@@ -4,6 +4,9 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from google.appengine.api import mail
+from sujetproposer import Sujet
+from sujetproposer import CreeSujet
+from sujetproposer import NewSujet
 from espaceid import Rechnote
 from espaceid import Addnote
 from espaceid import Espaceid
@@ -111,6 +114,9 @@ application = webapp.WSGIApplication(
                                       ('/kases', Espace),
 									  ('/loadselection',LoadSelection),
 									  ('/error',ErrorPage),
+                                      ('/deals',Sujet),
+                                      ('/newsujet',CreeSujet),
+                                      ('/enrgsujet', NewSujet),
                                       ('/Rechnote',Rechnote),
                                       ('/enrgespace', Newespace),
                                       ('/newespace', CreeEspace)],

@@ -7,7 +7,7 @@
   
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Highrise</title>
+  <title>Highrise: Cases</title>
   <meta name='current-user' content= 684380 />
 
   <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
@@ -33,7 +33,8 @@ var RAILS_ENV = "production"
   
 </head>
 
-<body class="clearfix new_kase former_sheet narrow_page_with_sidebar_outside webkit  windows"  onloadnot="setupZoom()">
+<body class="clearfix kases narrow_page_with_sidebar_outside webkit  windows"  onloadnot="setupZoom()">
+  
   
 
 <!------------------------------------------------------------- Header de la page ------------------------------------------------------------->
@@ -42,7 +43,7 @@ var RAILS_ENV = "production"
 
 <!------------------------------------------------------------- Contenu de la page ------------------------------------------------------------>
 
-<div id="wrapper">
+  <div id="wrapper">
     <div id="inner_wrapper">
       <div id="main_body" class="column">
         
@@ -50,6 +51,18 @@ var RAILS_ENV = "production"
         
         <div id="blank_slate" class="clearfix">
           
+   <div class="blank_slate_layout">
+  <div class="graphic" style="background-image:url(https://d1a993iq9azmzq.cloudfront.net/rev_df13cd7/images/blankslate_icon_cases.png);"></div>
+  <div class="content">
+    <h1>Cases keep it together.</h1>
+    <p>Cases help you keep related emails, notes, files, images, and contacts together on one screen. A case is basically like a virtual file folder.</p>
+    <div class="controls">
+      <span class="button"><a href="/kases/new" behavior="return_to"><span>Add your first case</span></a></span>
+      
+    </div>
+  </div>
+</div>
+
         </div>
 
         
@@ -58,11 +71,15 @@ var RAILS_ENV = "production"
         <div id="page_sidebar">
           <div class="liner">
             
-  <div class="sidebox closedbox">
-    <h5><strong>What are cases?</strong></h5>
-    <p>Cases help you keep related notes, files, images, and people together on one screen. You can add notes directly on a case or attach a note you’ve entered on a person page to a case.</p>
-  </div>
-
+    <div class="sidebox_wrapper">
+      <div class="liner">
+        <div class="sidebox closedbox">
+          <h5>Create Cases via email</h5>
+          <p>You can create cases via email. Add <strong>/case New Case</strong> to the top of your message, then send it to your <a href="/users/684380/edit#email_dropbox">dropbox</a>.</p>
+        </div>
+      </div>
+    </div>
+  
           </div>
         </div>
         <!--// page sidebar -->
@@ -76,7 +93,7 @@ var RAILS_ENV = "production"
               <div id="page_header">
 
                 <div class="page_header">
-  <h1>Add a new case</h1>
+  <h1>Your Cases</h1>
 </div>
 
               </div>
@@ -94,66 +111,64 @@ var RAILS_ENV = "production"
 
 
 
-<form action="/enrgespace" class="new_kase" id="new_kase" method="post" onsubmit="return $(this).markAsBusyIf(Kases.validate())"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="Gv+9TgCX1Zs4SgYotkvekF7PDfSQ3a+P9K/zU16ImkQ=" /></div>
 
 
-  
-    <div class="permissions edit_section">
-      <h5>Quelle type de stage ?</h5>
-      <div class="form_section" id="new_kase_permissions">
-        <div behavior="select_permissions" class="select_permissions">
-  <div class="scope activated">
-    <label><input checked="checked" id="kase_visible_to_everyone" name="typestage" type="radio" value="pfe" /> Projet fin d’étude</label>
-  </div>
 
-  <div class="scope ">
-    <label><input id="kase_visible_to_owner" name="typestage" type="radio" value="se" /> Stage d’été</label>
-  </div>
 
-  
-    <div class="scope ">
-      <label><input id="kase_visible_to_namedgroup" name="typestage" type="radio" value="so" /> Stage ouvrier </label>
-  
-    </div>
-  
-
-  
-   
-</div>
-
+<table class="menu_collection" id="controls_for_kases_page">
+  <tr>
+    <td class="snug" width="150">
+      <div class="menu_container" style="width:150px;">
+        
+          <span class="button"><a href="/newsujet" behavior="return_to"><span>Nouveau Sujet</span></a></span>
+        
       </div>
-    </div>
-<!-------------------------------------------------------------Email------------------------------------------------------------->
-<table>
-	<tr>
- <th><h2>Email</h2></th>
-
-   <td><div class="contact_forms email_addresses" id="companymail"><div id="blank_slate_company_email_address" class='blank_slate'>Ajouter un Email</div><div class="contact_methods" style="display:none;">
-
-  <div id="email_address_x0ed65ee00053504f3546fb" class="contact_method new_contact_method">
-    <input class="autofocus" id="company_contact_data_email_addresses__address" name="mailcollab"  size="30" type="text" />
-    
-    <span class="addremove"><a href="#" class="remove">Remove</a></span>
-  </div>
-<div id="add_company_email_address" class="add_contact_method" style="display:none;">
-  <div class="add"><a href="#">Ajouter un autre</a></div>
-</div>
-</div></div><script type="text/javascript">
-//<![CDATA[
-async("new ContactInfo.ContactForm(\"companymail\", \"\\n\\n  \\u003Cdiv id=\\\"email_address_#{safe_id}\\\" class=\\\"contact_method new_contact_method\\\"\\u003E\\n    \\u003Cinput class=\\\"autofocus\\\" id=\\\"company_contact_data_email_addresses__address\\\" name=\\\"mailcollab\\\" size=\\\"30\\\" type=\\\"text\\\"\\\u003E\\u003C/select\\u003E\\n    \\u003Cspan class=\\\"addremove\\\"\\u003E\\u003Ca href=\\\"#\\\" class=\\\"remove\\\"\\u003ERemove\\u003C/a\\u003E\\u003C/span\\u003E\\n  \\u003C/div\\u003E\\n\\n\")")
-//]]>
-</script></td>
-</tr>
+    </td>
+    <td class="long">
+      <div id="page_filter_options">
+        Showing
+        
+          <strong>open cases</strong>.
+          
+        
+      </div>
+    </td>
+  </tr>
 </table>
-<!-------------------------------------------------------------End Email------------------------------------------------------------->
+<script type="text/javascript">
+//<![CDATA[
+async("new MenuObserver('controls_for_kases_page')")
+//]]>
+</script>
+
+<table class="index">
+  
+    <tr>
+  
+  <td>
+  {% for sujet in listedesujet %}	
+    
+    <div class="avatar_subject kase clearfix" id="kase_632654">
+      <a href="/kases/632654-prospection-stage-d-ete" class="image"><span class="sprite avatar blank_avatar kase " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_df13cd7/images/highrise_sprites.png) no-repeat -56px -0px; width: 55px; padding-top: 55px; " title="prospection stage d'été" id="">prospection stage d'été</span></a>
+  
+      <div class="info">
+        <h1><a href="/espace?id={{sujet.key.id}}" class="to_person">{{ sujet.titresujet }}</a>  </h1>
+        <h2>{{ sujet.organisme }}</h2>
+      </div>
+   
+    </div>
+  {% endfor %} 
+  </td>
+   
+</tr>
+
+  
+</table>
+
+<p></p>
 
 
-  <p class="submit">
-    <input name="commit" type="submit" value="Add this case" /> <span>or</span>
-    <a href="https://esi1.highrisehq.com/kases" class="admin">Cancel</a>
-  </p>
-</form>
-
+  
 
 
                 </div>
@@ -173,10 +188,8 @@ async("new ContactInfo.ContactForm(\"companymail\", \"\\n\\n  \\u003Cdiv id=\\\"
         
         
         <div style="margin-top: 30px"> </div>        
-      </div>
-      
-
-   <!----------------------------------------------------------------------End Contenu -------------------------------------------------------------->	 
+      </div>   
+    <!----------------------------------------------------------------------End Contenu -------------------------------------------------------------->	 
 	 
 <!----------------------------------------------------------------------SideBar------------------------------------------------------------------->	 
  

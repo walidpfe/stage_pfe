@@ -5,33 +5,33 @@ from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from modelespace import EspaceModel
 from modelespace import EspaceEmailsModel
-class Espace(webapp.RequestHandler):
+from modelsujet import SujetModel
+from modelsujet import EncadreurSujetModel
+from modelsujet import MotcleSujetModel 
+class Sujet(webapp.RequestHandler):
     def get(self):
         user = users.get_current_user()
         url = users.create_login_url(self.request.uri)
         url_linktext = 'Login'
         title= 'Ajouter une entreprise'
-        listedesespaces = EspaceEmailsModel.getMyEspaces()
-        mesespaces = list()
-        for espaceid in listedesespaces:
-            mesespaces.append(EspaceModel.get_by_id(espaceid))
-                    
+        listedesujet = SujetModel.all().filter('sujetaddedby =', user)
+                  
         if user:
             url = users.create_logout_url(self.request.uri)
             url_linktext = 'Logout'
-            monespace = EspaceModel.all().filter('creepar', user)
+          
+        
         values = {
-            'listdesespaces': listedesespaces,
             'title': title,
-            'monespace': mesespaces,
+            'listedesujet': listedesujet,
             'user': user,
             'url': url,
             'url_linktext': url_linktext,
           }
                   
-        self.response.out.write(template.render('espacepros.html', values))           
+        self.response.out.write(template.render('sujetproposer.html', values))           
 
-class CreeEspace(webapp.RequestHandler):
+class CreeSujet(webapp.RequestHandler):
     def get(self):
         user = users.get_current_user()
         url = users.create_login_url(self.request.uri)
@@ -42,27 +42,32 @@ class CreeEspace(webapp.RequestHandler):
             url = users.create_logout_url(self.request.uri)
             url_linktext = 'Logout'
         values = {
-		 'title': title,
+         'title': title,
             'user': user,
             'url': url,
             'url_linktext': url_linktext,
           }
                   
-        self.response.out.write(template.render('newespace.html', values))           
+        self.response.out.write(template.render('newsujet.html', values))           
 
-class Newespace(webapp.RequestHandler):
+class NewSujet(webapp.RequestHandler):
     def post(self):
         user = users.get_current_user()
         if user:
-         espace  = EspaceModel(
-                creepar  = users.get_current_user(),
-                typedestage = self.request.get('typestage'),
-                collaborateur = self.request.get('mailcollab'))
-         espace.put();
-         emails = self.request.get_all('mailcollab')
-         for email in emails:
-            EspaceEmailsModel(autrecollaborateur = email , espace = espace).put()
-                 
+         sujet  = SujetModel(
+                sujetaddedby  = users.get_current_user(),
+                titresujet = self.request.get('sujettitre'),
+                description = self.request.get('Resume'),
+                organisme = self.request.get('organisme'))
+         sujet.put();
+         mots = self.request.get_all('motcle')
+         for mot in mots:
+             MotcleSujetModel(motcle = mot , sujet = sujet).put()
+      
+         encadreurs = self.request.get_all('autreencadreure')
+         for encadreur in encadreurs:
+             EncadreurSujetModel(autreencadreur = encadreur , sujet = sujet).put()
+                  
          
-         self.redirect('/kases')
+         self.redirect('/deals')
         
