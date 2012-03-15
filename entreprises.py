@@ -4,25 +4,35 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from google.appengine.api import mail
-from sujetproposer import Sujet
-from sujetproposer import CreeSujet
-from sujetproposer import NewSujet
-from espaceid import Rechnote
-from espaceid import Addnote
-from espaceid import Espaceid
-from newespace import Espace
-from newespace import Newespace
-from newespace import CreeEspace
-from addtoselection import Addtoselection
-from addtoselection  import Addtoallselections
-from updateentreprise import Updateentreprise
-from ficheentreprise import Ficheentreprise
-from editcompany import Editentreprise
-from newcompany import Enrgcompany
-from newcompany import Newcompany
+
+#gestion des entreprises /controllers/gestiondesentreprises
+from controllers.gestiondesentreprises.updateentreprise import Updateentreprise
+from controllers.gestiondesentreprises.ficheentreprise import Ficheentreprise
+from controllers.gestiondesentreprises.editcompany import Editentreprise
+from controllers.gestiondesentreprises.newcompany import Enrgcompany
+from controllers.gestiondesentreprises.newcompany import Newcompany
+
+#gestion des espaces /controllers/gestiondesespaces
+from controllers.gestiondesespaces.espaceid import Rechnote
+from controllers.gestiondesespaces.espaceid import Addnote
+from controllers.gestiondesespaces.espaceid import Espaceid
+from controllers.gestiondesespaces.newespace import Espace
+from controllers.gestiondesespaces.newespace import Newespace
+from controllers.gestiondesespaces.newespace import CreeEspace
+
+#gestion des selection /controllers/gestiondesselections
+from controllers.gestiondesselections.addtoselection import Addtoselection
+from controllers.gestiondesselections.addtoselection  import Addtoallselections
+from controllers.gestiondesselections.selection import Selection
+from controllers.gestiondesselections.loadselection import LoadSelection
+
+#gestion des sujets /controllers/gestiondessujets
+from controllers.gestiondessujets.sujetproposer import Sujet
+from controllers.gestiondessujets.sujetproposer import CreeSujet
+from controllers.gestiondessujets.sujetproposer import NewSujet
+
+#Datastore models
 from models.company import CompanyModel
-from selection import Selection
-from loadselection import LoadSelection
 from models.selectionmodel import SelectionModel
 from models.modelespace import EspaceEmailsModel
 
