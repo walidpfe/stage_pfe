@@ -4,6 +4,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from google.appengine.api import mail
+from apptools import AppHandler
 
 #gestion des entreprises /controllers/gestiondesentreprises
 from controllers.gestiondesentreprises.updateentreprise import Updateentreprise
@@ -36,20 +37,24 @@ from models.company import CompanyModel
 from models.selectionmodel import SelectionModel
 from models.modelespace import EspaceEmailsModel
 
-# Todo defines the data model for the Todos
+import auth
 
  
 # The main page where the user can login and logout
 # MainPage is a subclass of webapp.RequestHandler and overwrites the get method
 class SelectionView:
     pass
-class MainPage(webapp.RequestHandler):
+class MainPage(AppHandler):
     def get(self):
         user = users.get_current_user()
         url = users.create_login_url(self.request.uri)
         url_linktext = 'Login'
                     
-        if user:
+        if self.hasValidUser():
+         if self.isNewUser():
+            self.redirect("/userpreferences")
+         else:
+       
             url = users.create_logout_url(self.request.uri)
             url_linktext = 'Logout'
             listdesespaces = EspaceEmailsModel.getMyEspaces()
@@ -92,8 +97,7 @@ class MainPage(webapp.RequestHandler):
                 'url_linktext': url_linktext,
             }
             self.response.out.write(template.render('templates/companies.html', values))
-        else:
-            self.redirect(users.create_login_url(self.request.uri))
+        
 # GQL is similar to SQL
         
 
@@ -104,6 +108,13 @@ class ErrorPage(webapp.RequestHandler):
 	values ={}	
         self.response.out.write(template.render('templates/error.html', values))
 
+class UserProfile(webapp.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        email = user.email()
+	values ={'myemail':email}	
+        self.response.out.write(template.render('templates/userprofile.html', values))
+
 
 
 
@@ -111,6 +122,11 @@ class ErrorPage(webapp.RequestHandler):
 # Register the URL with the responsible classes
 application = webapp.WSGIApplication(
                                      [('/', MainPage),
+                                      ('/oauth2callback', auth.CallbackHandler),
+                                          ('/catchtoken', auth.CatchTokenHandler),
+                                          ('/profile', auth.ProfileHandler),
+                                          ('/logout', auth.LogoutHandler),
+                                          ('/code', auth.CodeHandler),
                                       ('/new', Enrgcompany),
 				               ('/update', Updateentreprise),
                                          ('/company', Ficheentreprise),
@@ -129,6 +145,7 @@ application = webapp.WSGIApplication(
                                       ('/enrgsujet', NewSujet),
                                       ('/Rechnote',Rechnote),
                                       ('/enrgespace', Newespace),
+                                      ('/userprofile',UserProfile),
                                       ('/newespace', CreeEspace)],
                                      debug=True)
 
