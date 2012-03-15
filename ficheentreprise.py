@@ -3,8 +3,8 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
-from company import CompanyModel
-from company import CompanyEmailsModel
+from models.company import CompanyModel
+from models.company import CompanyEmailsModel
 
 
 
@@ -38,5 +38,5 @@ class Ficheentreprise(webapp.RequestHandler):
             'url': url,
             'url_linktext': url_linktext,
         }
-        self.response.out.write(template.render('fiche_entreprise.html', values))
+        self.response.out.write(template.render('templates/fiche_entreprise.html', values))
 

@@ -20,11 +20,11 @@ from ficheentreprise import Ficheentreprise
 from editcompany import Editentreprise
 from newcompany import Enrgcompany
 from newcompany import Newcompany
-from company import CompanyModel
+from models.company import CompanyModel
 from selection import Selection
 from loadselection import LoadSelection
-from selectionmodel import SelectionModel
-from modelespace import EspaceEmailsModel
+from models.selectionmodel import SelectionModel
+from models.modelespace import EspaceEmailsModel
 
 # Todo defines the data model for the Todos
 
@@ -81,7 +81,7 @@ class MainPage(webapp.RequestHandler):
                 'url': url,
                 'url_linktext': url_linktext,
             }
-            self.response.out.write(template.render('companies.html', values))
+            self.response.out.write(template.render('templates/companies.html', values))
         else:
             self.redirect(users.create_login_url(self.request.uri))
 # GQL is similar to SQL
@@ -92,7 +92,7 @@ class MainPage(webapp.RequestHandler):
 class ErrorPage(webapp.RequestHandler):
     def get(self):
 	values ={}	
-        self.response.out.write(template.render('error.html', values))
+        self.response.out.write(template.render('templates/error.html', values))
 
 
 

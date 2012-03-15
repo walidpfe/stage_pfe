@@ -3,8 +3,8 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
-from modelespace import EspaceModel
-from modelespace import EspaceEmailsModel
+from models.modelespace import EspaceModel
+from models.modelespace import EspaceEmailsModel
 class Espace(webapp.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -29,7 +29,7 @@ class Espace(webapp.RequestHandler):
             'url_linktext': url_linktext,
           }
                   
-        self.response.out.write(template.render('espacepros.html', values))           
+        self.response.out.write(template.render('templates/espacepros.html', values))           
 
 class CreeEspace(webapp.RequestHandler):
     def get(self):
@@ -48,7 +48,7 @@ class CreeEspace(webapp.RequestHandler):
             'url_linktext': url_linktext,
           }
                   
-        self.response.out.write(template.render('newespace.html', values))           
+        self.response.out.write(template.render('templates/newespace.html', values))           
 
 class Newespace(webapp.RequestHandler):
     def post(self):

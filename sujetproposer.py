@@ -3,11 +3,11 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
-from modelespace import EspaceModel
-from modelespace import EspaceEmailsModel
-from modelsujet import SujetModel
-from modelsujet import EncadreurSujetModel
-from modelsujet import MotcleSujetModel 
+from models.modelespace import EspaceModel
+from models.modelespace import EspaceEmailsModel
+from models.modelsujet import SujetModel
+from models.modelsujet import EncadreurSujetModel
+from models.modelsujet import MotcleSujetModel 
 class Sujet(webapp.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -29,7 +29,7 @@ class Sujet(webapp.RequestHandler):
             'url_linktext': url_linktext,
           }
                   
-        self.response.out.write(template.render('sujetproposer.html', values))           
+        self.response.out.write(template.render('templates/sujetproposer.html', values))           
 
 class CreeSujet(webapp.RequestHandler):
     def get(self):
@@ -48,7 +48,7 @@ class CreeSujet(webapp.RequestHandler):
             'url_linktext': url_linktext,
           }
                   
-        self.response.out.write(template.render('newsujet.html', values))           
+        self.response.out.write(template.render('templates/newsujet.html', values))           
 
 class NewSujet(webapp.RequestHandler):
     def post(self):

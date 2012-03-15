@@ -3,8 +3,8 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
-from company import CompanyModel
-from company import CompanyEmailsModel
+from models.company import CompanyModel
+from models.company import CompanyEmailsModel
 
 
 class Newcompany(webapp.RequestHandler):
@@ -25,7 +25,7 @@ class Newcompany(webapp.RequestHandler):
             'url_linktext': url_linktext,
           }
                   
-        self.response.out.write(template.render('addnewcompany.html', values))           
+        self.response.out.write(template.render('templates/addnewcompany.html', values))           
 
 class Enrgcompany(webapp.RequestHandler):
     def post(self):

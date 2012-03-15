@@ -3,9 +3,9 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
-from modelespace import EspaceModel
-from modelespace import EspaceEmailsModel
-from notemodel import NoteEspaceModel
+from models.modelespace import EspaceModel
+from models.modelespace import EspaceEmailsModel
+from models.notemodel import NoteEspaceModel
 
 class Espaceid(webapp.RequestHandler):
     def get(self):
@@ -33,7 +33,7 @@ class Espaceid(webapp.RequestHandler):
             'url_linktext': url_linktext,
           }
                   
-        self.response.out.write(template.render('espace.html', values))           
+        self.response.out.write(template.render('templates/espace.html', values))           
 
 class Addnote(webapp.RequestHandler):
     def post(self):
@@ -73,4 +73,4 @@ class Rechnote(webapp.RequestHandler):
             'url_linktext': url_linktext,
           }
                   
-        self.response.out.write(template.render('loadespace.html', values))  
+        self.response.out.write(template.render('templates/loadespace.html', values))  

@@ -38,7 +38,7 @@ class Deletefromselection(webapp.RequestHandler):
 	    'idlist': idlist,
 	    
           }
-         self.response.out.write(template.render('afterselection.html', values))
+         #self.response.out.write(template.render('afterselection.html', values))
                  
          
          #self.redirect('/')

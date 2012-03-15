@@ -3,7 +3,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
-from company import CompanyModel
+from models.company import CompanyModel
 
 class Editentreprise(webapp.RequestHandler):
     def get(self):
@@ -31,5 +31,5 @@ class Editentreprise(webapp.RequestHandler):
             'url': url,
             'url_linktext': url_linktext,
         }
-        self.response.out.write(template.render('editcompany.html', values))
+        self.response.out.write(template.render('templates/editcompany.html', values))
 
