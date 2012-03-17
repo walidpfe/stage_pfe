@@ -21,6 +21,7 @@ class Espace(webapp.RequestHandler):
             url_linktext = 'Logout'
             monespace = EspaceModel.all().filter('creepar', user)
         values = {
+        
             'listdesespaces': listedesespaces,
             'title': title,
             'monespace': mesespaces,

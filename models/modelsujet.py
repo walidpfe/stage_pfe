@@ -10,9 +10,11 @@ class SujetModel(db.Model):
      sujetaddedby     = db.UserProperty(required=True)
      titresujet        = db.StringProperty()
      organisme         = db.StringProperty()
-     description = db.Text()
+     description = db.TextProperty()
      sujetdateadded   = db.DateTimeProperty(auto_now_add=True)
-     
+     motcle = db.StringProperty()
+     autreencadreur = db.StringProperty()
+
 class EncadreurSujetModel (db.Model):
   autreencadreur = db.StringProperty()
   sujet       = db.ReferenceProperty(SujetModel,
