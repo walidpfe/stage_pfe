@@ -6,7 +6,7 @@ from google.appengine.ext.webapp import template
 from models.modelespace import EspaceModel
 from models.modelespace import EspaceEmailsModel
 from models.notemodel import NoteEspaceModel
-
+from models.userprofilemodel import UserProfileModel
 class Espaceid(webapp.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -22,7 +22,10 @@ class Espaceid(webapp.RequestHandler):
             lespace = EspaceModel.get_by_id(id)
             emails = EspaceEmailsModel.getAllEmailsByEspaceID(id)
             notes = NoteEspaceModel.all().order('-creedate').filter('espace', EspaceModel.get_by_id(id))
+            userinfo = UserProfileModel.getCurrent() 
+        
         values = {
+            'userinfo': userinfo,
             'idespace' :id,      
             'notes' : notes,      
             'emails' : emails,

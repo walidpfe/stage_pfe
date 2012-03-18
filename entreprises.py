@@ -32,10 +32,16 @@ from controllers.gestiondessujets.sujetproposer import Sujet
 from controllers.gestiondessujets.sujetproposer import CreeSujet
 from controllers.gestiondessujets.sujetproposer import NewSujet
 
+#profile
+from controllers.gestionprofile.profile import Monprofile
+
+
 #Datastore models
 from models.company import CompanyModel
 from models.selectionmodel import SelectionModel
 from models.modelespace import EspaceEmailsModel
+
+
 
 import auth
 
@@ -52,7 +58,7 @@ class MainPage(AppHandler):
                     
         if self.hasValidUser():
          if self.isNewUser():
-            self.redirect("/userpreferences")
+            self.redirect("/login")
          else:
        
             url = users.create_logout_url(self.request.uri)
@@ -115,21 +121,22 @@ class UserProfile(webapp.RequestHandler):
 	values ={'myemail':email}	
         self.response.out.write(template.render('templates/userprofile.html', values))
 
-class GotoRootHandler(webapp.RequestHandler):
-    def get(self):
-       self.redirect('/login')
+#class GotoRootHandler(webapp.RequestHandler):
+ #   def get(self):
+  #     self.redirect('/login')
 
 
 #wsgiappp
 # Register the URL with the responsible classes
 application = webapp.WSGIApplication(
-                                     [('/home', MainPage),
+                                     [('/', MainPage),
                                       ('/oauthcallback', auth.CallbackHandler),
                                           ('/catchtoken', auth.CatchTokenHandler),
                                           ('/profile', auth.ProfileHandler),
                                            ('/login', auth.Login),
                                           ('/logout', auth.LogoutHandler),
                                           ('/code', auth.CodeHandler),
+                                     ('/monprofile', Monprofile),
                                       ('/new', Enrgcompany),
 				                     ('/update', Updateentreprise),
                                          ('/company', Ficheentreprise),
@@ -149,7 +156,7 @@ application = webapp.WSGIApplication(
                                       ('/Rechnote',Rechnote),
                                       ('/enrgespace', Newespace),
                                       ('/userprofile',UserProfile),
-                                      ('/.*', GotoRootHandler),
+   #                                   ('/.*', GotoRootHandler),
                                       ('/newespace', CreeEspace)],
                                      debug=True)
 

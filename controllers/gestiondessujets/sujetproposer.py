@@ -7,7 +7,8 @@ from models.modelespace import EspaceModel
 from models.modelespace import EspaceEmailsModel
 from models.modelsujet import SujetModel
 from models.modelsujet import EncadreurSujetModel
-from models.modelsujet import MotcleSujetModel 
+from models.modelsujet import MotcleSujetModel
+from models.userprofilemodel import UserProfileModel 
 class Sujet(webapp.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -19,10 +20,13 @@ class Sujet(webapp.RequestHandler):
         if user:
             url = users.create_logout_url(self.request.uri)
             url_linktext = 'Logout'
+            userinfo = UserProfileModel.getCurrent() 
+       
           
         
         values = {
             'title': title,
+            'userinfo': userinfo,
             'listedesujet': listedesujet,
             'user': user,
             'url': url,

@@ -44,7 +44,7 @@ class LogoutHandler(webapp.RequestHandler):
         session.terminate()
         
         #need to clean this up...
-        logouturl = 'https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile&state=/profile&redirect_uri=http://algenreprise.appspot.com/oauthcallback&response_type=token&client_id=970476077679.apps.googleusercontent.com'
+        logouturl = 'https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile&state=/profile&redirect_uri=http://localhost:8090/oauthcallback&response_type=token&client_id=970476077679.apps.googleusercontent.com'
         logoutparams = {'continue': logouturl}
         
         logging.info("encoded params == %s" % urllib.urlencode(logoutparams))
@@ -149,6 +149,7 @@ class Login(AppHandler):
     
     def get(self):
       template_info = {
+   
                          'target_url' : get_target_url()                             
                          }
            
