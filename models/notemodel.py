@@ -5,6 +5,6 @@ from modelespace import EspaceModel
 class NoteEspaceModel(db.Model):
      creepar     = db.UserProperty(required=True)
      creedate   = db.DateTimeProperty(auto_now_add=True)
-     texnote = db.StringProperty(multiline=True)
+     texnote = db.TextProperty()
      espace = db.ReferenceProperty(EspaceModel,
      collection_name = 'espacenote')

@@ -20,3 +20,14 @@ indexes:
   - name: espace
   - name: creedate
     direction: desc
+
+- kind: NoteSujetModel
+  properties:
+  - name: sujet
+  - name: creedate
+
+- kind: NoteSujetModel
+  properties:
+  - name: sujet
+  - name: creedate
+    direction: desc

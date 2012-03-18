@@ -12,15 +12,26 @@ class SujetModel(db.Model):
      organisme         = db.StringProperty()
      description = db.TextProperty()
      sujetdateadded   = db.DateTimeProperty(auto_now_add=True)
-     motcle = db.StringProperty()
-     autreencadreur = db.StringProperty()
+   
 
 class EncadreurSujetModel (db.Model):
   autreencadreur = db.StringProperty()
   sujet       = db.ReferenceProperty(SujetModel,
       collection_name = 'encadreur')
+  @classmethod
+  def getAllEmailsBySujetID(self,id):
+    return EncadreurSujetModel.all().filter('sujet =',
+        SujetModel.get_by_id(id))
   
 class MotcleSujetModel (db.Model):
   motcle = db.StringProperty()
   sujet       = db.ReferenceProperty(SujetModel,
       collection_name = 'mot')
+
+
+class NoteSujetModel(db.Model):
+     creepar     = db.UserProperty(required=True)
+     creedate   = db.DateTimeProperty(auto_now_add=True)
+     texnote = db.TextProperty()
+     sujet = db.ReferenceProperty(SujetModel,
+     collection_name = 'sujetnote')

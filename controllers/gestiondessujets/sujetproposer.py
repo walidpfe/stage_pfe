@@ -8,6 +8,7 @@ from models.modelespace import EspaceEmailsModel
 from models.modelsujet import SujetModel
 from models.modelsujet import EncadreurSujetModel
 from models.modelsujet import MotcleSujetModel
+from models.modelsujet import NoteSujetModel
 from models.userprofilemodel import UserProfileModel 
 class Sujet(webapp.RequestHandler):
     def get(self):
@@ -75,3 +76,73 @@ class NewSujet(webapp.RequestHandler):
          
          self.redirect('/deals')
         
+class SujetId(webapp.RequestHandler):
+      def get(self):
+        user = users.get_current_user()
+        url = users.create_login_url(self.request.uri)
+        url_linktext = 'Login'
+        title= 'Ajouter une entreprise'
+                    
+        if user:
+            url = users.create_logout_url(self.request.uri)
+            url_linktext = 'Logout'
+            raw_id = self.request.get('id')
+            id = int(raw_id)
+            lesujet = SujetModel.get_by_id(id)
+            emails = EncadreurSujetModel.getAllEmailsBySujetID(id)
+            notes = NoteSujetModel.all().order('creedate').filter('sujet', SujetModel.get_by_id(id))
+            userinfo = UserProfileModel.getCurrent() 
+        
+        values = {
+            'userinfo': userinfo,
+            'idsujet' :id,      
+            'notes' : notes,      
+            'emails' : emails,
+            'sujet': lesujet,
+            'title': title,
+            'user': user,
+            'url': url,
+            'url_linktext': url_linktext,
+          }
+                  
+        self.response.out.write(template.render('templates/sujet.html', values))           
+class AddnoteSujet(webapp.RequestHandler):
+    def post(self):
+        user = users.get_current_user()
+        url = users.create_login_url(self.request.uri)
+        url_linktext = 'Login'
+        title= 'Ajouter une entreprise'
+        if user:
+         raw_id = self.request.get('noteespace')
+         id = int(raw_id)
+         lesujet = SujetModel.get_by_id(id)
+         note  = NoteSujetModel(
+                creepar  = users.get_current_user(),
+                texnote = self.request.get('notebody'),
+                sujet = lesujet)
+         note.put();
+
+class RechnoteSujet(webapp.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        url = users.create_login_url(self.request.uri)
+        url_linktext = 'Login'
+        title= 'Ajouter une entreprise'        
+        raw_id = self.request.get('id')
+        id = int(raw_id)
+        lesujet = SujetModel.get_by_id(id)
+        emails = EncadreurSujetModel.getAllEmailsBySujetID(id)
+        notes = NoteSujetModel.all().order('creedate').filter('sujet', SujetModel.get_by_id(id))
+        values = {
+            'idespace' :id,      
+            'notes' : notes,      
+            'emails' : emails,
+            'espace': lesujet,
+            'title': title,
+            'user': user,
+            'url': url,
+            'url_linktext': url_linktext,
+          }
+                  
+        self.response.out.write(template.render('templates/loadnotesujet.html', values)) 
+

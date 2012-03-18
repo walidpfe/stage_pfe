@@ -31,7 +31,9 @@ from controllers.gestiondesselections.loadselection import LoadSelection
 from controllers.gestiondessujets.sujetproposer import Sujet
 from controllers.gestiondessujets.sujetproposer import CreeSujet
 from controllers.gestiondessujets.sujetproposer import NewSujet
-
+from controllers.gestiondessujets.sujetproposer import SujetId
+from controllers.gestiondessujets.sujetproposer import RechnoteSujet
+from controllers.gestiondessujets.sujetproposer import AddnoteSujet
 #profile
 from controllers.gestionprofile.profile import Monprofile
 
@@ -147,13 +149,16 @@ application = webapp.WSGIApplication(
 									   ('/addtoselection',Addtoselection),
                                       ('/addtoallselections',Addtoallselections),
                                       ('/notes',Addnote),
+                                      ('/notessujet',AddnoteSujet),
                                       ('/kases', Espace),
 									  ('/loadselection',LoadSelection),
 									  ('/error',ErrorPage),
                                       ('/deals',Sujet),
+                                      ('/sujet', SujetId),
                                       ('/newsujet',CreeSujet),
                                       ('/enrgsujet', NewSujet),
                                       ('/Rechnote',Rechnote),
+                                      ('/Rechnotesujet',RechnoteSujet),
                                       ('/enrgespace', Newespace),
                                       ('/userprofile',UserProfile),
    #                                   ('/.*', GotoRootHandler),
