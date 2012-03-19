@@ -7,6 +7,8 @@ from django.utils import simplejson as json
 from gaesessions import get_current_session
 from apptools import AppHandler
 from models.userprofilemodel import UserProfileModel
+from models.userprofilemodel import CvProfileModel
+
 import logging
 import endpoints
 
@@ -133,7 +135,8 @@ class ProfileHandler(AppHandler):
                                                email = userinfo['email'],
                                                name = userinfo['name'],
                                                picture = mypictutre).put()
-                
+                cvuserprofile = CvProfileModel(profile = userprofile,
+                                               textcv ='vide').put() 
                 template_info = {
                              'user': user,
                              'url': url,

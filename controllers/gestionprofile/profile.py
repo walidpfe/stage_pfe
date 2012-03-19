@@ -4,6 +4,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from models.userprofilemodel import UserProfileModel
+from models.userprofilemodel import CvProfileModel
 
 
 
@@ -14,19 +15,35 @@ class Monprofile(webapp.RequestHandler):
         url_linktext = 'Login'
         title= 'Ajouter une entreprise'
         #from models.userprofilemodel import UserProfileModel
-        userinfo = UserProfileModel.getCurrent() 
+        
         #'userinfo': userinfo,          
         if user:
             url = users.create_logout_url(self.request.uri)
             url_linktext = 'Logout'
-          
-        
+            userinfo = UserProfileModel.getCurrent() 
+       
+            lecv = CvProfileModel.getCv()
+                      
         values = {
             'title': title,
             'userinfo': userinfo,
+            'cv' : lecv,
             'user': user,
             'url': url,
             'url_linktext': url_linktext,
           }
                   
         self.response.out.write(template.render('templates/monprofile.html', values))           
+
+class UpdateCv(webapp.RequestHandler):
+    def post(self):
+        user = users.get_current_user()
+        if user:
+          raw_id = self.request.get('id')
+          id = int(raw_id)
+          lecv = CvProfileModel.get_by_id(id)
+          lecv.textcv  = self.request.get('curriculumvitae')
+          
+          lecv.put();
+          self.redirect('/monprofile')
+        

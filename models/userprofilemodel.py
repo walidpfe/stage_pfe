@@ -25,3 +25,11 @@ class UserProfileModel(db.Model):
 
   # *** End class methods ***
 
+class CvProfileModel(db.Model):
+  textcv = db.TextProperty()
+  profile       = db.ReferenceProperty(UserProfileModel,
+      collection_name = 'cv')
+  @classmethod
+  def getCv(self):  
+    cv =CvProfileModel.all().filter('profile =', UserProfileModel.getCurrent()).get()
+    return cv                 

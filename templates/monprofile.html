@@ -109,7 +109,7 @@ var RAILS_ENV = "production"
   </table>
   <div id="edit_tabs" style="clear: both;">
     <ul>
-      <li><a class="current_edit_tab" href="#" id="email_dropbox_link" onclick="EditTabs.select_and_show('email_dropbox'); return false;">Email dropbox</a></li>
+      <li><a class="current_edit_tab" href="#" id="email_dropbox_link" onclick="EditTabs.select_and_show('email_dropbox'); return false;">CV</a></li>
       <li><a class="" href="#" id="time_settings_link" onclick="EditTabs.select_and_show('time_settings'); return false;">Time zone and format</a></li>
       <li><a class="" href="#" id="task_reminders_link" onclick="EditTabs.select_and_show('task_reminders'); return false;">Phone/email notifications</a></li>
       <li><a class="" href="#" id="api_token_link" onclick="EditTabs.select_and_show('api_token'); return false;">API token</a></li>
@@ -137,106 +137,28 @@ var RAILS_ENV = "production"
 
 <div class="email_dropbox visible_edit_tab" id="email_dropbox_tab" style="display: block;">
 
-  <h3>How does the dropbox work?</h3>
-  <p><strong>FORWARD</strong> an email to your dropbox and Highrise will find the contact who wrote the email and attach the email to that contact's page. <strong>BCC</strong> your dropbox when you send an email and the email will be attached to the person receiving the email. <a href="http://highrisehq.com/emaildropbox" target="_new">Watch a video</a> to see how it all works.</p>
+ 
+  <p><strong>Le curriculum vitae (CV)</strong> est un document détaillant le parcours et autres compétences acquises d'un individu. Il s'agit en général du parcours scolaire et/ou professionnel qui fait état de la compétence d'un candidat. </p>
 
   <div class="dropbox_address">
-    <table class="dropbox" width="100%">
-      <tr>
-        <td valign="top" class="icon" width="42">
-          <span class="sprite " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_1a023d2/images/highrise_sprites.png) no-repeat -44px -690px; width: 42px; padding-top: 60px; " title="Contacts dropbox" id="">Contacts dropbox</span>
-        </td>
-        <td>
-          <h2>Your personal email dropbox</h2>
-          <p>Forward or BCC email to this address to attach it to a contact's page:</p>
-          <h1 id="dropbox"><a href="mailto:dropbox@93734853.esi1.highrisehq.com">dropbox@93734853.esi1.highrisehq.com</a></h1>
-        </td>
-      </tr>
-      <tr>
-        <td valign="top" class="icon" width="42">
-          <span class="sprite " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_1a023d2/images/highrise_sprites.png) no-repeat -0px -690px; width: 42px; padding-top: 60px; " title="Tasks dropbox" id="">Tasks dropbox</span>
-        </td>
-        <td>
-          <h2>&ldquo;Create a task&rdquo; dropboxes</h2>
-          <p>Send an email to these addresses to create a task.<br /> 
-          The email&rsquo;s subject will become the name of the task.</p>
-          <h1 id="task_dropbox" style="font-size: 12px;">
-            <a href="mailto:task+today@93734853.esi1.highrisehq.com">task+today@93734853.esi1.highrisehq.com</a><br />
-<a href="mailto:task+tomorrow@93734853.esi1.highrisehq.com">task+tomorrow@93734853.esi1.highrisehq.com</a><br />
-<a href="mailto:task+thisweek@93734853.esi1.highrisehq.com">task+thisweek@93734853.esi1.highrisehq.com</a><br />
-<a href="mailto:task+nextweek@93734853.esi1.highrisehq.com">task+nextweek@93734853.esi1.highrisehq.com</a><br />
-<a href="mailto:task+later@93734853.esi1.highrisehq.com">task+later@93734853.esi1.highrisehq.com</a>
+ 
+<form action="/updatecv?id={{ cv.key.id }}" autocomplete="off" class="edit subject" enctype="multipart/form-data" id="edit_company_105200466" method="post" onsubmit="return $(this).markAsBusyIf($$('.required')[0].value != '' &amp;&amp; EditTabs.submit()); return Form.validate(this)"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="F8hx2rx/BbSqEoqqiXHWpKSkKPKd1RmxhBZwn5Dq/Hs=" /></div>
 
-          </h1>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <div class="dropbox_vcard">
-            <span class="sprite " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_1a023d2/images/highrise_sprites.png) no-repeat -0px -660px; width: 40px; padding-top: 28px; " title="vCard" id="">vCard</span>
-            <p>Add all these dropbox addresses to your computer's address book.<br />
-            <a href="/users/674863/dropboxes.vcf">Download a vCard with all these addresses</a></p>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-           <div class="poweruser_tips">
-            <h3>Dropbox Tips</h3>
-            <p>Add <strong>/case Litigation</strong> or <strong>/deal Service contract</strong> at the top of your message to attach the email to that case or deal &mdash; or a new one if it doesn&rsquo;t exist. <span>(<a href="/images/tour-dropbox.png">See example</a>)</span></p>
-            <p>Add <strong>/private Sales Team</strong> at the top of your message so only members of the Sales Team group can see it in Highrise. Add <strong>/private</strong> so only you can see it.</p>
-          </div>
-        </td>
-      </tr>
-    </table>
+ 
 
-    <p><span id="generate_dropbox"><a href="#" onclick="$('generate_dropbox').addClassName('busy'); new Ajax.Request('https://esi1.highrisehq.com/users/674863/dropboxes', {asynchronous:true, evalScripts:true, method:'post', parameters:'authenticity_token=' + encodeURIComponent('gQj5FMyZP7LUKAB6ye03UK8/1PqOTBZsmEzgtyBdFMg=')}); return false;">Generate new addresses</a> (if you're getting spammed)</span></p>
+        <textarea cols="40" id="curriculumvitae" name="curriculumvitae" rows="20">{{ cv.textcv }}</textarea>
+      
+ <p>
+ 	
+ <input name="commit" type="submit" value="Valider" />
+  or <a href="/monprofile" class="admin">Cancel</a>
+      </p>
+ </form>
+
   </div>
 
 
-  <div class="other_emails">
-    <h3>Enter any other email addresses you use</h3>
-    <p>The dropbox will <strong>only accept emails</strong> if they are sent from an email address that Highrise knows about. If you want to send emails to the dropbox from email addresses other than your main email address, enter them below.</p>
-    <form action="/users/674863/user_email_addresses" class="edit_symbol" id="edit_symbol_3374748" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="gQj5FMyZP7LUKAB6ye03UK8/1PqOTBZsmEzgtyBdFMg=" /></div>
-      <table class="other_emails">
-        <tr>
-          <th>Your main email address:</th>
-          <td><strong>tedj.meabiou@gmail.com</strong></td>
-        </tr>
-        <tr class="other_address">
-  <th>Other email address #1:</th>
-  <td>
-    <input id="email_addresses_0" name="email_addresses[]" type="text" />
-  </td>
-</tr>
-<tr class="other_address">
-  <th>Other email address #2:</th>
-  <td>
-    <input id="email_addresses_1" name="email_addresses[]" type="text" />
-  </td>
-</tr>
-<tr class="other_address">
-  <th>Other email address #3:</th>
-  <td>
-    <input id="email_addresses_2" name="email_addresses[]" type="text" />
-  </td>
-</tr>
 
-        <tr id="other_addresses_tail">
-          <th></th>
-          <td>
-            <p class="add_more_addresses"><a href="#" onclick="Users.addMoreAddresses(); return false;">Add five more addresses</a></p>
-            <p><input name="commit" type="submit" value="Update my email addresses" /></p>
-          </td>
-        </tr>
-      </table>
-      <script type="text/javascript">
-//<![CDATA[
-async("Users.emailAddressTemplate = \"\\u003Ctr class=\\\"other_address\\\"\\u003E\\n  \\u003Cth\\u003EOther email address #123456790:\\u003C/th\\u003E\\n  \\u003Ctd\\u003E\\n    \\u003Cinput id=\\\"email_addresses_123456789\\\" name=\\\"email_addresses[]\\\" type=\\\"text\\\" /\\u003E\\n  \\u003C/td\\u003E\\n\\u003C/tr\\u003E\\n\"")
-//]]>
-</script>
-    </form>
-  </div>
 </div>
 
 
