@@ -3,11 +3,11 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
-from company import CompanyModel
-from company import CompanyEmailsModel
-from tagmodel import TagModel
-from modelespace import EspaceModel
-from selectionmodel import SelectionModel
+from models.company import CompanyModel
+from models.company import CompanyEmailsModel
+from models.tagmodel import TagModel
+from models.modelespace import EspaceModel
+from models.selectionmodel import SelectionModel
 
 
 class Deletefromselection(webapp.RequestHandler):

@@ -26,6 +26,11 @@ from controllers.gestiondesselections.addtoselection import Addtoselection
 from controllers.gestiondesselections.addtoselection  import Addtoallselections
 from controllers.gestiondesselections.selection import Selection
 from controllers.gestiondesselections.loadselection import LoadSelection
+#Selection Sujet
+from controllers.gestiondesselections.selectionsujet import SelectionSujet
+from controllers.gestiondesselections.addtoselectionsujet import Addtoallsujetselections
+from controllers.gestiondesselections.addtoselectionsujet import Addtosujetselection
+from controllers.gestiondesselections.loadselectionsujet import LoadSujetSelection
 
 #gestion des sujets /controllers/gestiondessujets
 from controllers.gestiondessujets.sujetproposer import Sujet
@@ -148,12 +153,16 @@ application = webapp.WSGIApplication(
                                       ('/newcompany', Newcompany),
                                       ('/espace', Espaceid),
 									   ('/selection', Selection),
+                                       ('/selectionsujet', SelectionSujet),
 									   ('/addtoselection',Addtoselection),
+                                       ('/addtosujetselection',Addtosujetselection),
                                       ('/addtoallselections',Addtoallselections),
+                                      ('/addtoallsujetselections', Addtoallsujetselections),
                                       ('/notes',Addnote),
                                       ('/notessujet',AddnoteSujet),
                                       ('/kases', Espace),
 									  ('/loadselection',LoadSelection),
+                                      ('/loadsujetselection',LoadSujetSelection),
 									  ('/error',ErrorPage),
                                       ('/deals',Sujet),
                                       ('/sujet', SujetId),

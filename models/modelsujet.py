@@ -4,7 +4,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from google.appengine.api import mail
-
+from modelespace import EspaceModel
 
 class SujetModel(db.Model):
      sujetaddedby     = db.UserProperty(required=True)
@@ -35,3 +35,33 @@ class NoteSujetModel(db.Model):
      texnote = db.TextProperty()
      sujet = db.ReferenceProperty(SujetModel,
      collection_name = 'sujetnote')
+     
+class TagSujetModel(db.Model):
+  name = db.StringProperty()
+     
+class SelectionSujetModel(db.Model):
+  espace = db.ReferenceProperty(EspaceModel,
+      collection_name = 'espacesujetselection')
+  sujet = db.ReferenceProperty(SujetModel,
+      collection_name = 'sujetselection')
+  tag = db.ReferenceProperty(TagSujetModel,
+      collection_name = 'tagsujetselection')
+  selectedby     = db.UserProperty(required=True)
+  dateselected   = db.DateTimeProperty(auto_now_add=True)
+  
+  
+  @classmethod
+  def getAllTagsForSujetInThisEspace(self,espaceid, companyid):
+    espace = EspaceModel.get_by_id(espaceid)
+    sujet = SujetModel.get_by_id(companyid)
+    selectionsforsujet_query = SelectionSujetModel.all().filter('espace = ',espace).filter('sujet = ',sujet)
+    selectionsforsujet = selectionsforsujet_query.fetch(1000)
+    tags = list()
+    for selection in selectionsforsujet:
+      tags.append(selection.tag)
+
+    return tags
+
+
+
+  
