@@ -364,10 +364,102 @@ async("new MenuObserver('recordings')")
                     
   <div class="sidebox_wrapper">
     <div class="liner">
+  <div class="sidebox closedbox dim parties" id="collection_parties_module">
+  <div id="show_contacts_in_collection">
+    
+      <h5>
+        Encadreurs:
+        <span class="edit">
+          <a href="#" onclick="Collections.manageContactsInCollection(); $('collection_parties_module').removeClassName('dim'); return false;">Add to this case</a>
+        </span>
+      </h5>
+	  <div class="avatar_subject clearfix" id="person_107992802">
+  <a href="/people/107992802-ghomari-reda" class="image"><span class="sprite avatar blank_avatar person " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7622079/images/highrise_sprites.png) no-repeat -112px -148px; width: 32px; padding-top: 32px; " title="Ghomari Réda" id=""> {{ sujet.sujetaddedby }}</span></a>
+
+  <div class="info">
+ 
+    <h1 >
+      <a href="/people/107992802-ghomari-reda"  class="to_person">
+       {{ sujet.sujetaddedby }}
+      </a>
+    </h1>
+
+    <h2>
       
+      
+      
+    </h2>
+  </div>
+</div>
+	 
+	  {% for email in emails %}
+        
+    <div class="avatar_subject clearfix" id="person_107992802">
+  <a href="/people/107992802-ghomari-reda" class="image"><span class="sprite avatar blank_avatar person " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7622079/images/highrise_sprites.png) no-repeat -112px -148px; width: 32px; padding-top: 32px; " title="Ghomari Réda" id=""> {{ email.autrecollaborateur }}</span></a>
+
+  <div class="info">
+    
+    <h1 >
+      <a href="/people/107992802-ghomari-reda"  class="to_person">
+         {{ email.autreencadreur }}
+      </a>
+    </h1>
+
+    <h2>
+      
+      
+      
+    </h2>
+  </div>
+</div>
+	 
+		        {% endfor %}
+      
+  </div>
+
+  <div id="manage_contacts_in_collection" style="display: none; ">
+    <h5>
+      <span class="edit">
+        <a class="admin" href="#" onclick="Collections.doneManagingContactsInCollection('true'); return false;">Done editing</a>
+      </span>
+      Add contacts
+    </h5>
+
+    <div class="contents">
+      <div class="search">
+  <!-- <p class="search_header">Search for someone to add to this case</p> -->
+  <p class="search_header">Search for someone to add</p>
+  
+  <div class="field">
+    <input class="live_search_field" id="live_search_for_involvement" live_search_results_id="parties_for_involvement" name="live_search_for_involvement" type="text" /><script type="text/javascript">
+//<![CDATA[
+async("new Form.Element.Observer('live_search_for_involvement', 1, function(element, value) {People.liveSearch('live_search_for_involvement', '/involvements/candidates', 'involvement', {}, {\"collection_id\":632654,\"collection_type\":\"Kase\"})})")
+//]]>
+</script>
+
+    <span class="live_search_spinner" style="display: none;">
+      <img alt="Dots-white" src="https://d1a993iq9azmzq.cloudfront.net/rev_df13cd7/images/dots-white.gif" />
+    </span>
+  </div>
+
+  <div class="results" id="parties_for_involvement">
+    
+
+  </div>
+</div>
+
+
+      
+    </div>
+  </div>
+</div>    
    <div behavior="tag_picker" class="sidebox closedbox">
-         <a href="/selection?id={{sujet.key.id}}"> <h5>Notre sélection :</h5></a>
-          <dl class="tags_list"><dt>D</dt><dd><span><a href="/tags/1963205-developer" behavior="tag_picker" class="tag">developer</a></span></dd><dt>F</dt><dd><span><a href="/tags/1997495-fort" behavior="tag_picker" class="tag">Fort</a></span></dd><dt>M</dt><dd><span><a href="/tags/1963206-manager" behavior="tag_picker" class="tag">manager</a></span></dd></dl>
+         <a href="/selection?id={{sujet.key.id}}"> <h5>Mots clés :</h5></a>
+          <dl class="tags_list">
+          	{% for mot in mots %}
+          	<dd><span><a href="/tags/1963205-developer" behavior="tag_picker" class="tag">{{ mot.motcle }}</a></span></dd>
+          	{% endfor %}
+          	</dl>
         </div>
       
   <div class="sidebox closedbox">
@@ -606,95 +698,7 @@ async("new CalendarDateSelect(\"page_calendar_task\", {\"id\":\"page_calendar_ta
   </div>
 
 
-<div class="sidebox closedbox dim parties" id="collection_parties_module">
-  <div id="show_contacts_in_collection">
-    
-      <h5>
-        Membres:
-        <span class="edit">
-          <a href="#" onclick="Collections.manageContactsInCollection(); $('collection_parties_module').removeClassName('dim'); return false;">Add to this case</a>
-        </span>
-      </h5>
-	  <div class="avatar_subject clearfix" id="person_107992802">
-  <a href="/people/107992802-ghomari-reda" class="image"><span class="sprite avatar blank_avatar person " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7622079/images/highrise_sprites.png) no-repeat -112px -148px; width: 32px; padding-top: 32px; " title="Ghomari Réda" id=""> {{ sujet.sujetaddedby }}</span></a>
 
-  <div class="info">
- 
-    <h1 >
-      <a href="/people/107992802-ghomari-reda"  class="to_person">
-       {{ sujet.sujetaddedby }}
-      </a>
-    </h1>
-
-    <h2>
-      
-      
-      
-    </h2>
-  </div>
-</div>
-	 
-	  {% for email in emails %}
-        
-    <div class="avatar_subject clearfix" id="person_107992802">
-  <a href="/people/107992802-ghomari-reda" class="image"><span class="sprite avatar blank_avatar person " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7622079/images/highrise_sprites.png) no-repeat -112px -148px; width: 32px; padding-top: 32px; " title="Ghomari Réda" id=""> {{ email.autrecollaborateur }}</span></a>
-
-  <div class="info">
-    
-    <h1 >
-      <a href="/people/107992802-ghomari-reda"  class="to_person">
-         {{ email.autreencadreur }}
-      </a>
-    </h1>
-
-    <h2>
-      
-      
-      
-    </h2>
-  </div>
-</div>
-	 
-		        {% endfor %}
-      
-  </div>
-
-  <div id="manage_contacts_in_collection" style="display: none; ">
-    <h5>
-      <span class="edit">
-        <a class="admin" href="#" onclick="Collections.doneManagingContactsInCollection('true'); return false;">Done editing</a>
-      </span>
-      Add contacts
-    </h5>
-
-    <div class="contents">
-      <div class="search">
-  <!-- <p class="search_header">Search for someone to add to this case</p> -->
-  <p class="search_header">Search for someone to add</p>
-  
-  <div class="field">
-    <input class="live_search_field" id="live_search_for_involvement" live_search_results_id="parties_for_involvement" name="live_search_for_involvement" type="text" /><script type="text/javascript">
-//<![CDATA[
-async("new Form.Element.Observer('live_search_for_involvement', 1, function(element, value) {People.liveSearch('live_search_for_involvement', '/involvements/candidates', 'involvement', {}, {\"collection_id\":632654,\"collection_type\":\"Kase\"})})")
-//]]>
-</script>
-
-    <span class="live_search_spinner" style="display: none;">
-      <img alt="Dots-white" src="https://d1a993iq9azmzq.cloudfront.net/rev_df13cd7/images/dots-white.gif" />
-    </span>
-  </div>
-
-  <div class="results" id="parties_for_involvement">
-    
-
-  </div>
-</div>
-
-
-      
-    </div>
-  </div>
-</div>
 
 
     </div>

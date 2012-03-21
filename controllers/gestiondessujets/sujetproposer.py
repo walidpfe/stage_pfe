@@ -72,8 +72,7 @@ class NewSujet(webapp.RequestHandler):
          encadreurs = self.request.get_all('autreencadreure')
          for encadreur in encadreurs:
              EncadreurSujetModel(autreencadreur = encadreur , sujet = sujet).put()
-                  
-         
+    
          self.redirect('/deals')
         
 class SujetId(webapp.RequestHandler):
@@ -91,12 +90,14 @@ class SujetId(webapp.RequestHandler):
             lesujet = SujetModel.get_by_id(id)
             emails = EncadreurSujetModel.getAllEmailsBySujetID(id)
             notes = NoteSujetModel.all().order('creedate').filter('sujet', SujetModel.get_by_id(id))
+            mots = MotcleSujetModel.all().filter('sujet', SujetModel.get_by_id(id))
             userinfo = UserProfileModel.getCurrent() 
         
         values = {
             'userinfo': userinfo,
             'idsujet' :id,      
-            'notes' : notes,      
+            'notes' : notes,
+            'mots' : mots,     
             'emails' : emails,
             'sujet': lesujet,
             'title': title,
