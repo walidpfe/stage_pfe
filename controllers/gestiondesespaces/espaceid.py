@@ -49,7 +49,7 @@ class Addnote(webapp.RequestHandler):
          id = int(raw_id)
          lespace = EspaceModel.get_by_id(id)
          note  = NoteEspaceModel(
-                creepar  = users.get_current_user(),
+                profile  = UserProfileModel.getCurrent() ,
                 texnote = self.request.get('notebody'),
                 espace = lespace)
          note.put();

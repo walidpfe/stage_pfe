@@ -4,8 +4,8 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from google.appengine.api import mail
-from modelespace import EspaceModel
-
+from models.modelespace import EspaceModel
+from models.userprofilemodel import UserProfileModel
 class SujetModel(db.Model):
      sujetaddedby     = db.UserProperty(required=True)
      titresujet        = db.StringProperty()
@@ -30,7 +30,8 @@ class MotcleSujetModel (db.Model):
 
 
 class NoteSujetModel(db.Model):
-     creepar     = db.UserProperty(required=True)
+     profile     = db.ReferenceProperty(UserProfileModel,
+     collection_name = 'sujetnotepar')
      creedate   = db.DateTimeProperty(auto_now_add=True)
      texnote = db.TextProperty()
      sujet = db.ReferenceProperty(SujetModel,

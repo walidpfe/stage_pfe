@@ -1,9 +1,11 @@
 from google.appengine.ext import db
 from google.appengine.api import users
-from modelespace import EspaceModel
+from models.modelespace import EspaceModel
+from models.userprofilemodel import UserProfileModel
 
 class NoteEspaceModel(db.Model):
-     creepar     = db.UserProperty(required=True)
+     profile     = db.ReferenceProperty(UserProfileModel,
+                           collection_name = 'userespacenote')
      creedate   = db.DateTimeProperty(auto_now_add=True)
      texnote = db.TextProperty()
      espace = db.ReferenceProperty(EspaceModel,

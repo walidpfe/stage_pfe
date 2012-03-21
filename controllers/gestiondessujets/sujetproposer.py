@@ -118,7 +118,7 @@ class AddnoteSujet(webapp.RequestHandler):
          id = int(raw_id)
          lesujet = SujetModel.get_by_id(id)
          note  = NoteSujetModel(
-                creepar  = users.get_current_user(),
+                profile  = UserProfileModel.getCurrent(),
                 texnote = self.request.get('notebody'),
                 sujet = lesujet)
          note.put();
@@ -133,11 +133,13 @@ class RechnoteSujet(webapp.RequestHandler):
         id = int(raw_id)
         lesujet = SujetModel.get_by_id(id)
         emails = EncadreurSujetModel.getAllEmailsBySujetID(id)
+        mots = MotcleSujetModel.all().filter('sujet', SujetModel.get_by_id(id))
         notes = NoteSujetModel.all().order('creedate').filter('sujet', SujetModel.get_by_id(id))
         values = {
             'idespace' :id,      
             'notes' : notes,      
             'emails' : emails,
+            'mots' : mots, 
             'espace': lesujet,
             'title': title,
             'user': user,
