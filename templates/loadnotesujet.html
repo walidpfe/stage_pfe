@@ -49,8 +49,9 @@ async("Deal.populate({})")
       </div>
       
       
-        <div class="avatar"><a href="/kases/632654-prospection-stage-d-ete" class="avatar"><span class="sprite avatar blank_avatar kase " style="background: url("{{note.profile.picture}}") no-repeat -56px -0px; width: 55px; padding-top: 55px; " title="{{note.profile.name}}" id="">prospection stage d'été</span></a></div>
+      <div class="avatar"><a href="/profileof?id={{note.profile.key.id}}" class="avatar"><span class="sprite avatar blank_avatar kase "  style="background: url({{note.profile.picture}}) " title="{{note.profile.name}}" id="">prospection stage d'été</span></a></div>
       
+ 
       <div class="recording_content">
         
           
@@ -119,7 +120,7 @@ async("SelectFiling.observeSelection('file_under_note_92238001');")
   <ul>
     
     
-   <a href="#" ><li class="date">
+      <a href="/profileof?id={{note.profile.key.id}}" ><li class="date">
      {{ note.profile.name }}
     </li></a>
 

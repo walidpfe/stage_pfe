@@ -43,6 +43,7 @@ from controllers.gestiondessujets.sujetproposer import AddnoteSujet
 #profile
 from controllers.gestionprofile.profile import Monprofile
 from controllers.gestionprofile.profile import UpdateCv
+from controllers.gestionprofile.profileof import ProfileOf
 
 #Datastore models
 from models.company import CompanyModel
@@ -140,11 +141,12 @@ application = webapp.WSGIApplication(
                                      [('/', MainPage),
                                       ('/oauthcallback', auth.CallbackHandler),
                                           ('/catchtoken', auth.CatchTokenHandler),
-                                          ('/profile', auth.ProfileHandler),
+                                          ('/profile', auth.ProfileHandler),                                      
                                            ('/login', auth.Login),
                                           ('/logout', auth.LogoutHandler),
                                           ('/code', auth.CodeHandler),
                                      ('/monprofile', Monprofile),
+                                     ('/profileof',ProfileOf),
                                      ('/updatecv', UpdateCv),
                                       ('/new', Enrgcompany),
 				                     ('/update', Updateentreprise),
