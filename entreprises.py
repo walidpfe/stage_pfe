@@ -40,7 +40,11 @@ from controllers.gestiondessujets.sujetproposer import SujetId
 from controllers.gestiondessujets.sujetproposer import RechnoteSujet
 from controllers.gestiondessujets.sujetproposer import AddnoteSujet
 
-#profile
+#gestion des candidatures /controllers/gestiondescandidatures
+from controllers.gestiondescandidatures.postuler import Addtocandidature
+from controllers.gestiondescandidatures.postuler import Loadresponsepostuler
+
+#gestion du profile /controllers/gestionprofile
 from controllers.gestionprofile.profile import Monprofile
 from controllers.gestionprofile.profile import UpdateCv
 from controllers.gestionprofile.profileof import ProfileOf
@@ -141,12 +145,11 @@ application = webapp.WSGIApplication(
                                      [('/', MainPage),
                                       ('/oauthcallback', auth.CallbackHandler),
                                           ('/catchtoken', auth.CatchTokenHandler),
-                                          ('/profile', auth.ProfileHandler),                                      
+                                          ('/profile', auth.ProfileHandler),
                                            ('/login', auth.Login),
                                           ('/logout', auth.LogoutHandler),
                                           ('/code', auth.CodeHandler),
                                      ('/monprofile', Monprofile),
-                                     ('/profileof',ProfileOf),
                                      ('/updatecv', UpdateCv),
                                       ('/new', Enrgcompany),
 				                     ('/update', Updateentreprise),
@@ -174,6 +177,10 @@ application = webapp.WSGIApplication(
                                       ('/Rechnotesujet',RechnoteSujet),
                                       ('/enrgespace', Newespace),
                                       ('/userprofile',UserProfile),
+                                       ('/profileof',ProfileOf),
+									  ('/addtocandidature',Addtocandidature),
+                                       ('/loadresponsepostuler',Loadresponsepostuler),
+								
    #                                   ('/.*', GotoRootHandler),
                                       ('/newespace', CreeEspace)],
                                      debug=True)

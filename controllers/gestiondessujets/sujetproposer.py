@@ -9,7 +9,9 @@ from models.modelsujet import SujetModel
 from models.modelsujet import EncadreurSujetModel
 from models.modelsujet import MotcleSujetModel
 from models.modelsujet import NoteSujetModel
-from models.userprofilemodel import UserProfileModel 
+from models.userprofilemodel import UserProfileModel
+from models.candidatsmodel import CandidatsModel
+
 class Sujet(webapp.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -74,7 +76,8 @@ class NewSujet(webapp.RequestHandler):
              EncadreurSujetModel(autreencadreur = encadreur , sujet = sujet).put()
     
          self.redirect('/deals')
-        
+class CandidatureView:
+    pass       
 class SujetId(webapp.RequestHandler):
       def get(self):
         user = users.get_current_user()
@@ -85,15 +88,30 @@ class SujetId(webapp.RequestHandler):
         if user:
             url = users.create_logout_url(self.request.uri)
             url_linktext = 'Logout'
+            espaceid = self.request.get('espaceid')
             raw_id = self.request.get('id')
             id = int(raw_id)
             lesujet = SujetModel.get_by_id(id)
             emails = EncadreurSujetModel.getAllEmailsBySujetID(id)
             notes = NoteSujetModel.all().order('creedate').filter('sujet', SujetModel.get_by_id(id))
             mots = MotcleSujetModel.all().filter('sujet', SujetModel.get_by_id(id))
-            userinfo = UserProfileModel.getCurrent() 
+            userinfo = UserProfileModel.getCurrent()
+            candidatures_query = CandidatsModel.all().filter('sujet = ', lesujet)
+            candidatures = candidatures_query.fetch(10)
+            candidaturesview = list()
+            for c in candidatures:
+                candidatureview = CandidatureView()
+                candidatureview.etatcandidature = c.etatcandidature
+                emails = EspaceEmailsModel.getEspaceMembers(c.espace.key().id_or_name())
+                candidatureview.eid = c.espace.key().id()
+                candidatureview.usersemails = emails
+                candidaturesview.append(candidatureview) 
+            
+             
         
         values = {
+            'candidatures' : candidaturesview ,
+            'espaceid' : espaceid,
             'userinfo': userinfo,
             'idsujet' :id,      
             'notes' : notes,
@@ -106,7 +124,7 @@ class SujetId(webapp.RequestHandler):
             'url_linktext': url_linktext,
           }
                   
-        self.response.out.write(template.render('templates/sujet.html', values))           
+        self.response.out.write(template.render('templates/fiche_sujet.html', values))           
 class AddnoteSujet(webapp.RequestHandler):
     def post(self):
         user = users.get_current_user()

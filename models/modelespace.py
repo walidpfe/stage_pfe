@@ -39,6 +39,24 @@ class EspaceEmailsModel (db.Model):
 
 
      return listOfEspacesIds
+
+
+  @classmethod
+  def getEspaceMembers(self, id):
+
+     listOfEmailsInEspace = list()
+     listOfEmailsInEspace.append(EspaceModel.get_by_id(id).creepar.email())
+     autrecollaborateurs = EspaceEmailsModel.getAllEmailsByEspaceID(id)
+     for c in autrecollaborateurs:
+          listOfEmailsInEspace.append(c.autrecollaborateur)
+  
+     
+
+
+     return listOfEmailsInEspace
+
+
+
      
      
      

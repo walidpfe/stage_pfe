@@ -22,9 +22,11 @@ class Espaceid(webapp.RequestHandler):
             lespace = EspaceModel.get_by_id(id)
             emails = EspaceEmailsModel.getAllEmailsByEspaceID(id)
             notes = NoteEspaceModel.all().order('-creedate').filter('espace', EspaceModel.get_by_id(id))
-            userinfo = UserProfileModel.getCurrent() 
+            userinfo = UserProfileModel.getCurrent()
+            usersemailsinespace = EspaceEmailsModel.getEspaceMembers(id)
         
         values = {
+            'emailsinespace': usersemailsinespace,
             'userinfo': userinfo,
             'idespace' :id,      
             'notes' : notes,      

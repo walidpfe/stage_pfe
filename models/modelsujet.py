@@ -10,6 +10,8 @@ class SujetModel(db.Model):
      sujetaddedby     = db.UserProperty(required=True)
      titresujet        = db.StringProperty()
      organisme         = db.StringProperty()
+     etatdaffection = db.StringProperty()
+     etatdevalidation = db.StringProperty()
      description = db.TextProperty()
      sujetdateadded   = db.DateTimeProperty(auto_now_add=True)
    
