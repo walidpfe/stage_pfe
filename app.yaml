@@ -1,5 +1,5 @@
-application: entreprises
-version: 1
+application: algenreprise
+version: 3
 runtime: python
 api_version: 1
 
@@ -10,9 +10,5 @@ handlers:
   static_dir: js
 - url: /images
   static_dir: images
-- url: /template
-  static_dir: template
-- url: /views
-  static_dir: views
 - url: /.*
   script: entreprises.py

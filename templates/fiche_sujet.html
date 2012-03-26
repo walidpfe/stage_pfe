@@ -190,9 +190,9 @@ async("Deal.populate({})")
       </div>
       
       
-        <div class="avatar"><a href="/kases/632654-prospection-stage-d-ete" class="avatar"><img class="avatar" height="55" src="{{note.profile.picture}}"/></a></div>
+        <div class="avatar"><a href="/profileof?id={{note.profile.key.id}}" class="avatar"><img class="avatar" height="55" src="{{note.profile.picture}}"/></a></div>
       
-
+      
       <div class="recording_content">
         
           
@@ -261,9 +261,10 @@ async("SelectFiling.observeSelection('file_under_note_92238001');")
   <ul>
     
     
-     <a href="#" ><li class="date">
+    <a href="/profileof?id={{note.profile.key.id}}" ><li class="date">
      {{ note.profile.name }}
     </li></a>
+
 
     <li class="kind_and_author">
       <span class="kind_of_recording">
