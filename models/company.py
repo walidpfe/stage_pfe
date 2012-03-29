@@ -18,6 +18,17 @@ class CompanyModel(db.Model):
      companydateadded   = db.DateTimeProperty(auto_now_add=True)
 
 
+     @classmethod
+     def getCompanyByName(self,name):
+          if CompanyModel.all().filter('companyname = ',name).get():
+               ref = CompanyModel.all().filter('companyname = ',name).get()
+          else:
+               ref = CompanyModel( companyaddedby  = users.get_current_user(),
+                                   companyname = name).put()
+          return ref
+          
+
+
 
 class CompanyEmailsModel(db.Model):
   email    = db.StringProperty()  

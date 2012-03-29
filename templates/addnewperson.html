@@ -1,0 +1,761 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Highrise: Add a person</title>
+  <meta name='current-user' content= 674863 />
+
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
+
+  <script type="text/javascript">
+//<![CDATA[
+function async(f) { async.f.push(f) }; async.f = []
+//]]>
+</script>
+  <script type="text/javascript">
+//<![CDATA[
+var RAILS_ENV = "production"
+//]]>
+</script>
+
+  <link href="/stylesheets/cache/all.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/print/application.css" media="print" rel="stylesheet" type="text/css" />
+  <!--[if IE]><link href="/stylesheets/ie/base.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+  <link href="/stylesheets/colors/blue.css" media="screen" rel="stylesheet" title="Theme" type="text/css" />
+
+  <noscript><style type="text/css">#app_header, div.wrapper { display: none }</style></noscript>
+
+  
+</head>
+
+<body class="clearfix new_party new_person former_sheet narrow_page_with_sidebar_outside webkit  windows"  onloadnot="setupZoom()">
+<!------------------------------------------------------------- Header de la page ------------------------------------------------------------->
+  {% include "AppNavigationHeader.html" %}
+<!--------------------------------------------------------------End Header -------------------------------------------------------------------->
+<!------------------------------------------------------------- Contenu de la page ------------------------------------------------------------>
+   <div id="wrapper">
+    <div id="inner_wrapper">
+      <div id="main_body" class="column">
+        
+        
+        
+        <div id="blank_slate" class="clearfix">
+          
+        </div>
+
+        
+                <div id="screen_body">
+        <!-- page sidebar -->
+        <div id="page_sidebar">
+          <div class="liner">
+            
+  
+  <div class="sidebox_wrapper">
+    <div class="liner">
+      <div class="sidebox closedbox">
+        <h5><strong>Other ways to add people</strong></h5>
+        <p>Looking to add multiple people at once? Choose one of the following file types and you'll be on your way:</p>
+        <ul>
+          <li><a href="/contact_imports/new#/vcard" behavior="return_to">Upload a vCard file</a></li>
+          <li><a href="/contact_imports/new#/csv" behavior="return_to">Import from a CSV file</a></li>
+          <li><a href="/contact_imports/new#/xls" behavior="return_to">Import from an Excel file</a></li>
+          <li><a href="/contact_imports/new#/basecamp" behavior="return_to">Import from Basecamp</a></li>
+          <li><a href="/contact_imports/new#/outlook" behavior="return_to">Import from Outlook</a></li>
+          <li><a href="/contact_imports/new#/act" behavior="return_to">Import from ACT!</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+
+          </div>
+        </div>
+        <!--// page sidebar -->
+
+        <!-- page -->
+        <div id="page">
+
+            <!-- page header -->
+            <div id="page_header_wrapper">
+              
+              <div id="page_header">
+
+                <div class="page_header">
+  <h1>Add a new person
+    
+      <span class="toggle">or <a href="/companies/new">add a new company</a></span>
+    
+  </h1>
+</div>
+
+              </div>
+            </div>
+            <!--// page header -->
+
+            <!-- page contents -->
+            <div id="page_contents_wrapper" class="clearfix">
+
+              <!-- main column -->
+              <div id="page_main_column" class="column">
+                <div class="liner">
+                  
+
+
+
+
+
+<form action="/people" autocomplete="off" class="new subject" id="new_person" method="post" onsubmit="return Form.validate(this) &amp;&amp; $(this).markAsBusyIf($('person_first_name').value != '' &amp;&amp; EditTabs.submit())"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="VOqBdpwlByu5XZS9wSLBA2ZO3ru5h10t5f1C+QvYIlQ=" /></div>
+  
+  <div class="edit">
+    <div class="page_divider">
+      <div class="primary_fields">
+        <table cellpadding="0" cellspacing="0" class="contact_types">
+          <tr class="name first_name">
+            <th><h2>First name</h2></th>
+            <td><input class="name autofocus" id="person_first_name" name="person[first_name]" size="30" type="text" /></td>
+          </tr>
+          <tr class="name last_name">
+            <th><h2>Last name </h2></th>
+            <td><input class="name autofocus" id="person_last_name" name="person[last_name]" size="30" type="text" /></td>
+          </tr>
+          <tr class="title" id="title_field_person">
+            <th><h2>Title</h2></th>
+            <td>
+              <div class="contact_forms" id="title_person">
+                <div class="blank_slate">Add a title</div>
+                <div class="contact_methods" style='display:none;'>
+                  <div class="contact_method">
+                    <input class="autofocus" id="person_title" name="person[title]" size="30" type="text" />
+                  </div>
+                  <script type="text/javascript">
+//<![CDATA[
+async("new ContactInfo.ContactForm('title_person')")
+//]]>
+</script>
+                </div>
+              </div>
+             </td>
+          </tr>
+          <tr class="company last">
+            <th><h2>Company</h2></th>
+            <td>
+              <div class="contact_forms" id="company_person">
+                <div class="blank_slate">Add a company</div>
+                <div class="contact_methods" style='display:none;'>
+                  <div class="contact_method" style="position:relative;">
+                    <input id="person_company_name" name="person[company_name]" size="30" type="text" /><br/>
+                    <div class="auto_complete_container" style="position:absolute;"><!-- container needed for proper positioning in IE 7 -->
+                      <div class="auto_complete" id="person_company_name_matches" style="display:none"></div><script type="text/javascript">
+//<![CDATA[
+async("var person_company_name_auto_completer = new Ajax.Autocompleter('person_company_name', 'person_company_name_matches', '/searchcompany', { paramName: 'name' })")
+//]]>
+</script>
+                    </div>
+                  </div>
+                  <script type="text/javascript">
+//<![CDATA[
+async("new ContactInfo.ContactForm('company_person')")
+//]]>
+</script>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="secondary_fields">
+      <table class="contact_types" cellpadding="0" cellspacing="0" id="contact_section">
+        
+          <tr>
+  <th><h2>Phone</h2></th>
+  <td><div class="contact_forms phone_numbers" id="phone_number_list_person"><div id="blank_slate_person_phone_number" class='blank_slate'>Add a phone number</div><div class="contact_methods" style="display:none;">
+
+  <div id="phone_number_x5d91c5d3007ac74f70504e" class="contact_method new_contact_method edit_phone">
+    <input class="autofocus" id="person_contact_data_phone_numbers__number" name="person[contact_data][phone_numbers][][number]" size="30" type="text" value="" />
+    
+    <select id="person_contact_data_phone_numbers__location" name="person[contact_data][phone_numbers][][location]"><option value="Work">Work</option>
+<option value="Mobile">Mobile</option>
+<option value="Fax">Fax</option>
+<option value="Pager">Pager</option>
+<option value="Home">Home</option>
+<option value="Skype">Skype</option>
+<option value="Other">Other</option></select>
+    <span class="addremove"><a href="#" class="remove">Remove</a></span>
+  </div>
+
+<div id="add_person_phone_number" class="add_contact_method" style="display:none;">
+  <div class="add"><a href="#">Add another</a></div>
+</div>
+</div></div><script type="text/javascript">
+//<![CDATA[
+async("new ContactInfo.ContactForm(\"phone_number_list_person\", \"\\n\\n  \\u003Cdiv id=\\\"phone_number_#{safe_id}\\\" class=\\\"contact_method new_contact_method edit_phone\\\"\\u003E\\n    \\u003Cinput class=\\\"autofocus\\\" id=\\\"person_contact_data_phone_numbers__number\\\" name=\\\"person[contact_data][phone_numbers][][number]\\\" size=\\\"30\\\" type=\\\"text\\\" value=\\\"\\\" /\\u003E\\n    \\n    \\u003Cselect id=\\\"person_contact_data_phone_numbers__location\\\" name=\\\"person[contact_data][phone_numbers][][location]\\\"\\u003E\\u003Coption value=\\\"Work\\\"\\u003EWork\\u003C/option\\u003E\\n\\u003Coption value=\\\"Mobile\\\"\\u003EMobile\\u003C/option\\u003E\\n\\u003Coption value=\\\"Fax\\\"\\u003EFax\\u003C/option\\u003E\\n\\u003Coption value=\\\"Pager\\\"\\u003EPager\\u003C/option\\u003E\\n\\u003Coption value=\\\"Home\\\"\\u003EHome\\u003C/option\\u003E\\n\\u003Coption value=\\\"Skype\\\"\\u003ESkype\\u003C/option\\u003E\\n\\u003Coption value=\\\"Other\\\"\\u003EOther\\u003C/option\\u003E\\u003C/select\\u003E\\n    \\u003Cspan class=\\\"addremove\\\"\\u003E\\u003Ca href=\\\"#\\\" class=\\\"remove\\\"\\u003ERemove\\u003C/a\\u003E\\u003C/span\\u003E\\n  \\u003C/div\\u003E\\n\\n\")")
+//]]>
+</script></td>
+</tr>
+<tr>
+  <th><h2>Email</h2></th>
+  <td><div class="contact_forms email_addresses" id="email_address_list_person"><div id="blank_slate_person_email_address" class='blank_slate'>Add an email address</div><div class="contact_methods" style="display:none;">
+
+  <div id="email_address_x2d4942b6007ac74f70504e" class="contact_method new_contact_method">
+    <input class="autofocus" id="person_contact_data_email_addresses__address" name="person[contact_data][email_addresses][][address]" size="30" type="text" />
+    
+    <select id="person_contact_data_email_addresses__location" name="person[contact_data][email_addresses][][location]"><option value="Work">Work</option>
+<option value="Home">Home</option>
+<option value="Other">Other</option></select>
+    <span class="addremove"><a href="#" class="remove">Remove</a></span>
+  </div>
+
+<div id="add_person_email_address" class="add_contact_method" style="display:none;">
+  <div class="add"><a href="#">Add another</a></div>
+</div>
+</div></div><script type="text/javascript">
+//<![CDATA[
+async("new ContactInfo.ContactForm(\"email_address_list_person\", \"\\n\\n  \\u003Cdiv id=\\\"email_address_#{safe_id}\\\" class=\\\"contact_method new_contact_method\\\"\\u003E\\n    \\u003Cinput class=\\\"autofocus\\\" id=\\\"person_contact_data_email_addresses__address\\\" name=\\\"person[contact_data][email_addresses][][address]\\\" size=\\\"30\\\" type=\\\"text\\\" /\\u003E\\n    \\n    \\u003Cselect id=\\\"person_contact_data_email_addresses__location\\\" name=\\\"person[contact_data][email_addresses][][location]\\\"\\u003E\\u003Coption value=\\\"Work\\\"\\u003EWork\\u003C/option\\u003E\\n\\u003Coption value=\\\"Home\\\"\\u003EHome\\u003C/option\\u003E\\n\\u003Coption value=\\\"Other\\\"\\u003EOther\\u003C/option\\u003E\\u003C/select\\u003E\\n    \\u003Cspan class=\\\"addremove\\\"\\u003E\\u003Ca href=\\\"#\\\" class=\\\"remove\\\"\\u003ERemove\\u003C/a\\u003E\\u003C/span\\u003E\\n  \\u003C/div\\u003E\\n\\n\")")
+//]]>
+</script></td>
+</tr>
+<tr>
+  <th><h2>IM</h2></th>
+  <td><div class="contact_forms instant_messengers" id="instant_messenger_list_person"><div id="blank_slate_person_instant_messenger" class='blank_slate'>Add an instant message account</div><div class="contact_methods" style="display:none;">
+
+  <div id="instant_messenger_xac86fdbf007ac74f70504e" class="contact_method new_contact_method">
+    <div class="instant_messenger">
+      <input class="autofocus" id="person_contact_data_instant_messengers__address" name="person[contact_data][instant_messengers][][address]" size="30" type="text" value="" />&nbsp;<select class="protocols" id="person_contact_data_instant_messengers__protocol" name="person[contact_data][instant_messengers][][protocol]"><option value="AIM">AIM</option>
+<option value="MSN">MSN</option>
+<option value="ICQ">ICQ</option>
+<option value="Jabber">Jabber</option>
+<option value="Yahoo">Yahoo</option>
+<option value="Skype">Skype</option>
+<option value="QQ">QQ</option>
+<option value="Sametime">Sametime</option>
+<option value="Gadu-Gadu">Gadu-Gadu</option>
+<option value="Google Talk">Google Talk</option>
+<option value="Other">Other</option></select>
+      
+      <select id="person_contact_data_instant_messengers__location" name="person[contact_data][instant_messengers][][location]"><option value="Work">Work</option>
+<option value="Personal">Personal</option>
+<option value="Other">Other</option></select>
+      <span class="addremove"><a href="#" class="remove">Remove</a></span>
+    </div>
+  </div>
+
+<div id="add_person_instant_messenger" class="add_contact_method" style="display:none;">
+  <div class="add"><a href="#">Add another</a></div>
+</div>
+</div></div><script type="text/javascript">
+//<![CDATA[
+async("new ContactInfo.ContactForm(\"instant_messenger_list_person\", \"\\n\\n  \\u003Cdiv id=\\\"instant_messenger_#{safe_id}\\\" class=\\\"contact_method new_contact_method\\\"\\u003E\\n    \\u003Cdiv class=\\\"instant_messenger\\\"\\u003E\\n      \\u003Cinput class=\\\"autofocus\\\" id=\\\"person_contact_data_instant_messengers__address\\\" name=\\\"person[contact_data][instant_messengers][][address]\\\" size=\\\"30\\\" type=\\\"text\\\" value=\\\"\\\" /\\u003E\\u0026nbsp;\\u003Cselect class=\\\"protocols\\\" id=\\\"person_contact_data_instant_messengers__protocol\\\" name=\\\"person[contact_data][instant_messengers][][protocol]\\\"\\u003E\\u003Coption value=\\\"AIM\\\"\\u003EAIM\\u003C/option\\u003E\\n\\u003Coption value=\\\"MSN\\\"\\u003EMSN\\u003C/option\\u003E\\n\\u003Coption value=\\\"ICQ\\\"\\u003EICQ\\u003C/option\\u003E\\n\\u003Coption value=\\\"Jabber\\\"\\u003EJabber\\u003C/option\\u003E\\n\\u003Coption value=\\\"Yahoo\\\"\\u003EYahoo\\u003C/option\\u003E\\n\\u003Coption value=\\\"Skype\\\"\\u003ESkype\\u003C/option\\u003E\\n\\u003Coption value=\\\"QQ\\\"\\u003EQQ\\u003C/option\\u003E\\n\\u003Coption value=\\\"Sametime\\\"\\u003ESametime\\u003C/option\\u003E\\n\\u003Coption value=\\\"Gadu-Gadu\\\"\\u003EGadu-Gadu\\u003C/option\\u003E\\n\\u003Coption value=\\\"Google Talk\\\"\\u003EGoogle Talk\\u003C/option\\u003E\\n\\u003Coption value=\\\"Other\\\"\\u003EOther\\u003C/option\\u003E\\u003C/select\\u003E\\n      \\n      \\u003Cselect id=\\\"person_contact_data_instant_messengers__location\\\" name=\\\"person[contact_data][instant_messengers][][location]\\\"\\u003E\\u003Coption value=\\\"Work\\\"\\u003EWork\\u003C/option\\u003E\\n\\u003Coption value=\\\"Personal\\\"\\u003EPersonal\\u003C/option\\u003E\\n\\u003Coption value=\\\"Other\\\"\\u003EOther\\u003C/option\\u003E\\u003C/select\\u003E\\n      \\u003Cspan class=\\\"addremove\\\"\\u003E\\u003Ca href=\\\"#\\\" class=\\\"remove\\\"\\u003ERemove\\u003C/a\\u003E\\u003C/span\\u003E\\n    \\u003C/div\\u003E\\n  \\u003C/div\\u003E\\n\\n\")")
+//]]>
+</script></td>
+</tr>
+<tr>
+  <th><h2>Websites</h2></th>
+  <td><div class="contact_forms web_addresses" id="web_address_list_person"><div id="blank_slate_person_web_address" class='blank_slate'>Add a website address</div><div class="contact_methods" style="display:none;">
+
+  <div id="web_address_x3203e8f7007ac74f70504e" class="contact_method new_contact_method">
+    <input class="autofocus" id="person_contact_data_web_addresses__url" name="person[contact_data][web_addresses][][url]" size="30" type="text" value="" />
+    
+    <select id="person_contact_data_web_addresses__location" name="person[contact_data][web_addresses][][location]"><option value="Work">Work</option>
+<option value="Personal">Personal</option>
+<option value="Other">Other</option></select>
+    <span class="addremove"><a href="#" class="remove">Remove</a></span>
+  </div>
+
+<div id="add_person_web_address" class="add_contact_method" style="display:none;">
+  <div class="add"><a href="#">Add another</a></div>
+</div>
+</div></div><script type="text/javascript">
+//<![CDATA[
+async("new ContactInfo.ContactForm(\"web_address_list_person\", \"\\n\\n  \\u003Cdiv id=\\\"web_address_#{safe_id}\\\" class=\\\"contact_method new_contact_method\\\"\\u003E\\n    \\u003Cinput class=\\\"autofocus\\\" id=\\\"person_contact_data_web_addresses__url\\\" name=\\\"person[contact_data][web_addresses][][url]\\\" size=\\\"30\\\" type=\\\"text\\\" value=\\\"\\\" /\\u003E\\n    \\n    \\u003Cselect id=\\\"person_contact_data_web_addresses__location\\\" name=\\\"person[contact_data][web_addresses][][location]\\\"\\u003E\\u003Coption value=\\\"Work\\\"\\u003EWork\\u003C/option\\u003E\\n\\u003Coption value=\\\"Personal\\\"\\u003EPersonal\\u003C/option\\u003E\\n\\u003Coption value=\\\"Other\\\"\\u003EOther\\u003C/option\\u003E\\u003C/select\\u003E\\n    \\u003Cspan class=\\\"addremove\\\"\\u003E\\u003Ca href=\\\"#\\\" class=\\\"remove\\\"\\u003ERemove\\u003C/a\\u003E\\u003C/span\\u003E\\n  \\u003C/div\\u003E\\n\\n\")")
+//]]>
+</script></td>
+</tr>
+<tr class="addresses">
+  <th><h2>Address</h2></th>
+  <td><div class="contact_forms addresses" id="address_list_person"><div id="blank_slate_person_address" class='blank_slate'>Add an address</div><div class="contact_methods" style="display:none;">
+
+<div class="contact_method new_contact_method street" id="address_x0fa87560007ac74f70504e">
+  <div class="fields">
+    <div style="position: relative;">
+      <p class="address"><textarea class="autofocus overlayable" id="person_contact_data_addresses_address_x0fa87560007ac74f70504e_street" name="person[contact_data][addresses][][street]" title="Address"></textarea></p>
+      <p><input class="city overlayable" id="person_contact_data_addresses_address_x0fa87560007ac74f70504e_city" name="person[contact_data][addresses][][city]" title="City" type="text" />
+      <input class="state overlayable" id="person_contact_data_addresses_address_x0fa87560007ac74f70504e_state" name="person[contact_data][addresses][][state]" title="State" type="text" />
+      <input class="zip overlayable" id="person_contact_data_addresses_address_x0fa87560007ac74f70504e_zip" name="person[contact_data][addresses][][zip]" title="Zip" type="text" /> </p>
+      <p><select class="country" id="person_contact_data_addresses__country" name="person[contact_data][addresses][][country]"><option value="">Choose a country...</option>
+<option value="United States">United States</option>
+<option value="Australia">Australia</option>
+<option value="Canada">Canada</option>
+<option value="Denmark">Denmark</option>
+<option value="France">France</option>
+<option value="Germany">Germany</option>
+<option value="Italy">Italy</option>
+<option value="Japan">Japan</option>
+<option value="Mexico">Mexico</option>
+<option value="Spain">Spain</option>
+<option value="Sweden">Sweden</option>
+<option value="United Kingdom">United Kingdom</option><option value="" disabled="disabled">-------------</option>
+<option value="Afghanistan">Afghanistan</option>
+<option value="Aland Islands">Aland Islands</option>
+<option value="Albania">Albania</option>
+<option value="Algeria">Algeria</option>
+<option value="American Samoa">American Samoa</option>
+<option value="Andorra">Andorra</option>
+<option value="Angola">Angola</option>
+<option value="Anguilla">Anguilla</option>
+<option value="Antarctica">Antarctica</option>
+<option value="Antigua And Barbuda">Antigua And Barbuda</option>
+<option value="Argentina">Argentina</option>
+<option value="Armenia">Armenia</option>
+<option value="Aruba">Aruba</option>
+<option value="Australia">Australia</option>
+<option value="Austria">Austria</option>
+<option value="Azerbaijan">Azerbaijan</option>
+<option value="Bahamas">Bahamas</option>
+<option value="Bahrain">Bahrain</option>
+<option value="Bangladesh">Bangladesh</option>
+<option value="Barbados">Barbados</option>
+<option value="Belarus">Belarus</option>
+<option value="Belgium">Belgium</option>
+<option value="Belize">Belize</option>
+<option value="Benin">Benin</option>
+<option value="Bermuda">Bermuda</option>
+<option value="Bhutan">Bhutan</option>
+<option value="Bolivia">Bolivia</option>
+<option value="Bosnia and Herzegowina">Bosnia and Herzegowina</option>
+<option value="Botswana">Botswana</option>
+<option value="Bouvet Island">Bouvet Island</option>
+<option value="Brazil">Brazil</option>
+<option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+<option value="Brunei Darussalam">Brunei Darussalam</option>
+<option value="Bulgaria">Bulgaria</option>
+<option value="Burkina Faso">Burkina Faso</option>
+<option value="Burundi">Burundi</option>
+<option value="Cambodia">Cambodia</option>
+<option value="Cameroon">Cameroon</option>
+<option value="Canada">Canada</option>
+<option value="Cape Verde">Cape Verde</option>
+<option value="Cayman Islands">Cayman Islands</option>
+<option value="Central African Republic">Central African Republic</option>
+<option value="Chad">Chad</option>
+<option value="Chile">Chile</option>
+<option value="China">China</option>
+<option value="Christmas Island">Christmas Island</option>
+<option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+<option value="Colombia">Colombia</option>
+<option value="Comoros">Comoros</option>
+<option value="Congo">Congo</option>
+<option value="Congo, the Democratic Republic of the">Congo, the Democratic Republic of the</option>
+<option value="Cook Islands">Cook Islands</option>
+<option value="Costa Rica">Costa Rica</option>
+<option value="Cote d'Ivoire">Cote d'Ivoire</option>
+<option value="Croatia">Croatia</option>
+<option value="Cuba">Cuba</option>
+<option value="Cyprus">Cyprus</option>
+<option value="Czech Republic">Czech Republic</option>
+<option value="Denmark">Denmark</option>
+<option value="Djibouti">Djibouti</option>
+<option value="Dominica">Dominica</option>
+<option value="Dominican Republic">Dominican Republic</option>
+<option value="Ecuador">Ecuador</option>
+<option value="Egypt">Egypt</option>
+<option value="El Salvador">El Salvador</option>
+<option value="Equatorial Guinea">Equatorial Guinea</option>
+<option value="Eritrea">Eritrea</option>
+<option value="Estonia">Estonia</option>
+<option value="Ethiopia">Ethiopia</option>
+<option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+<option value="Faroe Islands">Faroe Islands</option>
+<option value="Fiji">Fiji</option>
+<option value="Finland">Finland</option>
+<option value="France">France</option>
+<option value="French Guiana">French Guiana</option>
+<option value="French Polynesia">French Polynesia</option>
+<option value="French Southern Territories">French Southern Territories</option>
+<option value="Gabon">Gabon</option>
+<option value="Gambia">Gambia</option>
+<option value="Georgia">Georgia</option>
+<option value="Germany">Germany</option>
+<option value="Ghana">Ghana</option>
+<option value="Gibraltar">Gibraltar</option>
+<option value="Greece">Greece</option>
+<option value="Greenland">Greenland</option>
+<option value="Grenada">Grenada</option>
+<option value="Guadeloupe">Guadeloupe</option>
+<option value="Guam">Guam</option>
+<option value="Guatemala">Guatemala</option>
+<option value="Guernsey">Guernsey</option>
+<option value="Guinea">Guinea</option>
+<option value="Guinea-Bissau">Guinea-Bissau</option>
+<option value="Guyana">Guyana</option>
+<option value="Haiti">Haiti</option>
+<option value="Heard and McDonald Islands">Heard and McDonald Islands</option>
+<option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+<option value="Honduras">Honduras</option>
+<option value="Hong Kong">Hong Kong</option>
+<option value="Hungary">Hungary</option>
+<option value="Iceland">Iceland</option>
+<option value="India">India</option>
+<option value="Indonesia">Indonesia</option>
+<option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
+<option value="Iraq">Iraq</option>
+<option value="Ireland">Ireland</option>
+<option value="Isle of Man">Isle of Man</option>
+<option value="Israel">Israel</option>
+<option value="Italy">Italy</option>
+<option value="Jamaica">Jamaica</option>
+<option value="Japan">Japan</option>
+<option value="Jersey">Jersey</option>
+<option value="Jordan">Jordan</option>
+<option value="Kazakhstan">Kazakhstan</option>
+<option value="Kenya">Kenya</option>
+<option value="Kiribati">Kiribati</option>
+<option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
+<option value="Korea, Republic of">Korea, Republic of</option>
+<option value="Kuwait">Kuwait</option>
+<option value="Kyrgyzstan">Kyrgyzstan</option>
+<option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
+<option value="Latvia">Latvia</option>
+<option value="Lebanon">Lebanon</option>
+<option value="Lesotho">Lesotho</option>
+<option value="Liberia">Liberia</option>
+<option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+<option value="Liechtenstein">Liechtenstein</option>
+<option value="Lithuania">Lithuania</option>
+<option value="Luxembourg">Luxembourg</option>
+<option value="Macao">Macao</option>
+<option value="Macedonia, The Former Yugoslav Republic Of">Macedonia, The Former Yugoslav Republic Of</option>
+<option value="Madagascar">Madagascar</option>
+<option value="Malawi">Malawi</option>
+<option value="Malaysia">Malaysia</option>
+<option value="Maldives">Maldives</option>
+<option value="Mali">Mali</option>
+<option value="Malta">Malta</option>
+<option value="Marshall Islands">Marshall Islands</option>
+<option value="Martinique">Martinique</option>
+<option value="Mauritania">Mauritania</option>
+<option value="Mauritius">Mauritius</option>
+<option value="Mayotte">Mayotte</option>
+<option value="Mexico">Mexico</option>
+<option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
+<option value="Moldova, Republic of">Moldova, Republic of</option>
+<option value="Monaco">Monaco</option>
+<option value="Mongolia">Mongolia</option>
+<option value="Montenegro">Montenegro</option>
+<option value="Montserrat">Montserrat</option>
+<option value="Morocco">Morocco</option>
+<option value="Mozambique">Mozambique</option>
+<option value="Myanmar">Myanmar</option>
+<option value="Namibia">Namibia</option>
+<option value="Nauru">Nauru</option>
+<option value="Nepal">Nepal</option>
+<option value="Netherlands">Netherlands</option>
+<option value="Netherlands Antilles">Netherlands Antilles</option>
+<option value="New Caledonia">New Caledonia</option>
+<option value="New Zealand">New Zealand</option>
+<option value="Nicaragua">Nicaragua</option>
+<option value="Niger">Niger</option>
+<option value="Nigeria">Nigeria</option>
+<option value="Niue">Niue</option>
+<option value="Norfolk Island">Norfolk Island</option>
+<option value="Northern Mariana Islands">Northern Mariana Islands</option>
+<option value="Norway">Norway</option>
+<option value="Oman">Oman</option>
+<option value="Pakistan">Pakistan</option>
+<option value="Palau">Palau</option>
+<option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
+<option value="Panama">Panama</option>
+<option value="Papua New Guinea">Papua New Guinea</option>
+<option value="Paraguay">Paraguay</option>
+<option value="Peru">Peru</option>
+<option value="Philippines">Philippines</option>
+<option value="Pitcairn">Pitcairn</option>
+<option value="Poland">Poland</option>
+<option value="Portugal">Portugal</option>
+<option value="Puerto Rico">Puerto Rico</option>
+<option value="Qatar">Qatar</option>
+<option value="Reunion">Reunion</option>
+<option value="Romania">Romania</option>
+<option value="Russian Federation">Russian Federation</option>
+<option value="Rwanda">Rwanda</option>
+<option value="Saint Barthelemy">Saint Barthelemy</option>
+<option value="Saint Helena">Saint Helena</option>
+<option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+<option value="Saint Lucia">Saint Lucia</option>
+<option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+<option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+<option value="Samoa">Samoa</option>
+<option value="San Marino">San Marino</option>
+<option value="Sao Tome and Principe">Sao Tome and Principe</option>
+<option value="Saudi Arabia">Saudi Arabia</option>
+<option value="Senegal">Senegal</option>
+<option value="Serbia">Serbia</option>
+<option value="Seychelles">Seychelles</option>
+<option value="Sierra Leone">Sierra Leone</option>
+<option value="Singapore">Singapore</option>
+<option value="Slovakia">Slovakia</option>
+<option value="Slovenia">Slovenia</option>
+<option value="Solomon Islands">Solomon Islands</option>
+<option value="Somalia">Somalia</option>
+<option value="South Africa">South Africa</option>
+<option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option>
+<option value="Spain">Spain</option>
+<option value="Sri Lanka">Sri Lanka</option>
+<option value="Sudan">Sudan</option>
+<option value="Suriname">Suriname</option>
+<option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+<option value="Swaziland">Swaziland</option>
+<option value="Sweden">Sweden</option>
+<option value="Switzerland">Switzerland</option>
+<option value="Syrian Arab Republic">Syrian Arab Republic</option>
+<option value="Taiwan">Taiwan</option>
+<option value="Tajikistan">Tajikistan</option>
+<option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
+<option value="Thailand">Thailand</option>
+<option value="Timor-Leste">Timor-Leste</option>
+<option value="Togo">Togo</option>
+<option value="Tokelau">Tokelau</option>
+<option value="Tonga">Tonga</option>
+<option value="Trinidad and Tobago">Trinidad and Tobago</option>
+<option value="Tunisia">Tunisia</option>
+<option value="Turkey">Turkey</option>
+<option value="Turkmenistan">Turkmenistan</option>
+<option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+<option value="Tuvalu">Tuvalu</option>
+<option value="Uganda">Uganda</option>
+<option value="Ukraine">Ukraine</option>
+<option value="United Arab Emirates">United Arab Emirates</option>
+<option value="United Kingdom">United Kingdom</option>
+<option value="United States">United States</option>
+<option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+<option value="Uruguay">Uruguay</option>
+<option value="Uzbekistan">Uzbekistan</option>
+<option value="Vanuatu">Vanuatu</option>
+<option value="Venezuela">Venezuela</option>
+<option value="Viet Nam">Viet Nam</option>
+<option value="Virgin Islands, British">Virgin Islands, British</option>
+<option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+<option value="Wallis and Futuna">Wallis and Futuna</option>
+<option value="Western Sahara">Western Sahara</option>
+<option value="Yemen">Yemen</option>
+<option value="Zambia">Zambia</option>
+<option value="Zimbabwe">Zimbabwe</option></select></p>
+      <div class="loc_remove">
+        
+        <select id="person_contact_data_addresses__location" name="person[contact_data][addresses][][location]"><option value="Work">Work</option>
+<option value="Home">Home</option>
+<option value="Other">Other</option></select>
+        <span class="addremove"><a href="#" class="remove">Remove</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+async("$$('.street .overlayable').each(function(input) { ContactInfo.Overlay.wrap(input); });")
+//]]>
+</script>
+
+<div id="add_person_address" class="add_contact_method" style="display:none;">
+  <div class="add"><a href="#">Add another</a></div>
+</div>
+</div></div><script type="text/javascript">
+//<![CDATA[
+async("new ContactInfo.ContactForm(\"address_list_person\", \"\\n\\n\\u003Cdiv class=\\\"contact_method new_contact_method street\\\" id=\\\"address_#{safe_id}\\\"\\u003E\\n  \\u003Cdiv class=\\\"fields\\\"\\u003E\\n    \\u003Cdiv style=\\\"position: relative;\\\"\\u003E\\n      \\u003Cp class=\\\"address\\\"\\u003E\\u003Ctextarea class=\\\"autofocus overlayable\\\" id=\\\"person_contact_data_addresses_address_#{safe_id}_street\\\" name=\\\"person[contact_data][addresses][][street]\\\" title=\\\"Address\\\"\\u003E\\u003C/textarea\\u003E\\u003C/p\\u003E\\n      \\u003Cp\\u003E\\u003Cinput class=\\\"city overlayable\\\" id=\\\"person_contact_data_addresses_address_#{safe_id}_city\\\" name=\\\"person[contact_data][addresses][][city]\\\" title=\\\"City\\\" type=\\\"text\\\" /\\u003E\\n      \\u003Cinput class=\\\"state overlayable\\\" id=\\\"person_contact_data_addresses_address_#{safe_id}_state\\\" name=\\\"person[contact_data][addresses][][state]\\\" title=\\\"State\\\" type=\\\"text\\\" /\\u003E\\n      \\u003Cinput class=\\\"zip overlayable\\\" id=\\\"person_contact_data_addresses_address_#{safe_id}_zip\\\" name=\\\"person[contact_data][addresses][][zip]\\\" title=\\\"Zip\\\" type=\\\"text\\\" /\\u003E \\u003C/p\\u003E\\n      \\u003Cp\\u003E\\u003Cselect class=\\\"country\\\" id=\\\"person_contact_data_addresses__country\\\" name=\\\"person[contact_data][addresses][][country]\\\"\\u003E\\u003Coption value=\\\"\\\"\\u003EChoose a country...\\u003C/option\\u003E\\n\\u003Coption value=\\\"United States\\\"\\u003EUnited States\\u003C/option\\u003E\\n\\u003Coption value=\\\"Australia\\\"\\u003EAustralia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Canada\\\"\\u003ECanada\\u003C/option\\u003E\\n\\u003Coption value=\\\"Denmark\\\"\\u003EDenmark\\u003C/option\\u003E\\n\\u003Coption value=\\\"France\\\"\\u003EFrance\\u003C/option\\u003E\\n\\u003Coption value=\\\"Germany\\\"\\u003EGermany\\u003C/option\\u003E\\n\\u003Coption value=\\\"Italy\\\"\\u003EItaly\\u003C/option\\u003E\\n\\u003Coption value=\\\"Japan\\\"\\u003EJapan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Mexico\\\"\\u003EMexico\\u003C/option\\u003E\\n\\u003Coption value=\\\"Spain\\\"\\u003ESpain\\u003C/option\\u003E\\n\\u003Coption value=\\\"Sweden\\\"\\u003ESweden\\u003C/option\\u003E\\n\\u003Coption value=\\\"United Kingdom\\\"\\u003EUnited Kingdom\\u003C/option\\u003E\\u003Coption value=\\\"\\\" disabled=\\\"disabled\\\"\\u003E-------------\\u003C/option\\u003E\\n\\u003Coption value=\\\"Afghanistan\\\"\\u003EAfghanistan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Aland Islands\\\"\\u003EAland Islands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Albania\\\"\\u003EAlbania\\u003C/option\\u003E\\n\\u003Coption value=\\\"Algeria\\\"\\u003EAlgeria\\u003C/option\\u003E\\n\\u003Coption value=\\\"American Samoa\\\"\\u003EAmerican Samoa\\u003C/option\\u003E\\n\\u003Coption value=\\\"Andorra\\\"\\u003EAndorra\\u003C/option\\u003E\\n\\u003Coption value=\\\"Angola\\\"\\u003EAngola\\u003C/option\\u003E\\n\\u003Coption value=\\\"Anguilla\\\"\\u003EAnguilla\\u003C/option\\u003E\\n\\u003Coption value=\\\"Antarctica\\\"\\u003EAntarctica\\u003C/option\\u003E\\n\\u003Coption value=\\\"Antigua And Barbuda\\\"\\u003EAntigua And Barbuda\\u003C/option\\u003E\\n\\u003Coption value=\\\"Argentina\\\"\\u003EArgentina\\u003C/option\\u003E\\n\\u003Coption value=\\\"Armenia\\\"\\u003EArmenia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Aruba\\\"\\u003EAruba\\u003C/option\\u003E\\n\\u003Coption value=\\\"Australia\\\"\\u003EAustralia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Austria\\\"\\u003EAustria\\u003C/option\\u003E\\n\\u003Coption value=\\\"Azerbaijan\\\"\\u003EAzerbaijan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Bahamas\\\"\\u003EBahamas\\u003C/option\\u003E\\n\\u003Coption value=\\\"Bahrain\\\"\\u003EBahrain\\u003C/option\\u003E\\n\\u003Coption value=\\\"Bangladesh\\\"\\u003EBangladesh\\u003C/option\\u003E\\n\\u003Coption value=\\\"Barbados\\\"\\u003EBarbados\\u003C/option\\u003E\\n\\u003Coption value=\\\"Belarus\\\"\\u003EBelarus\\u003C/option\\u003E\\n\\u003Coption value=\\\"Belgium\\\"\\u003EBelgium\\u003C/option\\u003E\\n\\u003Coption value=\\\"Belize\\\"\\u003EBelize\\u003C/option\\u003E\\n\\u003Coption value=\\\"Benin\\\"\\u003EBenin\\u003C/option\\u003E\\n\\u003Coption value=\\\"Bermuda\\\"\\u003EBermuda\\u003C/option\\u003E\\n\\u003Coption value=\\\"Bhutan\\\"\\u003EBhutan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Bolivia\\\"\\u003EBolivia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Bosnia and Herzegowina\\\"\\u003EBosnia and Herzegowina\\u003C/option\\u003E\\n\\u003Coption value=\\\"Botswana\\\"\\u003EBotswana\\u003C/option\\u003E\\n\\u003Coption value=\\\"Bouvet Island\\\"\\u003EBouvet Island\\u003C/option\\u003E\\n\\u003Coption value=\\\"Brazil\\\"\\u003EBrazil\\u003C/option\\u003E\\n\\u003Coption value=\\\"British Indian Ocean Territory\\\"\\u003EBritish Indian Ocean Territory\\u003C/option\\u003E\\n\\u003Coption value=\\\"Brunei Darussalam\\\"\\u003EBrunei Darussalam\\u003C/option\\u003E\\n\\u003Coption value=\\\"Bulgaria\\\"\\u003EBulgaria\\u003C/option\\u003E\\n\\u003Coption value=\\\"Burkina Faso\\\"\\u003EBurkina Faso\\u003C/option\\u003E\\n\\u003Coption value=\\\"Burundi\\\"\\u003EBurundi\\u003C/option\\u003E\\n\\u003Coption value=\\\"Cambodia\\\"\\u003ECambodia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Cameroon\\\"\\u003ECameroon\\u003C/option\\u003E\\n\\u003Coption value=\\\"Canada\\\"\\u003ECanada\\u003C/option\\u003E\\n\\u003Coption value=\\\"Cape Verde\\\"\\u003ECape Verde\\u003C/option\\u003E\\n\\u003Coption value=\\\"Cayman Islands\\\"\\u003ECayman Islands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Central African Republic\\\"\\u003ECentral African Republic\\u003C/option\\u003E\\n\\u003Coption value=\\\"Chad\\\"\\u003EChad\\u003C/option\\u003E\\n\\u003Coption value=\\\"Chile\\\"\\u003EChile\\u003C/option\\u003E\\n\\u003Coption value=\\\"China\\\"\\u003EChina\\u003C/option\\u003E\\n\\u003Coption value=\\\"Christmas Island\\\"\\u003EChristmas Island\\u003C/option\\u003E\\n\\u003Coption value=\\\"Cocos (Keeling) Islands\\\"\\u003ECocos (Keeling) Islands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Colombia\\\"\\u003EColombia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Comoros\\\"\\u003EComoros\\u003C/option\\u003E\\n\\u003Coption value=\\\"Congo\\\"\\u003ECongo\\u003C/option\\u003E\\n\\u003Coption value=\\\"Congo, the Democratic Republic of the\\\"\\u003ECongo, the Democratic Republic of the\\u003C/option\\u003E\\n\\u003Coption value=\\\"Cook Islands\\\"\\u003ECook Islands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Costa Rica\\\"\\u003ECosta Rica\\u003C/option\\u003E\\n\\u003Coption value=\\\"Cote d'Ivoire\\\"\\u003ECote d'Ivoire\\u003C/option\\u003E\\n\\u003Coption value=\\\"Croatia\\\"\\u003ECroatia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Cuba\\\"\\u003ECuba\\u003C/option\\u003E\\n\\u003Coption value=\\\"Cyprus\\\"\\u003ECyprus\\u003C/option\\u003E\\n\\u003Coption value=\\\"Czech Republic\\\"\\u003ECzech Republic\\u003C/option\\u003E\\n\\u003Coption value=\\\"Denmark\\\"\\u003EDenmark\\u003C/option\\u003E\\n\\u003Coption value=\\\"Djibouti\\\"\\u003EDjibouti\\u003C/option\\u003E\\n\\u003Coption value=\\\"Dominica\\\"\\u003EDominica\\u003C/option\\u003E\\n\\u003Coption value=\\\"Dominican Republic\\\"\\u003EDominican Republic\\u003C/option\\u003E\\n\\u003Coption value=\\\"Ecuador\\\"\\u003EEcuador\\u003C/option\\u003E\\n\\u003Coption value=\\\"Egypt\\\"\\u003EEgypt\\u003C/option\\u003E\\n\\u003Coption value=\\\"El Salvador\\\"\\u003EEl Salvador\\u003C/option\\u003E\\n\\u003Coption value=\\\"Equatorial Guinea\\\"\\u003EEquatorial Guinea\\u003C/option\\u003E\\n\\u003Coption value=\\\"Eritrea\\\"\\u003EEritrea\\u003C/option\\u003E\\n\\u003Coption value=\\\"Estonia\\\"\\u003EEstonia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Ethiopia\\\"\\u003EEthiopia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Falkland Islands (Malvinas)\\\"\\u003EFalkland Islands (Malvinas)\\u003C/option\\u003E\\n\\u003Coption value=\\\"Faroe Islands\\\"\\u003EFaroe Islands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Fiji\\\"\\u003EFiji\\u003C/option\\u003E\\n\\u003Coption value=\\\"Finland\\\"\\u003EFinland\\u003C/option\\u003E\\n\\u003Coption value=\\\"France\\\"\\u003EFrance\\u003C/option\\u003E\\n\\u003Coption value=\\\"French Guiana\\\"\\u003EFrench Guiana\\u003C/option\\u003E\\n\\u003Coption value=\\\"French Polynesia\\\"\\u003EFrench Polynesia\\u003C/option\\u003E\\n\\u003Coption value=\\\"French Southern Territories\\\"\\u003EFrench Southern Territories\\u003C/option\\u003E\\n\\u003Coption value=\\\"Gabon\\\"\\u003EGabon\\u003C/option\\u003E\\n\\u003Coption value=\\\"Gambia\\\"\\u003EGambia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Georgia\\\"\\u003EGeorgia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Germany\\\"\\u003EGermany\\u003C/option\\u003E\\n\\u003Coption value=\\\"Ghana\\\"\\u003EGhana\\u003C/option\\u003E\\n\\u003Coption value=\\\"Gibraltar\\\"\\u003EGibraltar\\u003C/option\\u003E\\n\\u003Coption value=\\\"Greece\\\"\\u003EGreece\\u003C/option\\u003E\\n\\u003Coption value=\\\"Greenland\\\"\\u003EGreenland\\u003C/option\\u003E\\n\\u003Coption value=\\\"Grenada\\\"\\u003EGrenada\\u003C/option\\u003E\\n\\u003Coption value=\\\"Guadeloupe\\\"\\u003EGuadeloupe\\u003C/option\\u003E\\n\\u003Coption value=\\\"Guam\\\"\\u003EGuam\\u003C/option\\u003E\\n\\u003Coption value=\\\"Guatemala\\\"\\u003EGuatemala\\u003C/option\\u003E\\n\\u003Coption value=\\\"Guernsey\\\"\\u003EGuernsey\\u003C/option\\u003E\\n\\u003Coption value=\\\"Guinea\\\"\\u003EGuinea\\u003C/option\\u003E\\n\\u003Coption value=\\\"Guinea-Bissau\\\"\\u003EGuinea-Bissau\\u003C/option\\u003E\\n\\u003Coption value=\\\"Guyana\\\"\\u003EGuyana\\u003C/option\\u003E\\n\\u003Coption value=\\\"Haiti\\\"\\u003EHaiti\\u003C/option\\u003E\\n\\u003Coption value=\\\"Heard and McDonald Islands\\\"\\u003EHeard and McDonald Islands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Holy See (Vatican City State)\\\"\\u003EHoly See (Vatican City State)\\u003C/option\\u003E\\n\\u003Coption value=\\\"Honduras\\\"\\u003EHonduras\\u003C/option\\u003E\\n\\u003Coption value=\\\"Hong Kong\\\"\\u003EHong Kong\\u003C/option\\u003E\\n\\u003Coption value=\\\"Hungary\\\"\\u003EHungary\\u003C/option\\u003E\\n\\u003Coption value=\\\"Iceland\\\"\\u003EIceland\\u003C/option\\u003E\\n\\u003Coption value=\\\"India\\\"\\u003EIndia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Indonesia\\\"\\u003EIndonesia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Iran, Islamic Republic of\\\"\\u003EIran, Islamic Republic of\\u003C/option\\u003E\\n\\u003Coption value=\\\"Iraq\\\"\\u003EIraq\\u003C/option\\u003E\\n\\u003Coption value=\\\"Ireland\\\"\\u003EIreland\\u003C/option\\u003E\\n\\u003Coption value=\\\"Isle of Man\\\"\\u003EIsle of Man\\u003C/option\\u003E\\n\\u003Coption value=\\\"Israel\\\"\\u003EIsrael\\u003C/option\\u003E\\n\\u003Coption value=\\\"Italy\\\"\\u003EItaly\\u003C/option\\u003E\\n\\u003Coption value=\\\"Jamaica\\\"\\u003EJamaica\\u003C/option\\u003E\\n\\u003Coption value=\\\"Japan\\\"\\u003EJapan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Jersey\\\"\\u003EJersey\\u003C/option\\u003E\\n\\u003Coption value=\\\"Jordan\\\"\\u003EJordan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Kazakhstan\\\"\\u003EKazakhstan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Kenya\\\"\\u003EKenya\\u003C/option\\u003E\\n\\u003Coption value=\\\"Kiribati\\\"\\u003EKiribati\\u003C/option\\u003E\\n\\u003Coption value=\\\"Korea, Democratic People's Republic of\\\"\\u003EKorea, Democratic People's Republic of\\u003C/option\\u003E\\n\\u003Coption value=\\\"Korea, Republic of\\\"\\u003EKorea, Republic of\\u003C/option\\u003E\\n\\u003Coption value=\\\"Kuwait\\\"\\u003EKuwait\\u003C/option\\u003E\\n\\u003Coption value=\\\"Kyrgyzstan\\\"\\u003EKyrgyzstan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Lao People's Democratic Republic\\\"\\u003ELao People's Democratic Republic\\u003C/option\\u003E\\n\\u003Coption value=\\\"Latvia\\\"\\u003ELatvia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Lebanon\\\"\\u003ELebanon\\u003C/option\\u003E\\n\\u003Coption value=\\\"Lesotho\\\"\\u003ELesotho\\u003C/option\\u003E\\n\\u003Coption value=\\\"Liberia\\\"\\u003ELiberia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Libyan Arab Jamahiriya\\\"\\u003ELibyan Arab Jamahiriya\\u003C/option\\u003E\\n\\u003Coption value=\\\"Liechtenstein\\\"\\u003ELiechtenstein\\u003C/option\\u003E\\n\\u003Coption value=\\\"Lithuania\\\"\\u003ELithuania\\u003C/option\\u003E\\n\\u003Coption value=\\\"Luxembourg\\\"\\u003ELuxembourg\\u003C/option\\u003E\\n\\u003Coption value=\\\"Macao\\\"\\u003EMacao\\u003C/option\\u003E\\n\\u003Coption value=\\\"Macedonia, The Former Yugoslav Republic Of\\\"\\u003EMacedonia, The Former Yugoslav Republic Of\\u003C/option\\u003E\\n\\u003Coption value=\\\"Madagascar\\\"\\u003EMadagascar\\u003C/option\\u003E\\n\\u003Coption value=\\\"Malawi\\\"\\u003EMalawi\\u003C/option\\u003E\\n\\u003Coption value=\\\"Malaysia\\\"\\u003EMalaysia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Maldives\\\"\\u003EMaldives\\u003C/option\\u003E\\n\\u003Coption value=\\\"Mali\\\"\\u003EMali\\u003C/option\\u003E\\n\\u003Coption value=\\\"Malta\\\"\\u003EMalta\\u003C/option\\u003E\\n\\u003Coption value=\\\"Marshall Islands\\\"\\u003EMarshall Islands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Martinique\\\"\\u003EMartinique\\u003C/option\\u003E\\n\\u003Coption value=\\\"Mauritania\\\"\\u003EMauritania\\u003C/option\\u003E\\n\\u003Coption value=\\\"Mauritius\\\"\\u003EMauritius\\u003C/option\\u003E\\n\\u003Coption value=\\\"Mayotte\\\"\\u003EMayotte\\u003C/option\\u003E\\n\\u003Coption value=\\\"Mexico\\\"\\u003EMexico\\u003C/option\\u003E\\n\\u003Coption value=\\\"Micronesia, Federated States of\\\"\\u003EMicronesia, Federated States of\\u003C/option\\u003E\\n\\u003Coption value=\\\"Moldova, Republic of\\\"\\u003EMoldova, Republic of\\u003C/option\\u003E\\n\\u003Coption value=\\\"Monaco\\\"\\u003EMonaco\\u003C/option\\u003E\\n\\u003Coption value=\\\"Mongolia\\\"\\u003EMongolia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Montenegro\\\"\\u003EMontenegro\\u003C/option\\u003E\\n\\u003Coption value=\\\"Montserrat\\\"\\u003EMontserrat\\u003C/option\\u003E\\n\\u003Coption value=\\\"Morocco\\\"\\u003EMorocco\\u003C/option\\u003E\\n\\u003Coption value=\\\"Mozambique\\\"\\u003EMozambique\\u003C/option\\u003E\\n\\u003Coption value=\\\"Myanmar\\\"\\u003EMyanmar\\u003C/option\\u003E\\n\\u003Coption value=\\\"Namibia\\\"\\u003ENamibia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Nauru\\\"\\u003ENauru\\u003C/option\\u003E\\n\\u003Coption value=\\\"Nepal\\\"\\u003ENepal\\u003C/option\\u003E\\n\\u003Coption value=\\\"Netherlands\\\"\\u003ENetherlands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Netherlands Antilles\\\"\\u003ENetherlands Antilles\\u003C/option\\u003E\\n\\u003Coption value=\\\"New Caledonia\\\"\\u003ENew Caledonia\\u003C/option\\u003E\\n\\u003Coption value=\\\"New Zealand\\\"\\u003ENew Zealand\\u003C/option\\u003E\\n\\u003Coption value=\\\"Nicaragua\\\"\\u003ENicaragua\\u003C/option\\u003E\\n\\u003Coption value=\\\"Niger\\\"\\u003ENiger\\u003C/option\\u003E\\n\\u003Coption value=\\\"Nigeria\\\"\\u003ENigeria\\u003C/option\\u003E\\n\\u003Coption value=\\\"Niue\\\"\\u003ENiue\\u003C/option\\u003E\\n\\u003Coption value=\\\"Norfolk Island\\\"\\u003ENorfolk Island\\u003C/option\\u003E\\n\\u003Coption value=\\\"Northern Mariana Islands\\\"\\u003ENorthern Mariana Islands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Norway\\\"\\u003ENorway\\u003C/option\\u003E\\n\\u003Coption value=\\\"Oman\\\"\\u003EOman\\u003C/option\\u003E\\n\\u003Coption value=\\\"Pakistan\\\"\\u003EPakistan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Palau\\\"\\u003EPalau\\u003C/option\\u003E\\n\\u003Coption value=\\\"Palestinian Territory, Occupied\\\"\\u003EPalestinian Territory, Occupied\\u003C/option\\u003E\\n\\u003Coption value=\\\"Panama\\\"\\u003EPanama\\u003C/option\\u003E\\n\\u003Coption value=\\\"Papua New Guinea\\\"\\u003EPapua New Guinea\\u003C/option\\u003E\\n\\u003Coption value=\\\"Paraguay\\\"\\u003EParaguay\\u003C/option\\u003E\\n\\u003Coption value=\\\"Peru\\\"\\u003EPeru\\u003C/option\\u003E\\n\\u003Coption value=\\\"Philippines\\\"\\u003EPhilippines\\u003C/option\\u003E\\n\\u003Coption value=\\\"Pitcairn\\\"\\u003EPitcairn\\u003C/option\\u003E\\n\\u003Coption value=\\\"Poland\\\"\\u003EPoland\\u003C/option\\u003E\\n\\u003Coption value=\\\"Portugal\\\"\\u003EPortugal\\u003C/option\\u003E\\n\\u003Coption value=\\\"Puerto Rico\\\"\\u003EPuerto Rico\\u003C/option\\u003E\\n\\u003Coption value=\\\"Qatar\\\"\\u003EQatar\\u003C/option\\u003E\\n\\u003Coption value=\\\"Reunion\\\"\\u003EReunion\\u003C/option\\u003E\\n\\u003Coption value=\\\"Romania\\\"\\u003ERomania\\u003C/option\\u003E\\n\\u003Coption value=\\\"Russian Federation\\\"\\u003ERussian Federation\\u003C/option\\u003E\\n\\u003Coption value=\\\"Rwanda\\\"\\u003ERwanda\\u003C/option\\u003E\\n\\u003Coption value=\\\"Saint Barthelemy\\\"\\u003ESaint Barthelemy\\u003C/option\\u003E\\n\\u003Coption value=\\\"Saint Helena\\\"\\u003ESaint Helena\\u003C/option\\u003E\\n\\u003Coption value=\\\"Saint Kitts and Nevis\\\"\\u003ESaint Kitts and Nevis\\u003C/option\\u003E\\n\\u003Coption value=\\\"Saint Lucia\\\"\\u003ESaint Lucia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Saint Pierre and Miquelon\\\"\\u003ESaint Pierre and Miquelon\\u003C/option\\u003E\\n\\u003Coption value=\\\"Saint Vincent and the Grenadines\\\"\\u003ESaint Vincent and the Grenadines\\u003C/option\\u003E\\n\\u003Coption value=\\\"Samoa\\\"\\u003ESamoa\\u003C/option\\u003E\\n\\u003Coption value=\\\"San Marino\\\"\\u003ESan Marino\\u003C/option\\u003E\\n\\u003Coption value=\\\"Sao Tome and Principe\\\"\\u003ESao Tome and Principe\\u003C/option\\u003E\\n\\u003Coption value=\\\"Saudi Arabia\\\"\\u003ESaudi Arabia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Senegal\\\"\\u003ESenegal\\u003C/option\\u003E\\n\\u003Coption value=\\\"Serbia\\\"\\u003ESerbia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Seychelles\\\"\\u003ESeychelles\\u003C/option\\u003E\\n\\u003Coption value=\\\"Sierra Leone\\\"\\u003ESierra Leone\\u003C/option\\u003E\\n\\u003Coption value=\\\"Singapore\\\"\\u003ESingapore\\u003C/option\\u003E\\n\\u003Coption value=\\\"Slovakia\\\"\\u003ESlovakia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Slovenia\\\"\\u003ESlovenia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Solomon Islands\\\"\\u003ESolomon Islands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Somalia\\\"\\u003ESomalia\\u003C/option\\u003E\\n\\u003Coption value=\\\"South Africa\\\"\\u003ESouth Africa\\u003C/option\\u003E\\n\\u003Coption value=\\\"South Georgia and the South Sandwich Islands\\\"\\u003ESouth Georgia and the South Sandwich Islands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Spain\\\"\\u003ESpain\\u003C/option\\u003E\\n\\u003Coption value=\\\"Sri Lanka\\\"\\u003ESri Lanka\\u003C/option\\u003E\\n\\u003Coption value=\\\"Sudan\\\"\\u003ESudan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Suriname\\\"\\u003ESuriname\\u003C/option\\u003E\\n\\u003Coption value=\\\"Svalbard and Jan Mayen\\\"\\u003ESvalbard and Jan Mayen\\u003C/option\\u003E\\n\\u003Coption value=\\\"Swaziland\\\"\\u003ESwaziland\\u003C/option\\u003E\\n\\u003Coption value=\\\"Sweden\\\"\\u003ESweden\\u003C/option\\u003E\\n\\u003Coption value=\\\"Switzerland\\\"\\u003ESwitzerland\\u003C/option\\u003E\\n\\u003Coption value=\\\"Syrian Arab Republic\\\"\\u003ESyrian Arab Republic\\u003C/option\\u003E\\n\\u003Coption value=\\\"Taiwan\\\"\\u003ETaiwan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Tajikistan\\\"\\u003ETajikistan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Tanzania, United Republic of\\\"\\u003ETanzania, United Republic of\\u003C/option\\u003E\\n\\u003Coption value=\\\"Thailand\\\"\\u003EThailand\\u003C/option\\u003E\\n\\u003Coption value=\\\"Timor-Leste\\\"\\u003ETimor-Leste\\u003C/option\\u003E\\n\\u003Coption value=\\\"Togo\\\"\\u003ETogo\\u003C/option\\u003E\\n\\u003Coption value=\\\"Tokelau\\\"\\u003ETokelau\\u003C/option\\u003E\\n\\u003Coption value=\\\"Tonga\\\"\\u003ETonga\\u003C/option\\u003E\\n\\u003Coption value=\\\"Trinidad and Tobago\\\"\\u003ETrinidad and Tobago\\u003C/option\\u003E\\n\\u003Coption value=\\\"Tunisia\\\"\\u003ETunisia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Turkey\\\"\\u003ETurkey\\u003C/option\\u003E\\n\\u003Coption value=\\\"Turkmenistan\\\"\\u003ETurkmenistan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Turks and Caicos Islands\\\"\\u003ETurks and Caicos Islands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Tuvalu\\\"\\u003ETuvalu\\u003C/option\\u003E\\n\\u003Coption value=\\\"Uganda\\\"\\u003EUganda\\u003C/option\\u003E\\n\\u003Coption value=\\\"Ukraine\\\"\\u003EUkraine\\u003C/option\\u003E\\n\\u003Coption value=\\\"United Arab Emirates\\\"\\u003EUnited Arab Emirates\\u003C/option\\u003E\\n\\u003Coption value=\\\"United Kingdom\\\"\\u003EUnited Kingdom\\u003C/option\\u003E\\n\\u003Coption value=\\\"United States\\\"\\u003EUnited States\\u003C/option\\u003E\\n\\u003Coption value=\\\"United States Minor Outlying Islands\\\"\\u003EUnited States Minor Outlying Islands\\u003C/option\\u003E\\n\\u003Coption value=\\\"Uruguay\\\"\\u003EUruguay\\u003C/option\\u003E\\n\\u003Coption value=\\\"Uzbekistan\\\"\\u003EUzbekistan\\u003C/option\\u003E\\n\\u003Coption value=\\\"Vanuatu\\\"\\u003EVanuatu\\u003C/option\\u003E\\n\\u003Coption value=\\\"Venezuela\\\"\\u003EVenezuela\\u003C/option\\u003E\\n\\u003Coption value=\\\"Viet Nam\\\"\\u003EViet Nam\\u003C/option\\u003E\\n\\u003Coption value=\\\"Virgin Islands, British\\\"\\u003EVirgin Islands, British\\u003C/option\\u003E\\n\\u003Coption value=\\\"Virgin Islands, U.S.\\\"\\u003EVirgin Islands, U.S.\\u003C/option\\u003E\\n\\u003Coption value=\\\"Wallis and Futuna\\\"\\u003EWallis and Futuna\\u003C/option\\u003E\\n\\u003Coption value=\\\"Western Sahara\\\"\\u003EWestern Sahara\\u003C/option\\u003E\\n\\u003Coption value=\\\"Yemen\\\"\\u003EYemen\\u003C/option\\u003E\\n\\u003Coption value=\\\"Zambia\\\"\\u003EZambia\\u003C/option\\u003E\\n\\u003Coption value=\\\"Zimbabwe\\\"\\u003EZimbabwe\\u003C/option\\u003E\\u003C/select\\u003E\\u003C/p\\u003E\\n      \\u003Cdiv class=\\\"loc_remove\\\"\\u003E\\n        \\n        \\u003Cselect id=\\\"person_contact_data_addresses__location\\\" name=\\\"person[contact_data][addresses][][location]\\\"\\u003E\\u003Coption value=\\\"Work\\\"\\u003EWork\\u003C/option\\u003E\\n\\u003Coption value=\\\"Home\\\"\\u003EHome\\u003C/option\\u003E\\n\\u003Coption value=\\\"Other\\\"\\u003EOther\\u003C/option\\u003E\\u003C/select\\u003E\\n        \\u003Cspan class=\\\"addremove\\\"\\u003E\\u003Ca href=\\\"#\\\" class=\\\"remove\\\"\\u003ERemove\\u003C/a\\u003E\\u003C/span\\u003E\\n      \\u003C/div\\u003E\\n    \\u003C/div\\u003E\\n  \\u003C/div\\u003E\\n\\u003C/div\\u003E\\n\\u003Cscript type=\\\"text/javascript\\\"\\u003E\\n//\\u003C![CDATA[\\nasync(\\\"$$('.street .overlayable').each(function(input) { ContactInfo.Overlay.wrap(input); });\\\")\\n//]]\\u003E\\n\\u003C/script\\u003E\\n\\n\")")
+//]]>
+</script></td>
+</tr>
+
+        
+      </table>
+    </div>
+
+		
+	<div class="custom_fields section">
+	  <div class="section_header">
+	    <h1>Custom Fields</h1>
+	    <a href="/custom_fields" behavior="return_to" class="link_to">Set up your custom fields</a>
+	  </div>
+    <table cellpadding="0" cellspacing="0">
+      
+        <tr>
+          <th><span>Spécialité</span></th>
+          <td behavior="subject_datum_container">
+            
+              
+                <input id="person_contact_data_spcialit[value]" name="person[contact_data][spcialit[value]]" size="30" type="text" />
+              
+            
+          </td>
+        </tr>
+      
+    </table>
+  </div>
+
+
+		
+		<div class="social_fields section">
+  <div class="section_header">
+    <h1>Social Networks</h1>
+  </div>
+
+  <table cellpadding="0" cellspacing="0">
+    
+      <tr behavior="linkedin_url" class="linkedin_url">
+        <th><span>LinkedIn</span></th>
+        <td>
+          <input behavior="linkedin_url_input" class="overlayable" id="person_linkedin_url" name="person[linkedin_url]" title="Add a LinkedIn profile URL" type="text" />
+
+          
+            <span style="position:relative">
+              <a href="#" behavior="linkedin_search" id="linkedin_search">Find it automatically</a>
+              <img alt="Dots-white" id="linkedin_spinner" src="https://d1a993iq9azmzq.cloudfront.net/rev_7154b4c/images/dots-white.gif" style="display:none" />
+            </span>
+
+            <div id="linkedin" data-url="/linkedin_profiles" style="display:none"></div>
+          
+
+          <div behavior="linkedin_url_help" class="help" style="display:none">
+            Highrise doesn’t recognize this LinkedIn URL.
+            Look for the <strong>Public Profile URL</strong> on this person’s LinkedIn page and copy it into this field.
+          </div>
+        </td>
+      </tr>
+    
+    <tr class="twitter">
+      <th><span>Twitter</span></th>
+      <td>
+        
+          
+            <input class="overlayable" id="person_contact_data_twitter_accounts__username" name="person[contact_data][twitter_accounts][][username]" title="Add a Twitter username" type="text" />
+          
+        
+      </td>
+    </tr>
+  </table>
+</div>
+
+    <div class="contact_forms background">
+      <div class="contact_methods">
+        <div class="contact_method">
+          <p class="background_label"><strong>Background info</strong> (bio, how you met, etc)</p>
+          <textarea cols="40" id="person_background" name="person[background]" rows="20"></textarea>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="permissions edit_section">
+        <h5>Who can see this person?</h5>
+        <div class="form_section" id="new_person_permissions">
+          <div behavior="select_permissions" class="select_permissions">
+  <div class="scope activated">
+    <label><input checked="checked" id="person_visible_to_everyone" name="person[visible_to]" type="radio" value="Everyone" /> Everyone</label>
+  </div>
+
+  <div class="scope ">
+    <label><input id="person_visible_to_owner" name="person[visible_to]" type="radio" value="Owner" /> Just me</label>
+  </div>
+
+  
+    <div class="scope ">
+      <label><input id="person_visible_to_namedgroup" name="person[visible_to]" type="radio" value="NamedGroup" /> Me, plus this group&hellip;</label>
+      <div class="editor">
+        <select class="named_group" name="person[group_id]">
+          <option style="font-style: italic" value="">Select a group&hellip;</option>
+          <option value="383469">prospection pfe</option>
+        </select>
+      </div>
+      <div class="named_groups_data" data="{&quot;383469&quot;:[684380]}"></div>
+    </div>
+  
+
+  
+    <div class="scope ">
+      <label><input id="person_visible_to_adhocgroup" name="person[visible_to]" type="radio" value="AdhocGroup" /> Me, plus these people&hellip;</label>
+
+      <div class="editor">
+        
+        <div class="adhoc_group_member template" style="display:none;">
+          <select name="person[group_member_ids][]" disabled="disabled">
+            <option value="684380">Walid Lahmer</option>
+          </select>
+          <span class="sprite remove" style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7154b4c/images/highrise_sprites.png) no-repeat -189px -181px; width: 14px; padding-top: 14px; " title="" id=""></span>
+          <span class="sprite add" style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_7154b4c/images/highrise_sprites.png) no-repeat -189px -197px; width: 14px; padding-top: 14px; " title="" id=""></span>
+        </div>
+
+        <div class="adhoc_group_members">
+          <input type="hidden" name="person[group_member_ids][]" value="674863" />
+          
+        </div>
+
+        <select class="new_adhoc_group_member" style="">
+          <option style="font-style: italic" value="">Select somebody&hellip;</option>
+          <option value="684380">Walid Lahmer</option>
+        </select>
+      </div>
+    </div>
+  
+</div>
+
+        </div>
+      </div>
+    
+
+    <p class="submit">
+      <input name="commit" type="submit" value="Add this person" /> <span>or</span>
+      <a href="https://esi1.highrisehq.com/companies/105200466-rework" class="admin">Cancel</a>
+    </p>
+  </div>
+</form>
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+async("$(\"screen_body\").autofocus({ firstBlankElement: true })")
+//]]>
+</script>
+
+                </div>
+              </div>
+              <!--// main column -->
+
+            </div>
+            <!--// page contents -->
+          
+        </div>
+        <!--// page -->
+      </div>
+
+
+
+        
+        
+        
+        <div style="margin-top: 30px"> </div>        
+      </div>
+<!----------------------------------------------------------------------End Contenu -------------------------------------------------------------->
+
+<!----------------------------------------------------------------------SideBar------------------------------------------------------------------->	 
+ 
+	    			{% include "AppSidebar.html" %}
+    
+<!----------------------------------------------------------------------End SideBar -------------------------------------------------------------->
+
+   
+  
+
+  
+
+  <script src="/js/sprockets.js" type="text/javascript"></script>
+  
+  <script type="text/javascript" charset="utf-8">NREUMQ.push(["nrf2","beacon-1.newrelic.com","10f60f8605",1746,"IV1cEkFdWghSFxkHXA9CUwhaV0VLWQBB",0,74])</script>
+
+</body>
+</html>

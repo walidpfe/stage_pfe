@@ -6,10 +6,11 @@ from google.appengine.ext.webapp import template
 from google.appengine.api import mail
 from models.modelespace import EspaceModel
 from models.userprofilemodel import UserProfileModel
+from models.company import CompanyModel
 class SujetModel(db.Model):
      sujetaddedby     = db.UserProperty(required=True)
      titresujet        = db.StringProperty()
-     organisme         = db.StringProperty()
+     organismeref         = db.ReferenceProperty(CompanyModel, collection_name = 'sujetorganisme')
      etatdaffection = db.StringProperty()
      etatdevalidation = db.StringProperty()
      description = db.TextProperty()
@@ -29,6 +30,10 @@ class MotcleSujetModel (db.Model):
   motcle = db.StringProperty()
   sujet       = db.ReferenceProperty(SujetModel,
       collection_name = 'mot')
+
+
+       
+ 
 
 
 class NoteSujetModel(db.Model):

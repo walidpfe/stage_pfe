@@ -11,6 +11,7 @@ from models.modelsujet import MotcleSujetModel
 from models.modelsujet import NoteSujetModel
 from models.userprofilemodel import UserProfileModel
 from models.candidatsmodel import CandidatsModel
+from models.company import CompanyModel
 
 class Sujet(webapp.RequestHandler):
     def get(self):
@@ -65,7 +66,7 @@ class NewSujet(webapp.RequestHandler):
                 sujetaddedby  = users.get_current_user(),
                 titresujet = self.request.get('sujettitre'),
                 description = self.request.get('Resume'),
-                organisme = self.request.get('organisme'))
+                organismeref = CompanyModel.getCompanyByName(self.request.get('organisme').strip()))
          sujet.put();
          mots = self.request.get_all('motcle')
          for mot in mots:
@@ -103,7 +104,14 @@ class SujetId(webapp.RequestHandler):
                 candidatureview = CandidatureView()
                 candidatureview.etatcandidature = c.etatcandidature
                 emails = EspaceEmailsModel.getEspaceMembers(c.espace.key().id_or_name())
+                usersprofiles = list()
+                for email in emails:
+                    uprofile = UserProfileModel.getProfileByEmail(email)
+                    if uprofile:
+                        usersprofiles.append(uprofile)
+                        
                 candidatureview.eid = c.espace.key().id()
+                candidatureview.up = usersprofiles
                 candidatureview.usersemails = emails
                 candidaturesview.append(candidatureview) 
             

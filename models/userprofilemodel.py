@@ -20,6 +20,15 @@ class UserProfileModel(db.Model):
 
     return userprofile
 
+  @classmethod
+  def getProfileByEmail(self,email):
+
+    userprofile = UserProfileModel.all().filter('email = ',
+        email).get()
+
+    return userprofile
+
+
   # *** End class methods ***
 
 class CvProfileModel(db.Model):

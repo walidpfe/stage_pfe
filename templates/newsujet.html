@@ -154,12 +154,33 @@ async("new ContactInfo.ContactForm(\"encadreure\", \"\\n\\n  \\u003Cdiv id=\\\"e
 
 <!-------------------------------------------------------------Organisme------------------------------------------------------------->
 
-<tr>
-  <th><h2>Organisme</h2></th>
 
- 
-          <td><input class="name autofocus" id="organisme" name="organisme"  size="30" type="text" /></td>
-        </tr>
+		<tr class="company last">
+            <th><h2>Organisme</h2></th>
+            <td>
+              <div class="contact_forms" id="company_person">
+                <div class="blank_slate">Ajouter un organisme</div>
+                <div class="contact_methods" style='display:none;'>
+                  <div class="contact_method" style="position:relative;">
+                    <input id="person_company_name" name="organisme" size="30" type="text" /><br/>
+                    <div class="auto_complete_container" style="position:absolute;"><!-- container needed for proper positioning in IE 7 -->
+                      <div class="auto_complete" id="person_company_name_matches" style="display:none"></div><script type="text/javascript">
+//<![CDATA[
+async("var person_company_name_auto_completer = new Ajax.Autocompleter('person_company_name', 'person_company_name_matches', '/searchcompany', { paramName: 'name' })")
+//]]>
+</script>
+                    </div>
+                  </div>
+                  <script type="text/javascript">
+//<![CDATA[
+async("new ContactInfo.ContactForm('company_person')")
+//]]>
+</script>
+                </div>
+              </div>
+            </td>
+          </tr>
+		
 
 <!-------------------------------------------------------------Websites------------------------------------------------------------->
 

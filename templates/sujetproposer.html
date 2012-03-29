@@ -153,7 +153,7 @@ async("new MenuObserver('controls_for_kases_page')")
   
       <div class="info">
         <h1><a href="/sujet?id={{sujet.key.id}}" class="to_person">{{ sujet.titresujet }}</a>  </h1>
-        <h2>{{ sujet.organisme }}</h2>
+      <a href="/company?id={{sujet.organismeref.key.id}}" class="to_person">  <h2>{{ sujet.organismeref.companyname }}</h2></a>
       </div>
    
     </div>

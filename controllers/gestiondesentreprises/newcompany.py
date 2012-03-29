@@ -6,6 +6,36 @@ from google.appengine.ext.webapp import template
 from models.company import CompanyModel
 from models.company import CompanyEmailsModel
 
+class Searchcompany(webapp.RequestHandler):
+    def post(self):
+        user = users.get_current_user()
+        url = users.create_login_url(self.request.uri)
+        url_linktext = 'Login'
+        title= 'Ajouter une entreprise'
+        searchkey =  self.request.get('name')
+        companies_query = CompanyModel.all().order('-companydateadded')
+        companies = companies_query.fetch(30)
+        result = list()
+        for company in companies:
+            
+            if company.companyname.lower().find(searchkey.lower())>=0:
+                result.append(company.companyname)
+            
+                    
+        if user:
+            url = users.create_logout_url(self.request.uri)
+            url_linktext = 'Logout'
+        values = {
+            'searchkey' : searchkey,
+            'result' : result,
+        'title': title,
+            'user': user,
+            'url': url,
+            'url_linktext': url_linktext,
+          }
+                  
+        self.response.out.write(template.render('templates/searchcompany.html', values))
+   
 
 class Newcompany(webapp.RequestHandler):
     def get(self):

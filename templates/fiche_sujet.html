@@ -110,7 +110,9 @@ async("var new_tag_name_auto_completer = new Ajax.Autocompleter('new_tag_name', 
     </tr>
 	
   </table>
-   <p><strong>Organisme:</strong>  <small>{{ sujet.organisme }}</small></p>
+   <p><strong>Organisme:</strong>  <small> <a href="/company?id={{sujet.organismeref.key.id}}" class="to_person">
+            
+           {{ sujet.organismeref.companyname }} </a></small></p>
 </div>
 
    
@@ -361,8 +363,35 @@ async("new MenuObserver('recordings')")
       {% for c in candidatures %}
         <tr id="row_person_105200465">
 
+	{% for member in c.up %}
+    <td class="party">
+      <div class="avatar_subject" id="person_105200465">
+        <div class="info">
+          <h3 >
+            <a href="/profileof?id={{member.key.id}}" class="to_person">
+            {{ member.name }}
+            </a>
+          </h3>
 
-   {% for member in c.usersemails %}
+          <h6>
+            
+             
+            
+
+            
+              <a class="link_to email grey" href="{{ member }}">   {{ member.email }}</a>
+            
+
+            
+           
+            
+          </h6>
+          </div>
+      </div>
+    </td>
+
+   {% endfor %}
+   <!--{% for member in c.usersemails %}
     <td class="party">
       <div class="avatar_subject" id="person_105200465">
         <div class="info">
@@ -389,7 +418,7 @@ async("new MenuObserver('recordings')")
       </div>
     </td>
 
-   {% endfor %}
+   {% endfor %}-->
   
     <!--<td class="party">
       <div class="avatar_subject" id="person_105202092">
@@ -599,8 +628,8 @@ async("new MenuObserver('deals_blank_slate_controls')")
   <div class="email_address data_group">
     
       <div class="value">
-        <a href="mailto:meabiou@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">meabiou@gmail.com</a>
-        <span class="location label">Work</span>
+        <a href="mailto:meabiou@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">  {{ sujet.organismeref.companymail }}</a>
+        <span class="location label">  <!--    Work--></span>
       </div>
     
   </div>
@@ -611,8 +640,8 @@ async("new MenuObserver('deals_blank_slate_controls')")
     <div class="phone_number data_group">
       
         <div class="value">
-          021900281
-          <span class="location label">Work</span>
+          {{ sujet.organismeref.companytel }}
+          <span class="location label">  <!--    Work--></span>
         </div>
       
     </div>
@@ -630,7 +659,7 @@ async("new MenuObserver('deals_blank_slate_controls')")
     <table cellspacing="0">
       <tr>
         <td class="label">
-          Work
+      <!--    Work-->
         </td>
         <td class="local_conditions">
           
@@ -642,7 +671,7 @@ async("new MenuObserver('deals_blank_slate_controls')")
       </tr>
     </table>
     
-    <div class="value">alger</div>
+    <div class="value">{{ sujet.organismeref.companywilaya }}</div>
   </div>
 
 
@@ -651,9 +680,9 @@ async("new MenuObserver('deals_blank_slate_controls')")
 
       
         <div class="data_group">
-          <div class="label">Background</div>
+          <div class="label">Description</div>
           <div class="value">
-            <p>une entreprise spécialisée dans les services de la communication et la collaboration</p>
+            <p>{{ sujet.organismeref.companydescription }}</p>
           </div>
         </div>
       

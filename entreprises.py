@@ -7,11 +7,15 @@ from google.appengine.api import mail
 from apptools import AppHandler
 
 #gestion des entreprises /controllers/gestiondesentreprises
+from controllers.gestiondesentreprises.newcompany import Searchcompany
 from controllers.gestiondesentreprises.updateentreprise import Updateentreprise
 from controllers.gestiondesentreprises.ficheentreprise import Ficheentreprise
 from controllers.gestiondesentreprises.editcompany import Editentreprise
 from controllers.gestiondesentreprises.newcompany import Enrgcompany
 from controllers.gestiondesentreprises.newcompany import Newcompany
+
+#gestion des contacts /controllers/gestiondescontacts
+from controllers.gestiondescontacts.newperson import Newperson
 
 #gestion des espaces /controllers/gestiondesespaces
 from controllers.gestiondesespaces.espaceid import Rechnote
@@ -153,9 +157,11 @@ application = webapp.WSGIApplication(
                                      ('/updatecv', UpdateCv),
                                       ('/new', Enrgcompany),
 				                     ('/update', Updateentreprise),
+                                      ('/searchcompany' , Searchcompany),
                                          ('/company', Ficheentreprise),
                                            ('/editcompany', Editentreprise),
                                       ('/newcompany', Newcompany),
+                                       ('/newcontact', Newperson),
                                       ('/espace', Espaceid),
 									   ('/selection', Selection),
                                        ('/selectionsujet', SelectionSujet),
