@@ -101,6 +101,7 @@ class SujetId(webapp.RequestHandler):
             candidatures = candidatures_query.fetch(10)
             filedattenteview = list()
             candidaturesview = list()
+            affectedto = CandidatureView()
             for c in candidatures:
                 candidatureview = CandidatureView()
                 candidatureview.etatcandidature = c.etatcandidature
