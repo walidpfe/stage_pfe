@@ -46,12 +46,20 @@ class UpdateCandidatureStatus(webapp.RequestHandler):
          #récupérer le status 
          status = self.request.get('status')
 
+         #récupérer l' @espce
+         ide = self.request.get('ide')
+
          #récupérer le @sujet
          ids = self.request.get('ids')
          #Si le status == 'affecte' modifier l'état du sujet
          if status=='affecte':
              idsujet = int(ids)
              lesujet = SujetModel.get_by_id(idsujet)
+             if lesujet.etatdaffectation=="affecte":
+                 
+                 self.redirect('/sujet?id='+ids+'&espaceid='+ide+'#affectation')
+                 return
+                 
              lesujet.etatdaffectation = status
              lesujet.put()
          if status=='annulee':
@@ -61,8 +69,7 @@ class UpdateCandidatureStatus(webapp.RequestHandler):
              lesujet.put()
              
 
-         #récupérer l' @espce
-         ide = self.request.get('ide')
+        
          
          #Modifier l'état de la candidature      
 
