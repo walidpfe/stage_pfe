@@ -354,7 +354,7 @@ async("new MenuObserver('recordings')")
 {% else %}
 {% if sujet.etatdaffectation == "affecte" %}
 
-	sujet affecté
+	sujet affecté à :
 	
 {% endif %}	
 {% endif %}	
@@ -364,12 +364,331 @@ async("new MenuObserver('recordings')")
     sujet non affecté
 		{% endif %} 
 
-      {% if candidatures %}
+    
   
     
   </div>
   <div class="parties">
+  <table class="index">
+	  {% if affectedto %}
+  
+        <tr id="row_person_105200465">
+
+	{% for member in affectedto.up %}
+    <td class="party">
+      <div class="avatar_subject" id="person_105200465">
+        <div class="info">
+          <h3 >
+            <a href="/profileof?id={{member.key.id}}" class="to_person">
+            {{ member.name }}
+            </a>
+          </h3>
+
+          <h6>
+            
+             
+            
+
+            
+              <a class="link_to email grey" href="{{ member }}">   {{ member.email }}</a>
+            
+
+            
+           
+            
+          </h6>
+          </div>
+      </div>
+    </td>
+
+   {% endfor %}
+   <!--{% for member in c.usersemails %}
+    <td class="party">
+      <div class="avatar_subject" id="person_105200465">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105200465-mohamed-walid-lahmer" class="to_person">
+            {{ member }}
+            </a>
+          </h3>
+
+          <h6>
+            
+             
+            
+
+            
+              <a class="link_to email grey" href="{{ member }}">   {{ member }}</a>
+            
+
+            
+           
+            
+          </h6>
+          </div>
+      </div>
+    </td>
+
+   {% endfor %}-->
+  
+    <!--<td class="party">
+      <div class="avatar_subject" id="person_105202092">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105202092-tedj-meabiou" class="to_person">
+              Tedj MEABIOU 
+            </a>
+          </h3>
+
+          <h6>
+            
+              
+            
+
+            
+              <a class="link_to email grey" href="mailto:tedj.meabiou@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">tedj.meabiou@gmail.com</a>
+            
+
+            
+           
+            
+          </h6>
+         
+        </div>
+      </div>
+    </td>!-->
+	<td class="party">
+	    
+	
+		
+		
+
+			
+    
+  <div class="controls menu_container" id="company_people_controls">
+  {% if affectedto.etatcandidature == "affecte" %}
+	demande acceptée 
+	    <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=annulee" behavior="return_to"><span>Annuler l'affectation </span></a></span>
+  
+  {% else %}
+	{% if affectedto.etatcandidature == "annulee" %}
+		Cette demande a été annulée </br>
+		{% if sujet.etatdaffectation == "affecte" %}
+			 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=filedattente" behavior="return_to"><span>Ajouter à la file d'attente</span></a></span>
+			 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+		
+		{% else %}
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=affecte" behavior="return_to"><span>Affecter </span></a></span>
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=filedattente" behavior="return_to"><span>Ajouter à la file d'attente</span></a></span>
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+		{% endif %}
+	{% endif %}
+	{% if affectedto.etatcandidature == "filedattente" %}
+		Cette demande a été ajoutée à la file d'attente </br>
+		
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=affecte" behavior="return_to"><span>Affecter </span></a></span>
+		 
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+	{% endif %}
+	{% if affectedto.etatcandidature == "en attente" %}
+		Demande de candidature non traitée
+		{% if sujet.etatdaffectation == "affecte" %}
+			 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=filedattente" behavior="return_to"><span>Ajouter à la file d'attente</span></a></span>
+			 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+		
+		{% else %}
+		 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=affecte" behavior="return_to"><span>Affecter </span></a></span>
+		 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=filedattente" behavior="return_to"><span>Ajouter à la file d'attente</span></a></span>
+		 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+		{% endif %}
+	{% endif %}
+	{% if affectedto.etatcandidature == "refusee" %}
+		Demande réfusée
+		 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ affectedto.id }}&status=en attente" behavior="return_to"><span>Annuler </span></a></span>
+		 
+	{% endif %}
+   {% endif %}
+  </div>
+    </td>
+	
+
+
+	
+</tr>
+
+     {% else %}
+makan walou
+		{% endif %} 
+
+
+
+      
+ 
+      
+    </table>
+	<hr/>
+	<h4>Demandes dans la file d'attente:</h4>
+      <table class="index">
+	  {% if filedattenteview %}
+      {% for c in filedattenteview %}
+        <tr id="row_person_105200465">
+
+	{% for member in c.up %}
+    <td class="party">
+      <div class="avatar_subject" id="person_105200465">
+        <div class="info">
+          <h3 >
+            <a href="/profileof?id={{member.key.id}}" class="to_person">
+            {{ member.name }}
+            </a>
+          </h3>
+
+          <h6>
+            
+             
+            
+
+            
+              <a class="link_to email grey" href="{{ member }}">   {{ member.email }}</a>
+            
+
+            
+           
+            
+          </h6>
+          </div>
+      </div>
+    </td>
+
+   {% endfor %}
+   <!--{% for member in c.usersemails %}
+    <td class="party">
+      <div class="avatar_subject" id="person_105200465">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105200465-mohamed-walid-lahmer" class="to_person">
+            {{ member }}
+            </a>
+          </h3>
+
+          <h6>
+            
+             
+            
+
+            
+              <a class="link_to email grey" href="{{ member }}">   {{ member }}</a>
+            
+
+            
+           
+            
+          </h6>
+          </div>
+      </div>
+    </td>
+
+   {% endfor %}-->
+  
+    <!--<td class="party">
+      <div class="avatar_subject" id="person_105202092">
+        <div class="info">
+          <h3 >
+            <a href="/parties/105202092-tedj-meabiou" class="to_person">
+              Tedj MEABIOU 
+            </a>
+          </h3>
+
+          <h6>
+            
+              
+            
+
+            
+              <a class="link_to email grey" href="mailto:tedj.meabiou@gmail.com?bcc=dropbox@93734853.esi1.highrisehq.com">tedj.meabiou@gmail.com</a>
+            
+
+            
+           
+            
+          </h6>
+         
+        </div>
+      </div>
+    </td>!-->
+	<td class="party">
+	    
+	
+		
+		
+
+			
+    
+  <div class="controls menu_container" id="company_people_controls">
+  {% if c.etatcandidature == "affecte" %}
+	demande acceptée 
+	    <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=annulee" behavior="return_to"><span>Annuler l'affectation </span></a></span>
+  
+  {% else %}
+	{% if c.etatcandidature == "annulee" %}
+		Cette demande a été annulée </br>
+		{% if sujet.etatdaffectation == "affecte" %}
+			 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=filedattente" behavior="return_to"><span>Ajouter à la file d'attente</span></a></span>
+			 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+		
+		{% else %}
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=affecte" behavior="return_to"><span>Affecter </span></a></span>
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=filedattente" behavior="return_to"><span>Ajouter à la file d'attente</span></a></span>
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+		{% endif %}
+	{% endif %}
+	{% if c.etatcandidature == "filedattente" %}
+		Cette demande a été ajoutée à la file d'attente </br>
+		
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=affecte" behavior="return_to"><span>Affecter </span></a></span>
+		 
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+	{% endif %}
+	{% if c.etatcandidature == "en attente" %}
+		Demande de candidature non traitée
+		{% if sujet.etatdaffectation == "affecte" %}
+			 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=filedattente" behavior="return_to"><span>Ajouter à la file d'attente</span></a></span>
+			 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+		
+		{% else %}
+		 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=affecte" behavior="return_to"><span>Affecter </span></a></span>
+		 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=filedattente" behavior="return_to"><span>Ajouter à la file d'attente</span></a></span>
+		 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+		{% endif %}
+	{% endif %}
+	{% if c.etatcandidature == "refusee" %}
+		Demande réfusée
+		 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=en attente" behavior="return_to"><span>Annuler </span></a></span>
+		 
+	{% endif %}
+   {% endif %}
+  </div>
+    </td>
+	
+
+
+	
+</tr>
+{% endfor %}
+     {% else %}
+makan walou
+		{% endif %} 
+
+
+
+      
+ 
+      
+    </table>
+	<hr />
+	<h4>Autre candidatures:</h4>
     <table class="index">
+	  {% if candidatures %}
       {% for c in candidatures %}
         <tr id="row_person_105200465">
 

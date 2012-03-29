@@ -99,6 +99,7 @@ class SujetId(webapp.RequestHandler):
             userinfo = UserProfileModel.getCurrent()
             candidatures_query = CandidatsModel.all().filter('sujet = ', lesujet)
             candidatures = candidatures_query.fetch(10)
+            filedattenteview = list()
             candidaturesview = list()
             for c in candidatures:
                 candidatureview = CandidatureView()
@@ -114,11 +115,18 @@ class SujetId(webapp.RequestHandler):
                 candidatureview.eid = c.espace.key().id()
                 candidatureview.up = usersprofiles
                 candidatureview.usersemails = emails
-                candidaturesview.append(candidatureview) 
+                if candidatureview.etatcandidature=="filedattente":
+                    filedattenteview.append(candidatureview)
+                elif candidatureview.etatcandidature=="affecte":
+                    affectedto = candidatureview
+                else:    
+                    candidaturesview.append(candidatureview) 
             
              
         
         values = {
+            'affectedto' : affectedto,
+            'filedattenteview' : filedattenteview,
             'candidatures' : candidaturesview ,
             'espaceid' : espaceid,
             'userinfo': userinfo,
