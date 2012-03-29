@@ -57,8 +57,10 @@ class UpdateCandidatureStatus(webapp.RequestHandler):
              lesujet = SujetModel.get_by_id(idsujet)
              if lesujet.etatdaffectation=="affecte":
                  
-                 self.redirect('/sujet?id='+ids+'&espaceid='+ide+'#affectation')
-                 return
+                 idctochange = CandidatsModel.all().filter('sujet =', lesujet).filter('etatcandidature =', status).get().key().id_or_name()
+                 newstatus = 'filedattente'
+                 CandidatsModel.setCandidatureStatus(idctochange,newstatus) 
+                 
                  
              lesujet.etatdaffectation = status
              lesujet.put()

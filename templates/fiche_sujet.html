@@ -484,6 +484,7 @@ async("new MenuObserver('recordings')")
 	{% endif %}
 	{% if c.etatcandidature == "filedattente" %}
 		Cette demande a été ajoutée à la file d'attente </br>
+		
 		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=affecte" behavior="return_to"><span>Affecter </span></a></span>
 		 
 		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
