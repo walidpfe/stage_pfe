@@ -15,6 +15,13 @@ class CandidatsModel(db.Model):
   datepostule   = db.DateTimeProperty(auto_now_add=True)
   etatcandidature = db.StringProperty()
   lettredemotivation = db.TextProperty()
+
+
+  @classmethod
+  def setCandidatureStatus(self,idcandidature,status):
+    c = CandidatsModel.get_by_id(idcandidature)
+    c.etatcandidature = status
+    c.put()
  
   
   

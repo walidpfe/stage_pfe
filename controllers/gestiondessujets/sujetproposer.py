@@ -103,6 +103,7 @@ class SujetId(webapp.RequestHandler):
             for c in candidatures:
                 candidatureview = CandidatureView()
                 candidatureview.etatcandidature = c.etatcandidature
+                candidatureview.id = c.key().id_or_name()
                 emails = EspaceEmailsModel.getEspaceMembers(c.espace.key().id_or_name())
                 usersprofiles = list()
                 for email in emails:

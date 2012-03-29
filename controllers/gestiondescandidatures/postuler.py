@@ -32,6 +32,48 @@ class Addtocandidature(webapp.RequestHandler):
 
 
 
+
+class UpdateCandidatureStatus(webapp.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        if user:
+
+         # [important] To do : vérifier si on a le droit
+        
+         #récupérer la @candidature 
+         idc = self.request.get('idc')
+         idcandidature = int(idc)
+         #récupérer le status 
+         status = self.request.get('status')
+
+         #récupérer le @sujet
+         ids = self.request.get('ids')
+         #Si le status == 'affecte' modifier l'état du sujet
+         if status=='affecte':
+             idsujet = int(ids)
+             lesujet = SujetModel.get_by_id(idsujet)
+             lesujet.etatdaffectation = status
+             lesujet.put()
+         if status=='annulee':
+             idsujet = int(ids)
+             lesujet = SujetModel.get_by_id(idsujet)
+             lesujet.etatdaffectation = 'non affecte'
+             lesujet.put()
+             
+
+         #récupérer l' @espce
+         ide = self.request.get('ide')
+         
+         #Modifier l'état de la candidature      
+
+         CandidatsModel.setCandidatureStatus(idcandidature,status)
+
+         # [important] To do : Notification
+         self.redirect('/sujet?id='+ids+'&espaceid='+ide+'#affectation')
+         
+        
+
+        
 class Loadresponsepostuler(webapp.RequestHandler):
     def get(self):
         values = {}

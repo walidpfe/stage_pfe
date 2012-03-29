@@ -347,9 +347,19 @@ async("new MenuObserver('recordings')")
   <div class="controls menu_container" id="company_people_controls">
 
 
-{% if sujet.etatdaffection %}
-			 sujet {{ sujet.etatdaffection }}
-		{% else %}
+{% if sujet.etatdaffectation %}
+{% if sujet.etatdaffectation == "non affecte" %}
+
+	sujet non affecté
+{% else %}
+{% if sujet.etatdaffectation == "affecte" %}
+
+	sujet affecté
+	
+{% endif %}	
+{% endif %}	
+
+{% else %}
 		
     sujet non affecté
 		{% endif %} 
@@ -448,17 +458,42 @@ async("new MenuObserver('recordings')")
     </td>!-->
 	<td class="party">
 	    
-		demande		{{ c.etatcandidature }}
+	
 		
 		
 
 			
+    
   <div class="controls menu_container" id="company_people_controls">
-    
-      <span class="button"><a href="/companies/105200466-rework/people/new" behavior="return_to"><span>Affecter </span></a></span>
-     <span class="button"><a href="/companies/105200466-rework/people/new" behavior="return_to"><span>Ajouter à la file d'attente</span></a></span>
-     <span class="button"><a href="/companies/105200466-rework/people/new" behavior="return_to"><span>Réfuser cette demande</span></a></span>
-    
+  {% if c.etatcandidature == "affecte" %}
+	demande acceptée 
+	    <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=annulee" behavior="return_to"><span>Annuler l'affectation </span></a></span>
+  
+  {% else %}
+	{% if c.etatcandidature == "annulee" %}
+		Cette demande a été annulée </br>
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=affecte" behavior="return_to"><span>Affecter </span></a></span>
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=filedattente" behavior="return_to"><span>Ajouter à la file d'attente</span></a></span>
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+	{% endif %}
+	{% if c.etatcandidature == "filedattente" %}
+		Cette demande a été ajoutée à la file d'attente </br>
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=affecte" behavior="return_to"><span>Affecter </span></a></span>
+		 
+		  <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+	{% endif %}
+	{% if c.etatcandidature == "en attente" %}
+		Demande de candidature non traitée
+		 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=affecte" behavior="return_to"><span>Affecter </span></a></span>
+		 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=filedattente" behavior="return_to"><span>Ajouter à la file d'attente</span></a></span>
+		 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=refusee" behavior="return_to"><span>Réfuser cette demande</span></a></span>
+	{% endif %}
+	{% if c.etatcandidature == "refusee" %}
+		Demande réfusée
+		 <span class="button"><a href="/updatecandidaturestatus?ids={{ idsujet }}&ide={{ espaceid }}&idc={{ c.id }}&status=en attente" behavior="return_to"><span>Annuler </span></a></span>
+		 
+	{% endif %}
+   {% endif %}
   </div>
     </td>
 	

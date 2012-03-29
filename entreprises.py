@@ -47,6 +47,7 @@ from controllers.gestiondessujets.sujetproposer import AddnoteSujet
 #gestion des candidatures /controllers/gestiondescandidatures
 from controllers.gestiondescandidatures.postuler import Addtocandidature
 from controllers.gestiondescandidatures.postuler import Loadresponsepostuler
+from controllers.gestiondescandidatures.postuler import UpdateCandidatureStatus
 
 #gestion du profile /controllers/gestionprofile
 from controllers.gestionprofile.profile import Monprofile
@@ -186,6 +187,7 @@ application = webapp.WSGIApplication(
                                        ('/profileof',ProfileOf),
 									  ('/addtocandidature',Addtocandidature),
                                        ('/loadresponsepostuler',Loadresponsepostuler),
+                                      ('/updatecandidaturestatus',UpdateCandidatureStatus),
 								
    #                                   ('/.*', GotoRootHandler),
                                       ('/newespace', CreeEspace)],
