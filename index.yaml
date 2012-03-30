@@ -15,6 +15,11 @@ indexes:
   - name: company
   - name: email
 
+- kind: NoteCompanyModel
+  properties:
+  - name: company
+  - name: creedate
+
 - kind: NoteEspaceModel
   properties:
   - name: espace
