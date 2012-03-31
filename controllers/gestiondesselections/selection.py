@@ -22,29 +22,15 @@ class Selection(webapp.RequestHandler):
         else:
             self.redirect(users.create_login_url(self.request.uri))
 # GQL is similar to SQL
-        companies_query = CompanyModel.all().order('-companydateadded')
-        companies = companies_query.fetch(10)
-        selection_query = SelectionModel.all()
-        selections = selection_query.fetch(10)
         id = self.request.get('id')
-        espaceid = int(id)
-	espace = EspaceModel.get_by_id(espaceid)
-        selectionsview = list()
-		
-        for company in companies:
-            selectionview = SelectionView()
-	    selectionview.company = company
-	    companyid = company.key().id_or_name()
-            
-            selectionview.tags = SelectionModel.getAllTagsForCompanyInThisEspace(espaceid,companyid)
-            selectionsview.append(selectionview)
+        selectionsview = SelectionModel.getSelectionByEspaceID(id)
+        
             
             
         
         values = {
             'selections' : selectionsview,
-            'companies': companies,
-	    'id':id,
+            'id':id,
            
             'user': user,
             'url': url,

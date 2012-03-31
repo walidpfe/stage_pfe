@@ -5,6 +5,8 @@ from modelespace import EspaceModel
 from tagmodel import TagModel
 
 
+class SelectionView:
+    pass
 class SelectionModel(db.Model):
   espace = db.ReferenceProperty(EspaceModel,
       collection_name = 'espaceselection')
@@ -14,6 +16,25 @@ class SelectionModel(db.Model):
       collection_name = 'tagselection')
   selectedby     = db.UserProperty(required=True)
   dateselected   = db.DateTimeProperty(auto_now_add=True)
+
+
+  @classmethod
+  def getSelectionByEspaceID(self,id):
+        companies_query = CompanyModel.all().order('-companydateadded')
+        companies = companies_query.fetch(1000)
+        espaceid = int(id)
+	espace = EspaceModel.get_by_id(espaceid)
+        selectionsview = list()
+		
+        for company in companies:
+            selectionview = SelectionView()
+	    selectionview.company = company
+	    companyid = company.key().id_or_name()
+            
+            selectionview.tags = SelectionModel.getAllTagsForCompanyInThisEspace(espaceid,companyid)
+            selectionsview.append(selectionview)
+            
+        return selectionsview
   
   
   @classmethod

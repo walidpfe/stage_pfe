@@ -5,7 +5,8 @@ from modelespace import EspaceModel
 
 
 
-
+class CandidatureView:
+    pass 
 class CandidatsModel(db.Model):
   sujet = db.ReferenceProperty(SujetModel,
       collection_name = 'sujetcandidats')
@@ -22,6 +23,14 @@ class CandidatsModel(db.Model):
     c = CandidatsModel.get_by_id(idcandidature)
     c.etatcandidature = status
     c.put()
+
+  @classmethod
+  def getCandidaturesInEspaceBystatus(self,ide,status):
+    id = int(ide)
+    lespace = EspaceModel.get_by_id(id)
+    candidatures_query = CandidatsModel.all().filter('espace = ', lespace).filter('etatcandidature = ', status)
+    candidatures = candidatures_query.fetch(100)
+    return candidatures
  
   
   

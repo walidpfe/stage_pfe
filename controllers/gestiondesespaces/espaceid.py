@@ -4,8 +4,11 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from models.modelespace import EspaceModel
+from models.candidatsmodel import CandidatsModel
 from models.modelespace import EspaceEmailsModel
 from models.notemodel import NoteEspaceModel
+from models.modelsujet import SelectionSujetModel
+from models.selectionmodel import SelectionModel
 from models.userprofilemodel import UserProfileModel
 class Espaceid(webapp.RequestHandler):
     def get(self):
@@ -24,8 +27,23 @@ class Espaceid(webapp.RequestHandler):
             notes = NoteEspaceModel.all().order('-creedate').filter('espace', EspaceModel.get_by_id(id))
             userinfo = UserProfileModel.getCurrent()
             usersemailsinespace = EspaceEmailsModel.getEspaceMembers(id)
+            selectionsview = SelectionSujetModel.getSelectionByEspaceID(raw_id)
+            selectionsdescontacts = SelectionModel.getSelectionByEspaceID(id)
+          
+            candidaturesaffectees = CandidatsModel.getCandidaturesInEspaceBystatus(id,'affecte')
+            candidaturesfiledattente = CandidatsModel.getCandidaturesInEspaceBystatus(id,'filedattente')
+            candidaturesenattente = CandidatsModel.getCandidaturesInEspaceBystatus(id,'en attente')
+            candidaturesrefusee = CandidatsModel.getCandidaturesInEspaceBystatus(id,'refusee')
+            
         
         values = {
+            'candidaturesaffectees' : candidaturesaffectees,
+            'candidaturesfiledattente' : candidaturesfiledattente ,
+            'candidaturesenattente' : candidaturesenattente ,
+            'candidaturesrefusee' :candidaturesrefusee ,
+            'selectionsdescontacts' :selectionsdescontacts ,
+            'candidaturesrefusee' :candidaturesrefusee ,
+            'selections' : selectionsview,
             'emailsinespace': usersemailsinespace,
             'userinfo': userinfo,
             'idespace' :id,      

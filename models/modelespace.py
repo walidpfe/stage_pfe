@@ -8,6 +8,37 @@ class EspaceModel(db.Model):
      creedate   = db.DateTimeProperty(auto_now_add=True)
      collaborateur = db.UserProperty
 
+class ActivatedEspace(db.Model):
+     member = db.UserProperty(required=True)
+     espace = db.ReferenceProperty(EspaceModel,
+      collection_name = 'espaceactif')
+     
+     @classmethod
+     def getCurrent(self):
+
+         userespace = ActivatedEspace.all().filter('user = ',
+          users.get_current_user()).get()
+
+         return userespace.espace
+     
+     @classmethod
+     def setActif(self,espace):
+          if ActivatedEspace.isNew():
+              userespace = ActivatedEspace( user = users.get_current_user(),
+                                            espace = espace)
+              userespace.put()
+          else:
+              userespace = ActivatedEspace.all().filter('user = ',
+               users.get_current_user()).get()
+              userespace.espace = espace
+              userespace.put()
+
+     @classmethod
+     def isNew(self):
+         query = ActivatedEspace.gql("WHERE user = :1",
+             users.get_current_user())
+         return (query.count() == 0)
+
 class EspaceEmailsModel (db.Model):
   autrecollaborateur = db.StringProperty()
   espace       = db.ReferenceProperty(EspaceModel,

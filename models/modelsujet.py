@@ -46,7 +46,10 @@ class NoteSujetModel(db.Model):
      
 class TagSujetModel(db.Model):
   name = db.StringProperty()
-     
+
+
+class SelectionSujetView:
+    pass    
 class SelectionSujetModel(db.Model):
   espace = db.ReferenceProperty(EspaceModel,
       collection_name = 'espacesujetselection')
@@ -57,7 +60,29 @@ class SelectionSujetModel(db.Model):
   selectedby     = db.UserProperty(required=True)
   dateselected   = db.DateTimeProperty(auto_now_add=True)
   
+
+
+  @classmethod
+  def getSelectionByEspaceID(self,eid):
+        sujets_query = SujetModel.all().order('-sujetdateadded')
+        sujets = sujets_query.fetch(1000)
+        espaceid = int(eid)
+	espace = EspaceModel.get_by_id(espaceid)
+        selectionsview = list()
+		
+        for sujet in sujets:
+            selectionview = SelectionSujetView()
+	    selectionview.sujet = sujet
+	    sujetid = sujet.key().id_or_name()
+            
+            selectionview.tags = SelectionSujetModel.getAllTagsForSujetInThisEspace(espaceid,sujetid)
+            selectionsview.append(selectionview)
+
+        return selectionsview
   
+  
+  
+
   @classmethod
   def getAllTagsForSujetInThisEspace(self,espaceid, companyid):
     espace = EspaceModel.get_by_id(espaceid)
@@ -69,6 +94,7 @@ class SelectionSujetModel(db.Model):
       tags.append(selection.tag)
 
     return tags
+
 
 
 

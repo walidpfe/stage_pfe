@@ -5,7 +5,6 @@ from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 from models.company import CompanyModel
 from models.company import CompanyEmailsModel
-from models.company import CompanyTelModel
 
 class Searchcompany(webapp.RequestHandler):
     def post(self):
@@ -37,6 +36,7 @@ class Searchcompany(webapp.RequestHandler):
                   
         self.response.out.write(template.render('templates/searchcompany.html', values))
    
+
 class Newcompany(webapp.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -64,16 +64,16 @@ class Enrgcompany(webapp.RequestHandler):
          company  = CompanyModel(
                 companyaddedby  = users.get_current_user(),
                 companyname = self.request.get('companyname'),
+                companytel = self.request.get('companytel'),
+                companymail = self.request.get('companymail'),
                 companywebsite = self.request.get('companywebsite'),
                 companyaddress = self.request.get('companyaddress'),
-                companywilaya = self.request.get('companywilaya'),
+                companywilaya = self.request.get('companyawilaya'),
                 companydescription = self.request.get('companydescription'))
          company.put();
          emails = self.request.get_all('companymail')
          for email in emails:
             CompanyEmailsModel(email = email , company = company).put()
-         tels = self.request.get_all('companytel')
-         for tel in tels:
-             CompanyTelModel(companytel = tel, company = company).put()     
+                 
          
          self.redirect('/')
