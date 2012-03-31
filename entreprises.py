@@ -13,6 +13,10 @@ from controllers.gestiondesentreprises.ficheentreprise import Ficheentreprise
 from controllers.gestiondesentreprises.editcompany import Editentreprise
 from controllers.gestiondesentreprises.newcompany import Enrgcompany
 from controllers.gestiondesentreprises.newcompany import Newcompany
+#person
+from controllers.gestiondesentreprises.newperson import NewPerson
+from controllers.gestiondesentreprises.newperson import EnrgPerson
+from controllers.gestiondesentreprises.newperson import NewPersonAt
 # note company
 from controllers.gestiondesentreprises.ficheentreprise import RechnoteCompany
 from controllers.gestiondesentreprises.ficheentreprise import AddnoteCompany
@@ -160,6 +164,9 @@ application = webapp.WSGIApplication(
                                      ('/monprofile', Monprofile),
                                      ('/updatecv', UpdateCv),
                                       ('/new', Enrgcompany),
+                                      ('/newperson', NewPerson),
+                                      ('/newpersonat', NewPersonAt),
+                                      ('/enrgperson', EnrgPerson),
 				                     ('/update', Updateentreprise),
                                       ('/searchcompany' , Searchcompany),
                                          ('/company', Ficheentreprise),

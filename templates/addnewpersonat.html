@@ -89,8 +89,7 @@ var RAILS_ENV = "production"
 
                 <div class="page_header">
   <h1>
-  	Ajouter un nouveau contact:
-    <span class="toggle">ou <a href="/newcompany">Ajouter une nouvelle entreprise</a></span>
+  	Ajouter un nouveau contact :
   </h1>
 </div>
 
@@ -128,23 +127,22 @@ var RAILS_ENV = "production"
       </table>
     </div>
   </div>
+                
 <!-------------------------------------------------------------End Nom de l'entreprise------------------------------------------------------------->
 
 
   <div class="secondary_fields edit">
     <table class="contact_types" cellpadding="0" cellspacing="0" id="contact_section">
-    
-    <!-------------------------------------------------------------Organisme------------------------------------------------------------->
-
-
-		<tr class="company last">
+  
+  
+  		<tr class="company last">
             <th><h2>Organisme</h2></th>
             <td>
               <div class="contact_forms" id="company_person">
                 <div class="blank_slate">Ajouter un organisme</div>
                 <div class="contact_methods" style='display:none;'>
                   <div class="contact_method" style="position:relative;">
-                    <input id="person_company_name" name="organisme" size="30" type="text" /><br/>
+                    <input id="person_company_name" name="organisme" size="30" type="text" value="{{company.companyname}}" /><br/>
                     <div class="auto_complete_container" style="position:absolute;"><!-- container needed for proper positioning in IE 7 -->
                       <div class="auto_complete" id="person_company_name_matches" style="display:none"></div><script type="text/javascript">
 //<![CDATA[
@@ -162,10 +160,8 @@ async("new ContactInfo.ContactForm('company_person')")
               </div>
             </td>
           </tr>
-		
-
-<!-------------------------------------------------------------------------------------------------------------------------->
-    <!-------------------------------------------------------------Fonction------------------------------------------------------------->
+		  
+   <!-------------------------------------------------------------Fonction------------------------------------------------------------->
 
  
   	

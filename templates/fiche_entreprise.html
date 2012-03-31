@@ -103,10 +103,10 @@ async("var new_tag_name_auto_completer = new Ajax.Autocompleter('new_tag_name', 
 
 
 <div behavior="switchable_controls" class="display switches">
-  <a behavior="switch_to" data-display="notes_and_emails" href="#notes_and_emails">Notes & Emails</a>
+  <a behavior="switch_to" data-display="notes_and_emails" href="#notes_and_emails">Notes</a>
   
-    <a behavior="switch_to" data-display="people" href="#people">2 People</a>
-    <a behavior="switch_to" data-display="deals" href="#deals">Deals</a>
+    <a behavior="switch_to" data-display="people" href="#people">Contact</a>
+    <a behavior="switch_to" data-display="deals" href="#deals">Sujet proposé</a>
     
   
 </div>
@@ -323,52 +323,101 @@ async("new MenuObserver('recordings')")
 
   </div>
   
-    <div behavior="affectation" class="affectation" style="display:none">
+  <div behavior="people_display" class="people" style="display:none">
       
   <div class="controls menu_container" id="company_people_controls">
-
-
+   
+      <span class="button"><a href="/newpersonat?id={{company.key.id}}" behavior="return_to"><span>Ajouter une personne de {{company.companyname}}</span></a></span>
   
-    
   </div>
   <div class="parties">
- 
-  </div>
- 
+    <table class="index">
+      {% for person in persons %}
+        <tr id="row_person_105200465">
+  
+    <td class="checkbox">
+      <label class="checkbox"><input behavior="party_id_input" class="checkbox" id="id_" name="id[]" type="checkbox" value="105200465" /></label>
+    </td>
+    <td class="avatar">
+      <a href="#" class="image"><span class="sprite avatar blank_avatar person " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_ceb98db/images/highrise_sprites.png) no-repeat -112px -0px; width: 55px; padding-top: 55px; " title="Mohamed Walid Lahmer" id="">Mohamed Walid Lahmer</span></a>
+    </td>
+    <td class="party">
+      <div class="avatar_subject" id="person_105200465">
+        <div class="info">
+          <h3 >
+            <a href="#" class="to_person">
+              {{ person.personname }}  {{ person.personpname}}
+            </a>
+          </h3>
 
-    </div>
-    <div behavior="deals_display" class="deals" style="display:none">
-      
-  <div class="blank_slate_layout_container">
-    <div class="blank_slate_layout">
-  <div class="graphic" style="background-image:url(https://d1a993iq9azmzq.cloudfront.net/rev_ad542d8/images/blankslate_icon_deals.png);"></div>
-  <div id ="loadresponsepostuler" class="content">
+          <h6>
+            
+              <div class="title_and_company">
+                <a href="#" class="grey">{{ person.fonction}}</a>
+                à
+                <a href="#" class="grey">{{company.companyname}}</a>
+              </div>
+            
+
+            
+                       
+           {{ person.persondescription }}
+            
+          </h6>
+        </div>
+      </div>
+    </td>
   
 
-    <!-- <textarea class="autofocus" cols="40" data-behavior="autosave" data-focus-priority="1" id="note_body" name="notebody" onbeforepaste="Notes.adjustTextarea(this, 60, 300)" oninput="Notes.adjustTextarea(this, 60, 300)" onkeypress="Notes.adjustTextarea(this, 60, 300)" rows="16" style="height:60px"></textarea>
-    <div class="menu_container controls" id="deals_blank_slate_controls">
+  
+</tr>
+
+   {% endfor %}
       
-        
-          
-            
-              <span class="button"><a href="/companies/105200466-rework/deals/new" behavior="return_to"><span>Postuler</span></a></span>
-              <br />
+    </table>
+  </div>
+  
+
+    </div>
+  <div behavior="deals_display" class="deals" style="display:none">
+   
+  <div class="content">
+     <table class="index">
+  
+    <tr>
+  
+  <td>
+  {% for sujet in sujets %}	
+    
+    <div class="avatar_subject kase clearfix" id="kase_632654">
+      <a href="/kases/632654-prospection-stage-d-ete" class="image"><span class="sprite avatar blank_avatar kase " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_df13cd7/images/highrise_sprites.png) no-repeat -56px -0px; width: 55px; padding-top: 55px; " title="prospection stage d'été" id="">prospection stage d'été</span></a>
+  
+      <div class="info">
+        <h1><a href="/sujet?id={{sujet.key.id}}" class="to_person">{{ sujet.titresujet }}</a>  </h1>
+        <h2>{{ sujet.sujetdateadded }}</h2>
+      </div>
+   
+    </div>
+  {% endfor %} 
+  </td>
+   
+</tr>
+
+  
+</table>
             
           
         
       
-    </div>-->
+    </div>
     <script type="text/javascript">
 //<![CDATA[
 async("new MenuObserver('deals_blank_slate_controls')")
 //]]>
 </script>
-  </div>
-</div>
-  </div>
+  
 
-
-    </div>
+  </div>
     
   
 </div>

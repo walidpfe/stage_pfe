@@ -8,6 +8,8 @@ from models.company import CompanyEmailsModel
 from models.company import NoteCompanyModel
 from models.userprofilemodel import UserProfileModel
 from models.company import CompanyTelModel
+from models.person import PersonModel
+from models.modelsujet import SujetModel
 
 class Ficheentreprise(webapp.RequestHandler):
    
@@ -27,8 +29,8 @@ class Ficheentreprise(webapp.RequestHandler):
             emails = CompanyEmailsModel.getAllEmailsByCompanyID(id)
             notes = NoteCompanyModel.all().order('creedate').filter('company', CompanyModel.get_by_id(id))
             tels = CompanyTelModel.getAllTelsByCompanyID(id)
-       
-            
+            persons = PersonModel.all().filter('organisme =', lentreprise)
+            sujets = SujetModel.all().filter('organismeref =', lentreprise)
         else:
             self.redirect(users.create_login_url(self.request.uri))
 		
@@ -37,7 +39,9 @@ class Ficheentreprise(webapp.RequestHandler):
         values = {
             'emails' : emails,
             'idcompany' : id,
+            'sujets' : sujets,
             'tels' : tels,
+            'persons' : persons,
             'company': lentreprise,
             'notes' : notes,
             'user': user,
