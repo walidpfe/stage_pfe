@@ -10,6 +10,7 @@ from models.userprofilemodel import UserProfileModel
 from models.company import CompanyTelModel
 from models.person import PersonModel
 from models.modelsujet import SujetModel
+from models.tasksmodel import TasksAboutModel
 
 class Ficheentreprise(webapp.RequestHandler):
    
@@ -31,6 +32,7 @@ class Ficheentreprise(webapp.RequestHandler):
             tels = CompanyTelModel.getAllTelsByCompanyID(id)
             persons = PersonModel.all().filter('organisme =', lentreprise)
             sujets = SujetModel.all().filter('organismeref =', lentreprise)
+            tasks = TasksAboutModel.all().filter('organisme', lentreprise).filter('profile', UserProfileModel.getCurrent())
         else:
             self.redirect(users.create_login_url(self.request.uri))
 		
@@ -40,6 +42,7 @@ class Ficheentreprise(webapp.RequestHandler):
             'emails' : emails,
             'idcompany' : id,
             'sujets' : sujets,
+            'tasks' : tasks,
             'tels' : tels,
             'persons' : persons,
             'company': lentreprise,

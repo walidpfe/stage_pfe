@@ -21,6 +21,10 @@ from controllers.gestiondesentreprises.newperson import NewPersonAt
 from controllers.gestiondesentreprises.ficheentreprise import RechnoteCompany
 from controllers.gestiondesentreprises.ficheentreprise import AddnoteCompany
 
+#gestion des taches /controllers/gestiondestaches
+from controllers.gestiondestaches.addtasksabout import AddTasksAbout
+from controllers.gestiondestaches.addtasksabout import RechTasksAbout
+
 #gestion des contacts /controllers/gestiondescontacts
 from controllers.gestiondescontacts.newperson import Newperson
 
@@ -200,7 +204,8 @@ application = webapp.WSGIApplication(
 									  ('/addtocandidature',Addtocandidature),
                                        ('/loadresponsepostuler',Loadresponsepostuler),
                                       ('/updatecandidaturestatus',UpdateCandidatureStatus),
-								
+                                      ('/addtasksabout', AddTasksAbout),
+								       ('/rechtasksabout', RechTasksAbout),
    #                                   ('/.*', GotoRootHandler),
                                       ('/newespace', CreeEspace)],
                                      debug=True)

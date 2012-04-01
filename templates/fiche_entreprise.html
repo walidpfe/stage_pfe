@@ -435,7 +435,172 @@ async("new MenuObserver('deals_blank_slate_controls')")
     <div class="edit"><a href="/editcompany?id={{company.key.id}}">Edit this company</a></div>
   </div>
 
-   
+   <div class="tasks section empty" id="sidebar_tasks_section">
+  
+    <div class="header">
+      <h1>Taches</h1>
+      
+        <div class="add_task control menu_container">
+          <a class="link_to add_task menu_target">Add a task</a>
+          <div id="balloon_new_task_in_sidebar" class="balloon left menu_content balloon_new_task">
+  <!-- balloon pointer -->
+  <div class="balloon_pointer">
+    <div class="balloon_arrow menu_target"></div>
+    <div class="balloon_arrow_border"></div>
+  </div>
+  
+  <!-- balloon content -->
+</div>
+
+
+        </div>
+      
+    </div>
+
+    
+      <div class="add_task invitation menu_container">
+        <a class="link_to add_task menu_target">Ajouter une tâche à propos de</a> {{ company.companyname }}
+        <div id="balloon_first_task_in_sidebar" class="balloon left menu_content balloon_first_task">
+  <!-- balloon pointer -->
+  <div class="balloon_pointer">
+    <div class="balloon_arrow menu_target"></div>
+    <div class="balloon_arrow_border"></div>
+  </div>
+  
+  <!-- balloon content -->
+  <div class="balloon_wrapper">
+    
+    
+
+    <div class="balloon_content">
+      
+<div class="new_task">
+  <form action="/addtasksabout?id={{company.key.id}}" class="new_task" id="sidebar_invitation_form_task" method="post" onsubmit="$(this).addClassName('busy'); new Ajax.Request('/addtasksabout?id={{company.key.id}}', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="fvlem4hGssAuQMt3OANm+48S8pFdNfkV17QgQskLFqo=" /></div>
+    
+    <input id="parent" name="parent" type="hidden" value="sidebar_invitation" />
+<input id="company_id" name="company_id" type="hidden" value= {{ idcompany }} />
+ 
+    <div id="sidebar_invitation_form_body_task" class="task_form">
+
+  <input id="subject_id" name="subject_id" type="hidden" value="111619628" />
+<input id="subject_type" name="subject_type" type="hidden" value="Party" />
+<input id="from" name="from" type="hidden" value="people" />
+
+  <div class="new_task">
+    <h3>Ajouter une tâche à propos de {{company.companyname}}</h3>
+   <h5>Tache</h5>
+    <p class="task_body">
+      <input class="autofocus" id="sidebar_invitation_body_task" name="task[body]" size="30" type="text" />
+    </p>
+
+    <div id="sidebar_invitation_controls_task" class="controls">
+      <h5>Quand ? jj/mm/aaaa </h5>
+    <p class="task_body">
+      <input class="autofocus" id="sidebar_invitation_body_task" name="task[date]" size="30" type="text" />
+    </p>
+      
+      
+     
+     
+    
+    </div>
+  </div>
+</div>
+
+
+    <div class="submit">
+      <p>
+        <input name="commit" type="submit" value="Add this task" />
+        <span>or</span>
+        <a href="#" class="menu_target admin">Cancel</a>
+      </p>
+    </div>
+  </form>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+      </div>
+    
+
+    <div class="frames" id="task_frames">
+
+
+<div id="next_week_tasks_frame" class="frame next_week">
+  
+  
+  
+  
+  {% for task in tasks %}
+  <div class="timed">
+    
+<div id="task_19737004" class="hover_container menu_container">
+  <div id="show_task_19737004" class="task show_task">
+    <div id="content_task_19737004">
+      <div class="nubbin hover_target">
+        <div class="nubbin_content">
+          <ul>
+            <li><a class="image" href="#" onclick="if (confirm('Are you sure you want to delete this task?')) { $('task_19737004').addClassName('busy'); new Ajax.Request('/tasks/19737004', {asynchronous:true, evalScripts:true, method:'delete', parameters:'authenticity_token=' + encodeURIComponent('fvlem4hGssAuQMt3OANm+48S8pFdNfkV17QgQskLFqo=')}); }; return false;"><span class="sprite " style="background: url(https://d1a993iq9azmzq.cloudfront.net/rev_3fbc643/images/highrise_sprites.png) no-repeat -111px -180px; width: 10px; padding-top: 11px; " title="Delete" id="">Delete</span></a></li>
+            <li><a class="edit_link admin menu_target" href="#" onclick="$('task_19737004').addClassName('busy'); new Ajax.Request('/tasks/19737004/edit?from=people&amp;subject_id=111619628&amp;subject_type=Party', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('fvlem4hGssAuQMt3OANm+48S8pFdNfkV17QgQskLFqo=')}); return false;"><span>Change</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="checkbox hover_target">
+        <input id="task_done" name="task[done]" onclick="$(this).disable();$('content_task_19737004').addClassName('busy'); new Ajax.Request('/tasks/19737004/complete', {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('fvlem4hGssAuQMt3OANm+48S8pFdNfkV17QgQskLFqo=')})" type="checkbox" value="1" />
+      </div>
+      <div class="body">
+        <span class="hover_target">
+          <span class="category" style="background: #555555">{{ task.titretache}}</span>
+{{ task.tachepourdate}}
+
+
+        </span>
+      </div>
+      <div id="balloon_container_task_19737004" class="reset-on-dismissal" style="display:none"><div class="menu_content"></div></div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+  
+  {% endfor %}
+  
+  
+ 
+  
+</div>
+<div id="later_tasks_frame" class="frame later empty">
+  <h6 class="frame_title">
+    Later
+    
+  </h6>
+
+  <div class="untimed">
+    
+  </div>
+
+  <div class="timed">
+    
+  </div>
+</div>
+</div>
+
+    <script type="text/javascript">
+//<![CDATA[
+async("new MenuObserver('sidebar_tasks_section')")
+//]]>
+</script>
+  
+</div>
+
+
+
+
+
 
    <div class="personal_info section">
     <div class="header">
@@ -537,29 +702,29 @@ async("new MenuObserver('deals_blank_slate_controls')")
 function init() {
   // Attach handler to form's submit event
  Event.observe('new_note', 'submit', loadwithajax);
- Event.observe('postuler', 'submit', loadwithajaxpostuler);
+ Event.observe('sidebar_invitation_form_task', 'submit', loadwithajaxtasks);
 
 }
 
-function loadwithajaxpostuler(e) {
+function loadwithajaxtasks(e) {
 
 
 	 Event.stop(e);
-	
-	var url =  'loadresponsepostuler';
+	var companyid =   $('company_id').getAttribute('value');
+	var url =  '/rechtasksabout?id='+companyid;
 	//alert(selectionid);
 	new Ajax.Request(url, {
 	  method: 'get',
 	  onSuccess: function(transport) {
-		var notice = $('loadresponsepostuler');
+		var notice = $('sidebar_tasks_section');
 		
 		  notice.update(transport.responseText);
-		
+		   Event.observe('sidebar_invitation_form_task', 'submit', loadwithajaxtasks);
 	
 		 
 	  
 	}
- 
+  
  
  
 });
